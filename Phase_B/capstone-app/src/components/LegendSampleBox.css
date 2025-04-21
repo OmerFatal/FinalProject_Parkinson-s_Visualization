@@ -1,0 +1,11 @@
+.legend-sample-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 25px auto 20px auto;
+  }
+  
+  .legend-sample-svg {
+    width: 150px;
+    height: 150px;
+  }
+  

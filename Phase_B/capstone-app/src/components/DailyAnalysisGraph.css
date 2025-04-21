@@ -1,0 +1,136 @@
+.graph-wrapper {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.graph-container {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.graph-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.graph-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.graph-button {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #cbd5e1;
+}
+
+.graph-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  row-gap: 12px;
+  justify-content: center;
+}
+
+.graph-summary-box {
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.graph-icons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 12px;
+  font-size: 14px;
+}
+
+/* רספונסיביות לפלאפון */
+@media (max-width: 768px) {
+  .graph-title {
+    font-size: 20px;
+  }
+
+  .graph-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .graph-summary-box {
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: unset;
+    flex: 1 1 100%;
+  }
+
+  .graph-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graph-icons {
+    font-size: 12px;
+    padding-top: 8px;
+  }
+}
+
+/* 🆕 LEGEND המחודש */
+.legend-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legend-container {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.legend-group {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.legend-badge {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
