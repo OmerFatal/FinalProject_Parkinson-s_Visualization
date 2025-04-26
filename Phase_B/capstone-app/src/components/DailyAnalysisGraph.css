@@ -21,11 +21,27 @@
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
+.graph-buttons-with-label {
+  display: flex;
+  align-items: center; /* ✅ יישור לגובה אחיד */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.graph-buttons-label {
+  font-size: 22px;               
+  font-weight: 800;              
+  color: #1e3a8a;                
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+
 .graph-buttons {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
@@ -37,6 +53,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid #cbd5e1;
+  font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
 .graph-summary {
@@ -44,24 +61,37 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   row-gap: 12px;
   justify-content: center;
 }
 
 .graph-summary-box {
-  color: white;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 15px;
-  text-align: center;
+  background-color: #ffffff; 
+  border: 3px solid;
+  border-radius: 14px;
+  font-weight: 800; 
+  font-size: 16x;
+  padding: 12px 18px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-width: 140px;
+  gap: 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06); 
+  color: #1e293b;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.2s ease-in-out;
 }
+
+
+.graph-summary-box img {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  padding: 4px;
+}
+
 
 .graph-icons {
   display: flex;
@@ -91,6 +121,15 @@
   .graph-summary {
     flex-direction: column;
     align-items: center;
+  }
+
+  .graph-buttons-with-label {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graph-buttons-label {
+    text-align: center;
   }
 
   .graph-icons {
@@ -133,4 +172,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.graph-summary-label {
+  text-align: center;
+  font-size: 22px; 
+  font-weight: 800; 
+  color: #1e3a8a; 
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
 }

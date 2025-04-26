@@ -9,7 +9,7 @@ export default function LegendSampleBox() {
 
         {/* Parkinson – עליון */}
         <polygon points="0,0 12,0 6,12" fill="#f0f0f0" stroke="black" strokeWidth="0.2" />
-        <text x="6" y="4.2" textAnchor="middle" fontSize="1.3" fill="black" fontWeight="bold">
+        <text x="6" y="4.2" textAnchor="middle" fontSize="1.5" fill="black" fontWeight="bold">
           Parkinson
         </text>
 
@@ -19,7 +19,7 @@ export default function LegendSampleBox() {
           x="1.7"
           y="9.3"
           transform="rotate(420 4.4 7)"
-          fontSize="1.3"
+          fontSize="1.5"
           fill="black"
           fontWeight="bold"
         >
@@ -32,7 +32,7 @@ export default function LegendSampleBox() {
           x="9.3"
           y="9.3"
           transform="rotate(295 9.3 9.8)"
-          fontSize="1.3"
+          fontSize="1.5"
           fill="black"
           fontWeight="bold"
         >

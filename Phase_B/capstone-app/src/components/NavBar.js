@@ -25,8 +25,9 @@ export default function NavBar() {
 
       <div className="navbar-links">
         <a className="navbar-link" href="#analysis">Daily Analysis</a>
-        <a className="navbar-link" href="#exercise">Sleep & Exercise</a>
-        <a className="navbar-link" href="#nutrition">Nutrition</a>
+        <a className="navbar-link" href="#protein">Protein</a>
+        <a className="navbar-link" href="#medication">Medication</a>
+        <a className="navbar-link" href="#activity-summary">Activity Summary</a> {/* 🔥 הכפתור החדש */}
       </div>
     </nav>
   );
