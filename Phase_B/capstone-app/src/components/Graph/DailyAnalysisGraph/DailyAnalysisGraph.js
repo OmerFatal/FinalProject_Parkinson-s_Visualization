@@ -10,15 +10,17 @@ import {
 } from 'recharts';
 
 import './DailyAnalysisGraph.css';
-import MyMood from '../assets/MyMood.png';
-import Parkinson from '../assets/Parkinson.png';
-import Physical from '../assets/Physical.png';
+import MyMood from '../../../assets/MyMood.png';
+import Parkinson from '../../../assets/Parkinson.png';
+import Physical from '../../../assets/Physical.png';
 import CustomTooltip from './CustomTooltip';
 import CustomXAxisTick from './CustomXAxisTick';
 import ToggleButtons from './ToggleButtons';
 import GraphSummaryBox from './GraphSummaryBox';
 import LegendSection from './LegendSection';
 import { generateSampleData } from './generateSampleData';
+
+
 
 const formatDate = (dateStr) => {
   const d = new Date(dateStr);
@@ -47,7 +49,7 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
 
   return (
     <div className="graph-wrapper">
-      <h2 className="graph-title">📊 Daily Analysis - {displayDate}</h2>
+      <h1 className="graph-title">📊 Daily Analysis - {displayDate}</h1>
 
       <ToggleButtons visibleLines={visibleLines} toggleLine={toggleLine} />
       <LegendSection />

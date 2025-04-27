@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import DailyAnalysisGraph from './DailyAnalysisGraph';
+import DailyAnalysisGraph from './Graph/DailyAnalysisGraph/DailyAnalysisGraph';
 import NavBar from './NavBar';
 import './Dashboard.css';
 import ProteinChart from './Graph/ProteinChart/ProteinChart';

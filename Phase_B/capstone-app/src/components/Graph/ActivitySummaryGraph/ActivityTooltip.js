@@ -14,14 +14,30 @@ const getCategoryIcon = (category) => {
   }
 };
 
+const getIntensityColor = (intensity) => {
+  switch (intensity) {
+    case 'High': return '#16a34a'; // ירוק
+    case 'Moderate': return '#facc15'; // צהוב
+    case 'Low': return '#dc2626'; // אדום
+    default: return '#6b7280'; // אפור
+  }
+};
+
 export default function ActivityTooltip({ tooltip, isMobile }) {
   if (!tooltip) return null;
+
+  const tooltipWidth = isMobile ? 200 : 240;
+  const intensityColor = getIntensityColor(tooltip.activity.intensity);
+
+  // חישוב חכם: אם אין מקום ימינה, נזיז שמאלה
+  const isOverflowingRight = tooltip.x + tooltipWidth + 20 > window.innerWidth;
+  const adjustedLeft = isOverflowingRight ? tooltip.x - tooltipWidth - 12 : tooltip.x + 12;
 
   return (
     <div
       style={{
         position: 'fixed',
-        left: tooltip.x + 12,
+        left: adjustedLeft,
         top: tooltip.y + 12,
         background: '#ffffff',
         border: '1px solid #ddd',
@@ -34,7 +50,7 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
         lineHeight: '1.6',
         pointerEvents: 'none',
         zIndex: 9999,
-        maxWidth: isMobile ? 200 : 240
+        maxWidth: tooltipWidth
       }}
     >
       <div style={{
@@ -48,9 +64,21 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
         <img src={getCategoryIcon(tooltip.activity.category)} alt="" style={{ width: 24, height: 24 }} />
         <span>{tooltip.activity.name}</span>
       </div>
-      <div>Category: <span style={{ fontWeight: '500' }}>{tooltip.activity.category}</span></div>
       <div>Start: <span style={{ fontWeight: '500' }}>{tooltip.activity.time}</span></div>
       <div>Duration: <span style={{ fontWeight: '500' }}>{tooltip.activity.duration} min</span></div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+        Intensity: 
+        <span style={{
+          backgroundColor: intensityColor,
+          color: '#ffffff',
+          padding: '2px 8px',
+          borderRadius: '9999px',
+          fontWeight: '700',
+          fontSize: '13px'
+        }}>
+          {tooltip.activity.intensity}
+        </span>
+      </div>
     </div>
   );
 }

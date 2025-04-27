@@ -4,6 +4,7 @@ import React from 'react';
 import {
   BarChart,
   Bar,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -24,10 +25,10 @@ export default function ProteinChart() {
         fontWeight: 'bold',
         marginBottom: '16px'
       }}>
-        Protein Intake Throughout the Day
+        Protein Intake and State Analysis
       </h2>
 
-      <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
+      <ResponsiveContainer width="100%" height={isMobile ? 280 : 340}>
         <BarChart
           data={proteinData}
           margin={{ top: 10, right: 20, left: 10, bottom: 50 }}
@@ -54,11 +55,38 @@ export default function ProteinChart() {
             }}
           />
           <Tooltip content={<ProteinTooltip />} />
+
           <Bar
             dataKey="protein"
             fill="#22c55e"
             radius={[6, 6, 0, 0]}
             barSize={isMobile ? 24 : 40}
+          />
+
+          {/* קווים למצבים */}
+          <Line
+            type="monotone"
+            dataKey="feeling"
+            stroke="#3b82f6"
+            strokeWidth={3}
+            dot={{ r: 5 }}
+            name="Mood"
+          />
+          <Line
+            type="monotone"
+            dataKey="physical"
+            stroke="#f59e0b"
+            strokeWidth={3}
+            dot={{ r: 5 }}
+            name="Physical"
+          />
+          <Line
+            type="monotone"
+            dataKey="parkinson"
+            stroke="#ef4444"
+            strokeWidth={3}
+            dot={{ r: 5 }}
+            name="Parkinson"
           />
         </BarChart>
       </ResponsiveContainer>

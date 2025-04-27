@@ -17,8 +17,11 @@ export default function ProteinTooltip({ active, payload }) {
         maxWidth: 220
       }}>
         <div><strong>{entry.food}</strong></div>
-        <div>Time: {entry.time}</div>
         <div>{entry.protein}g protein</div>
+        <hr style={{ margin: '8px 0' }} />
+        <div><strong>Mood:</strong> {entry.feeling}</div>
+        <div><strong>Physical:</strong> {entry.physical}</div>
+        <div><strong>Parkinson:</strong> {entry.parkinson}</div>
       </div>
     );
   }

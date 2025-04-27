@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HeatmapCalendar from './components/HeatmapCalendar';
+import HeatmapCalendar from './components/HeatmapCalendar/HeatmapCalendar';
 import Dashboard from './components/Dashboard';
 
 function App() {

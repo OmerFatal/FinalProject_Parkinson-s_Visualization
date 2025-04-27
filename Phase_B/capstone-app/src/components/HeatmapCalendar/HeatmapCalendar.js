@@ -4,8 +4,10 @@ import TriangularHeatmapCell from './TriangularHeatmapCell';
 import LegendSampleBox from './LegendSampleBox';
 import NavBarHeatMap from './NavBarHeatMap';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { Link } from 'react-router-dom';
+
+import 'react-datepicker/dist/react-datepicker.css'; // לא נוגע
+import { Link } from 'react-router-dom'; // לא נוגע
+
 
 export default function HeatmapCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());

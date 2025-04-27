@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavBar.css';
+import '../NavBar.css';
 
 export default function NavBarHeatMap() {
   return (
