@@ -1,0 +1,1 @@
+export const URL = "https://park-vis.vercel.app" // SERVER VERCEL
