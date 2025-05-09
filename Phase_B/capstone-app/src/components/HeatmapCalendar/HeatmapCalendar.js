@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './HeatmapCalendar.css';
-import TriangularHeatmapCell from './TriangularHeatmapCell';
-import LegendSampleBox from './LegendSampleBox';
 import NavBarHeatMap from './NavBarHeatMap';
-import DatePicker from 'react-datepicker';
-
-import 'react-datepicker/dist/react-datepicker.css'; // לא נוגע
-import { Link } from 'react-router-dom'; // לא נוגע
-
+import CalendarHeader from './CalendarHeader';
+import CalendarGrid from './CalendarGrid';
+import FutureDateModal from './FutureDateModal';
+import LegendSampleBox from './LegendSampleBox';
+import HeatmapLegend from './HeatmapLegend';
+import MonthYearPicker from './MonthYearPicker';
+console.log("🔥 HeatmapCalendar version with limited days");
 
 export default function HeatmapCalendar() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const saved = localStorage.getItem('heatmap-monthYear');
+    if (saved) {
+      const [year, month] = saved.split('-').map(Number);
+      return new Date(year, month, 1);
+    }
+    return new Date();
+  });
+
   const [rawEntries, setRawEntries] = useState([]);
+  const [showFutureModal, setShowFutureModal] = useState(false);
+  const [futureDateClicked, setFutureDateClicked] = useState(null);
 
   useEffect(() => {
     const year = selectedDate.getFullYear();
@@ -23,11 +33,15 @@ export default function HeatmapCalendar() {
       setRawEntries(JSON.parse(savedData));
     } else {
       const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const entries = [];
+      const today = new Date();
+      const isCurrentMonth =
+        year === today.getFullYear() && month === today.getMonth();
+      const lastDay = isCurrentMonth ? today.getDate() : daysInMonth;
 
+      const entries = [];
       const maybeNull = (value) => (Math.random() < 0.2 ? null : value);
 
-      for (let day = 1; day <= daysInMonth; day++) {
+      for (let day = 1; day <= lastDay; day++) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const recordsCount = Math.floor(Math.random() * 3) + 1;
 
@@ -71,14 +85,6 @@ export default function HeatmapCalendar() {
     );
   };
 
-  const averagedScores = aggregateData();
-  const selectedYear = selectedDate.getFullYear();
-  const selectedMonth = selectedDate.getMonth();
-  const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-  const firstDayOfMonth = new Date(selectedYear, selectedMonth, 1).getDay();
-  const monthName = selectedDate.toLocaleString('en-US', { month: 'long' });
-  const fullTitle = `${monthName} ${selectedYear}`;
-
   const getColor = (value) => {
     if (value == null) return '#ccc';
     if (value <= 1.5) return '#00cc66';
@@ -88,6 +94,12 @@ export default function HeatmapCalendar() {
     return '#e06666';
   };
 
+  const averagedScores = aggregateData();
+  const selectedYear = selectedDate.getFullYear();
+  const selectedMonth = selectedDate.getMonth();
+  const monthName = selectedDate.toLocaleString('en-US', { month: 'long' });
+  const fullTitle = `${monthName} ${selectedYear}`;
+
   return (
     <>
       <NavBarHeatMap />
@@ -95,78 +107,26 @@ export default function HeatmapCalendar() {
       <div className="calendar-container">
         <div className="monthly-heatmap-title">{fullTitle}</div>
 
-        <div className="datepicker-label-group">
-          <div className="heatmap-datepicker-label">Choose Month And Year:</div>
-          <DatePicker
-            selected={selectedDate}
-            onChange={(date) => {
-              if (date) setSelectedDate(date);
-            }}
-            dateFormat="MMMM yyyy"
-            showMonthYearPicker
-            maxDate={new Date()}
-          />
-        </div>
+        <MonthYearPicker
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+        />
 
         <div className="calendar-content-wrapper">
-          <div>
-            <div className="calendar-grid">
-              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                <div key={day} className="calendar-header">{day}</div>
-              ))}
-
-              {Array.from({ length: firstDayOfMonth }, (_, i) => (
-                <div key={`empty-${i}`} className="calendar-cell empty-cell" />
-              ))}
-
-              {Array.from({ length: daysInMonth }, (_, i) => {
-                const day = i + 1;
-                const dateStr = `${selectedYear}-${String(selectedMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                const score = averagedScores[dateStr] || {};
-
-                return (
-                  <div key={dateStr} className="calendar-cell">
-                    <Link
-                      to={`/dashboard?date=${dateStr}`}
-                      state={{
-                        mood: score.mood,
-                        parkinson: score.parkinson,
-                        physical: score.physical
-                      }}
-                    >
-                      <TriangularHeatmapCell
-                        day={day}
-                        mood={score.mood}
-                        parkinson={score.parkinson}
-                        physical={score.physical}
-                        moodColor={getColor(score.mood)}
-                        parkinsonColor={getColor(score.parkinson)}
-                        physicalColor={getColor(score.physical)}
-                      />
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="calendar-grid">
+            <CalendarHeader />
+            <CalendarGrid
+              averagedScores={averagedScores}
+              selectedYear={selectedYear}
+              selectedMonth={selectedMonth}
+              setFutureDateClicked={setFutureDateClicked}
+              setShowFutureModal={setShowFutureModal}
+              getColor={getColor}
+            />
           </div>
 
           <div className="legend-column-wrapper">
-            <div className="heatmap-legend-container">
-              <div className="heatmap-legend-bar-vertical">
-                <div className="scale-level level-5"></div>
-                <div className="scale-level level-4"></div>
-                <div className="scale-level level-3"></div>
-                <div className="scale-level level-2"></div>
-                <div className="scale-level level-1"></div>
-              </div>
-              <div className="scale-labels">
-                <div className="scale-label">5 (Worse)</div>
-                <div className="scale-label">4</div>
-                <div className="scale-label">3</div>
-                <div className="scale-label">2</div>
-                <div className="scale-label">1 (Best)</div>
-              </div>
-            </div>
+            <HeatmapLegend />
             <LegendSampleBox />
           </div>
         </div>
@@ -175,6 +135,13 @@ export default function HeatmapCalendar() {
           <p>© {new Date().getFullYear()} Parkinson Dashboard. All rights reserved.</p>
         </footer>
       </div>
+
+      {showFutureModal && (
+        <FutureDateModal
+          clickedDate={futureDateClicked}
+          onClose={() => setShowFutureModal(false)}
+        />
+      )}
     </>
   );
 }

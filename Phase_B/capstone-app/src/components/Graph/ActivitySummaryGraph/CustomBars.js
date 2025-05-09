@@ -1,5 +1,3 @@
-// CustomBars.js
-
 import React from 'react';
 import activityData from './activityData';
 
@@ -17,16 +15,21 @@ function parseTimeToFloat(timeStr) {
 export default function CustomBars({ xAxisMap, yAxisMap, xAxisId, yAxisId, setTooltip }) {
   return activityData.map((activity, index) => {
     const startTime = parseTimeToFloat(activity.time);
-    const xStart = xAxisMap[xAxisId].scale(startTime);
-    const barWidth = (activity.duration / 60) * (xAxisMap[xAxisId].scale(1) - xAxisMap[xAxisId].scale(0));
-    const y = yAxisMap[yAxisId].scale(activity.category);
+    const xScale = xAxisMap[xAxisId].scale;
+    const yScale = yAxisMap[yAxisId].scale;
+
+    const xStart = xScale(startTime);
+    const barWidth = (activity.duration / 60) * (xScale(1) - xScale(0));
+
+    const bandWidth = yScale.bandwidth ? yScale.bandwidth() : 30;
     const barHeight = 20;
+    const y = yScale(activity.category) + (bandWidth - barHeight) / 2;
 
     return (
       <rect
         key={index}
         x={xStart}
-        y={y - barHeight / 2}
+        y={y}
         width={barWidth}
         height={barHeight}
         rx={4}

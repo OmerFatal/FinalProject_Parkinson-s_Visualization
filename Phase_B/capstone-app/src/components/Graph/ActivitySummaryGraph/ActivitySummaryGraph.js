@@ -9,7 +9,6 @@ import {
   ScatterChart,
   Customized
 } from 'recharts';
-import activityData from './activityData';
 import LegendBox from './LegendBox';
 import CustomBars from './CustomBars';
 import ActivityTooltip from './ActivityTooltip';
@@ -50,7 +49,12 @@ export default function ActivitySummaryGraph() {
             dataKey="category"
             domain={categories}
             yAxisId="y"
-            tick={{ fontSize: isMobile ? 12 : 16 }}
+            reversed={true}
+            tick={{ fontSize: isMobile ? 12 : 16 ,
+              fontWeight: 'bold',
+              fill: '#000' // שחור
+              }}
+            
           />
           <Customized component={(props) => <CustomBars {...props} xAxisId="x" yAxisId="y" setTooltip={setTooltip} />} />
         </ScatterChart>
