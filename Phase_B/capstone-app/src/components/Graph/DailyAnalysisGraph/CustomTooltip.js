@@ -7,7 +7,7 @@ const iconMap = {
   activity: '🚶‍♂️'
 };
 
-export default function CustomTooltip({ active, payload }) {
+export default function CustomTooltip({ active, payload, visibleLines }) {
   if (!active || !payload || payload.length === 0) return null;
 
   const entry = payload[0]?.payload;
@@ -15,7 +15,6 @@ export default function CustomTooltip({ active, payload }) {
 
   const formatLine = (label, value, time, color) => {
     const displayValue = value ?? 'N/A';
-
     const displayTime =
       value == null
         ? '(no data within 3h)'
@@ -49,9 +48,14 @@ export default function CustomTooltip({ active, payload }) {
         Action Time: {entry.time}
       </div>
 
-      {formatLine('My Mood', entry.feeling, entry.feelingTime, '#2563eb')}
-      {formatLine('Parkinson State', entry.parkinson, entry.parkinsonTime, '#dc2626')}
-      {formatLine('Physical Difficulty', entry.physical, entry.physicalTime, '#22c55e')}
+      {visibleLines.feeling &&
+        formatLine('My Mood', entry.feeling, entry.feelingTime, '#2563eb')}
+
+      {visibleLines.parkinson &&
+        formatLine('Parkinson State', entry.parkinson, entry.parkinsonTime, '#dc2626')}
+
+      {visibleLines.physical &&
+        formatLine('Physical Difficulty', entry.physical, entry.physicalTime, '#22c55e')}
     </div>
   );
 }

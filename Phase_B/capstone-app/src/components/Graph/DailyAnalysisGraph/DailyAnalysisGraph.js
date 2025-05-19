@@ -28,7 +28,6 @@ const formatDate = (dateStr) => {
 export default function DailyAnalysisGraph({ date, initialAverages }) {
   const [sampleData, setSampleData] = useState([]);
 
-  // הגדרת אילו מדדים קיימים (ולכן זמינים להצגה)
   const availableLines = {
     feeling: initialAverages?.feeling != null,
     parkinson: initialAverages?.parkinson != null,
@@ -71,7 +70,15 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
       <LegendSection />
 
       <ResponsiveContainer width="100%" height={400}>
-        <LineChart data={sampleData} margin={{ top: 10, right: 30, left: 20, bottom: 70 }}>
+        <LineChart
+          data={sampleData}
+          margin={{
+            top: 10,
+            right: 20,
+            left: 10,
+            bottom: window.innerWidth < 768 ? 40 : 70
+          }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           {hasVisibleLines && (
             <XAxis
@@ -85,18 +92,23 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
           <YAxis
             domain={[1, 5]}
             ticks={[1, 2, 3, 4, 5]}
-            tick={{ fill: '#000', fontSize: 18, fontWeight: 'bold' }}
+            tick={{
+              fill: '#000',
+              fontSize: window.innerWidth < 768 ? 12 : 18,
+              fontWeight: 'bold'
+            }}
             label={{
               value: 'Score (1=Best, 5=Worst)',
               angle: -90,
               position: 'insideLeft',
               fill: '#000',
-              fontSize: 20,
+              fontSize: window.innerWidth < 768 ? 14 : 20,
               fontWeight: 'bold',
               dy: 85
             }}
           />
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip visibleLines={visibleLines} />} />
+
           {visibleLines.feeling && (
             <Line type="monotone" dataKey="feeling" stroke="#2563eb" name="My Mood" dot={{ r: 6 }} strokeWidth={3} />
           )}

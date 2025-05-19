@@ -9,7 +9,7 @@ import CombinedGraph from './Graph/CombinedGraph'; // ✅ גרף משולב חד
 import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
-import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph';
+import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph/CombinedStateTimelineGraph';
 
 export default function Dashboard() {
   const location = useLocation();

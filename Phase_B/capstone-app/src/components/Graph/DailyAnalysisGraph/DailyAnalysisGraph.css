@@ -181,3 +181,24 @@
   margin-bottom: 8px;
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
+@media (max-width: 480px) {
+  .graph-summary-box {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .legend-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .graph-buttons-label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .graph-wrapper .recharts-responsive-container {
+    height: 250px !important;
+  }
+}

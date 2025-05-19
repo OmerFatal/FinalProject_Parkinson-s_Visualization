@@ -26,6 +26,7 @@
   flex-direction: row;
   justify-content: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .calendar-grid {
@@ -48,6 +49,18 @@
   width: 80px;
   height: 80px;
 }
+
+@media (max-width: 768px) {
+  .calendar-cell {
+    width: 45px;
+    height: 45px;
+  }
+
+  .triangular-svg text {
+    font-size: 12px !important;
+  }
+}
+
 
 .empty-cell {
   background-color: transparent;
