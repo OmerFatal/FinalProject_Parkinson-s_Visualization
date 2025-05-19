@@ -20,8 +20,6 @@ import GraphSummaryBox from './GraphSummaryBox';
 import LegendSection from './LegendSection';
 import { generateSampleData } from './generateSampleData';
 
-
-
 const formatDate = (dateStr) => {
   const d = new Date(dateStr);
   return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
@@ -30,15 +28,28 @@ const formatDate = (dateStr) => {
 export default function DailyAnalysisGraph({ date, initialAverages }) {
   const [sampleData, setSampleData] = useState([]);
 
+  // הגדרת אילו מדדים קיימים (ולכן זמינים להצגה)
+  const availableLines = {
+    feeling: initialAverages?.feeling != null,
+    parkinson: initialAverages?.parkinson != null,
+    physical: initialAverages?.physical != null
+  };
+
+  const [visibleLines, setVisibleLines] = useState(() => ({
+    feeling: availableLines.feeling,
+    parkinson: availableLines.parkinson,
+    physical: availableLines.physical
+  }));
+
   useEffect(() => {
     setSampleData(generateSampleData());
-  }, [date]);
 
-  const [visibleLines, setVisibleLines] = useState({
-    feeling: true,
-    parkinson: true,
-    physical: true
-  });
+    setVisibleLines({
+      feeling: availableLines.feeling,
+      parkinson: availableLines.parkinson,
+      physical: availableLines.physical
+    });
+  }, [date, initialAverages]);
 
   const toggleLine = (key) => {
     setVisibleLines(prev => ({ ...prev, [key]: !prev[key] }));
@@ -51,7 +62,12 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
     <div className="graph-wrapper">
       <h1 className="graph-title">📊 Daily Analysis - {displayDate}</h1>
 
-      <ToggleButtons visibleLines={visibleLines} toggleLine={toggleLine} />
+      <ToggleButtons
+        visibleLines={visibleLines}
+        toggleLine={toggleLine}
+        availableLines={availableLines}
+      />
+
       <LegendSection />
 
       <ResponsiveContainer width="100%" height={400}>
@@ -59,14 +75,12 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
           <CartesianGrid strokeDasharray="3 3" />
           {hasVisibleLines && (
             <XAxis
-  dataKey="timeMinutes"
-  type="number"
-  domain={['dataMin', 'dataMax']}
-  ticks={sampleData.map((entry) => entry.timeMinutes)}
-  tick={(props) => <CustomXAxisTick {...props} sampleData={sampleData} />}
-/>
-
-
+              dataKey="timeMinutes"
+              type="number"
+              domain={['dataMin', 'dataMax']}
+              ticks={sampleData.map((entry) => entry.timeMinutes)}
+              tick={(props) => <CustomXAxisTick {...props} sampleData={sampleData} />}
+            />
           )}
           <YAxis
             domain={[1, 5]}

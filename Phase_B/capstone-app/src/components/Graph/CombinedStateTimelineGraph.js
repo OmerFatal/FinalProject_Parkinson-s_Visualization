@@ -344,11 +344,18 @@ function AveragesDisplay({ averages }) {
 }
 
 export default function CombinedStateTimelineGraph({ initialAverages, date }) {
+  const availableLines = {
+    feeling: initialAverages?.feeling != null,
+    parkinson: initialAverages?.parkinson != null,
+    physical: initialAverages?.physical != null
+  };
+
   const [visibleLines, setVisibleLines] = useState({
-    feeling: true,
-    parkinson: true,
-    physical: true
+    feeling: availableLines.feeling,
+    parkinson: availableLines.parkinson,
+    physical: availableLines.physical
   });
+
   const toggleLine = (key) => {
     setVisibleLines(prev => ({ ...prev, [key]: !prev[key] }));
   };
@@ -359,11 +366,19 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
   const data = buildLineData(dailyEntries, fullTimeline);
 
   const displayDate = date ? formatDate(date) : '';
+
   return (
     <div>
       <h1 className="graph-title">📊 Daily Analysis{displayDate ? ` - ${displayDate}` : ''}</h1>
-      <ToggleButtons visibleLines={visibleLines} toggleLine={toggleLine} />
+
+      <ToggleButtons
+        visibleLines={visibleLines}
+        toggleLine={toggleLine}
+        availableLines={availableLines}
+      />
+
       <LegendSection />
+
       <div style={{ width: '100%', height: 400 }}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 20, right: 40, left: 20, bottom: 70 }}>
@@ -372,7 +387,7 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
               dataKey="timeMinutes"
               type="number"
               ticks={actionTimeline}
-              domain={[actionTimeline[0], actionTimeline[actionTimeline.length - 1]]}
+              domain={[actionTimeline[0], lastActionTime]}
               allowDuplicatedCategory={false}
               axisLine={true}
               tick={false}
@@ -402,6 +417,7 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
             {visibleLines.physical && (
               <Line type="monotone" dataKey="physical" stroke="#22c55e" name="Physical Difficulty" strokeDasharray="4 2" dot={false} strokeWidth={3} isAnimationActive={false} />
             )}
+
             <Customized
               component={({ xAxisMap, yAxisMap }) => (
                 <>
@@ -430,7 +446,8 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
           </LineChart>
         </ResponsiveContainer>
       </div>
+
       <AveragesDisplay averages={initialAverages || {}} />
     </div>
   );
-} 
+}

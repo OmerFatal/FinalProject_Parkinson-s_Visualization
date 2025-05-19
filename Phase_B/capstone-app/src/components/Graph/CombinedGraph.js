@@ -16,11 +16,10 @@ import CustomXAxisTick from './DailyAnalysisGraph/CustomXAxisTick';
 import LegendSection from './DailyAnalysisGraph/LegendSection';
 import ToggleButtons from './DailyAnalysisGraph/ToggleButtons';
 import { generateSampleData } from './DailyAnalysisGraph/generateSampleData';
-import activityDataRaw from './ActivitySummaryGraph/activityData'; // ✅
+import activityDataRaw from './ActivitySummaryGraph/activityData';
 import CustomBarsCombined from './ActivitySummaryGraph/CustomBarsCombined';
 import { Customized } from 'recharts';
 import ActivityTooltip from './ActivitySummaryGraph/ActivityTooltip';
-
 
 const categories = ['Sport', 'Cognitive', 'Household'];
 
@@ -30,14 +29,23 @@ const toMinutes = (timeStr) => {
 };
 
 export default function CombinedGraph({ date, initialAverages }) {
+  // 🟠 שלב 1: הגדר אילו מדדים זמינים
+  const availableLines = {
+    feeling: initialAverages?.feeling != null,
+    parkinson: initialAverages?.parkinson != null,
+    physical: initialAverages?.physical != null
+  };
+
+  // 🟠 שלב 2: אתחול רק לפי מה שקיים
+  const [visibleLines, setVisibleLines] = useState({
+    feeling: availableLines.feeling,
+    parkinson: availableLines.parkinson,
+    physical: availableLines.physical
+  });
+
   const [sampleData, setSampleData] = useState([]);
   const [activityData, setActivityData] = useState([]);
   const [showActivity, setShowActivity] = useState(false);
-  const [visibleLines, setVisibleLines] = useState({
-    feeling: true,
-    parkinson: true,
-    physical: true
-  });
   const [activityTooltip, setActivityTooltip] = useState(null);
 
   useEffect(() => {
@@ -54,15 +62,21 @@ export default function CombinedGraph({ date, initialAverages }) {
     setVisibleLines(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Sort sampleData by timeMinutes for correct X axis domain and ticks
   const sortedSampleData = [...sampleData].sort((a, b) => a.timeMinutes - b.timeMinutes);
 
   return (
     <div className="graph-wrapper">
       <h2 className="graph-title">🧠 Daily & Activity Combined Graph</h2>
 
-      <ToggleButtons visibleLines={visibleLines} toggleLine={toggleLine} />
+      {/* 🟠 שלב 3: העברת availableLines ל־ToggleButtons */}
+      <ToggleButtons
+        visibleLines={visibleLines}
+        toggleLine={toggleLine}
+        availableLines={availableLines}
+      />
+
       <LegendSection />
+
       <button
         onClick={() => setShowActivity(!showActivity)}
         className="toggle-activity-btn"
@@ -86,15 +100,20 @@ export default function CombinedGraph({ date, initialAverages }) {
           margin={{ top: 10, right: 70, left: 20, bottom: 60 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
+
           <XAxis
             dataKey="timeMinutes"
             type="number"
-            domain={[sortedSampleData[0]?.timeMinutes || 0, sortedSampleData[sortedSampleData.length-1]?.timeMinutes || 1440]}
+            domain={[
+              sortedSampleData[0]?.timeMinutes || 0,
+              sortedSampleData[sortedSampleData.length - 1]?.timeMinutes || 1440
+            ]}
             tick={(props) => <CustomXAxisTick {...props} sampleData={sortedSampleData} />}
             xAxisId="x"
             ticks={sortedSampleData.map(d => d.timeMinutes)}
             allowDuplicatedCategory={false}
           />
+
           <YAxis
             yAxisId="left"
             domain={[1, 5]}
@@ -163,19 +182,18 @@ export default function CombinedGraph({ date, initialAverages }) {
           )}
 
           {showActivity && (
-  <Customized
-    component={(props) => (
+            <Customized
+              component={(props) => (
                 <CustomBarsCombined
-        {...props}
-        xAxisId="x"
-        yAxisId="right"
+                  {...props}
+                  xAxisId="x"
+                  yAxisId="right"
                   setTooltip={setActivityTooltip}
-        activityData={activityData}
-      />
-    )}
-  />
-)}
-
+                  activityData={activityData}
+                />
+              )}
+            />
+          )}
         </LineChart>
       </ResponsiveContainer>
 
