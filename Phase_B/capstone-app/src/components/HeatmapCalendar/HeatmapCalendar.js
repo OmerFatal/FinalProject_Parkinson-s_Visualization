@@ -33,7 +33,7 @@ export default function HeatmapCalendar() {
       setRawEntries(JSON.parse(savedData));
     } else {
       const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const today = new Date();
+      const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }));
       const isCurrentMonth =
         year === today.getFullYear() && month === today.getMonth();
       const lastDay = isCurrentMonth ? today.getDate() : daysInMonth;
