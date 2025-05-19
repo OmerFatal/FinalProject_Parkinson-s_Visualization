@@ -20,18 +20,30 @@ export const pillTypes = {
   Xadago: ['Xadago 50 mg', 'Xadago 100 mg']
 };
 
-// פלטת Tableau 20 – צבעים מקצועיים
-const tableauColors = [
-  '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728',
-  '#9467bd', '#8c564b', '#e377c2', '#7f7f7f',
-  '#bcbd22', '#17becf', '#393b79', '#637939',
-  '#8c6d31', '#843c39', '#7b4173', '#3182bd'
+const dashboardThemeColors = [
+  '#2563eb', // 1. כחול – My Mood
+  '#22c55e', // 2. ירוק – Physical Difficulty
+  '#dc2626', // 3. אדום – Parkinson State
+  '#facc15', // 4. כתום-צהוב – Moderate activity
+  '#16a34a', // 5. ירוק כהה – High activity
+  '#a855f7', // 6. סגול
+  '#0ea5e9', // 7. טורקיז
+  '#f97316', // 8. כתום חזק
+  '#10b981', // 9. טורקיז ירקרק
+  '#8b5cf6', // 10. אינדיגו
+  '#ef4444', // 11. אדום-ורוד
+  '#3b82f6', // 12. כחול בהיר
+  '#eab308', // 13. זהוב
+  '#14b8a6', // 14. טורקיז עמוק
+  '#e11d48', // 15. אדום כהה
+  '#6b7280'  // 16. אפור כהה – קבוצה ניטרלית
 ];
+
 
 // מיפוי תרופה → צבע לפי קבוצה
 export const pillColors = {};
 Object.entries(pillTypes).forEach(([group, pills], index) => {
-  const groupColor = tableauColors[index % tableauColors.length];
+  const groupColor = dashboardThemeColors[index % dashboardThemeColors.length];
   pills.forEach(pillName => {
     pillColors[pillName] = groupColor;
   });

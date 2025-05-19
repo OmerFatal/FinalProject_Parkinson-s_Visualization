@@ -12,15 +12,18 @@ export default function MedicationTooltip({ active, payload }) {
       }));
 
     return (
-      <div style={{
-        backgroundColor: '#ffffff',
-        border: '1px solid #cbd5e1',
-        borderRadius: '10px',
-        padding: '10px 14px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        fontFamily: 'Segoe UI, sans-serif',
-        minWidth: '180px'
-      }}>
+      <div
+        style={{
+          background: '#fff',
+          borderRadius: 10,
+          padding: 14,
+          color: '#222',
+          fontWeight: 600,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+          minWidth: 170,
+          fontSize: 16
+        }}
+      >
         {items.map((med, idx) => (
           <div key={idx} style={{
             backgroundColor: med.color,
@@ -28,9 +31,11 @@ export default function MedicationTooltip({ active, payload }) {
             padding: '6px 10px',
             marginBottom: '4px',
             color: '#000',
-            fontWeight: 'bold'
+            fontWeight: 'bold', // ← מוּדגש
+            fontFamily: 'Arial, sans-serif', // ← תוסיף משפחת גופן ברורה
+            letterSpacing: '0.4px' // ← אופציונלי לנראות
           }}>
-            {med.pillName}: {med.amount} pill(s)
+            <strong>{med.pillName}</strong>: {med.amount} pill(s)
           </div>
         ))}
       </div>

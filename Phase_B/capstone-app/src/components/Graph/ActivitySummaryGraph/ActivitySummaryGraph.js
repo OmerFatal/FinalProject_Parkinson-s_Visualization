@@ -1,6 +1,6 @@
 // ActivitySummaryGraph.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ResponsiveContainer,
   XAxis,
@@ -18,9 +18,37 @@ const categories = ['Sport', 'Cognitive', 'Household'];
 export default function ActivitySummaryGraph() {
   const [tooltip, setTooltip] = useState(null);
   const isMobile = window.innerWidth <= 768;
+  const graphRef = useRef(null);
+
+  // ✅ מסתיר טולטיפ בגלילה או יציאה מהגרף עם העכבר
+  useEffect(() => {
+    const handleScroll = () => {
+      setTooltip(null);
+    };
+
+    const handleMouseMove = (e) => {
+      if (!graphRef.current) return;
+      const bounds = graphRef.current.getBoundingClientRect();
+      const inside =
+        e.clientX >= bounds.left &&
+        e.clientX <= bounds.right &&
+        e.clientY >= bounds.top &&
+        e.clientY <= bounds.bottom;
+
+      if (!inside) setTooltip(null);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
-    <div style={{ width: '100%', padding: '0 24px', position: 'relative' }}>
+    <div ref={graphRef} style={{ width: '100%', padding: '0 24px', position: 'relative' }}>
       <h2 style={{
         textAlign: 'center',
         fontSize: isMobile ? '20px' : '24px',
@@ -50,13 +78,17 @@ export default function ActivitySummaryGraph() {
             domain={categories}
             yAxisId="y"
             reversed={true}
-            tick={{ fontSize: isMobile ? 12 : 16 ,
+            tick={{
+              fontSize: isMobile ? 12 : 16,
               fontWeight: 'bold',
-              fill: '#000' // שחור
-              }}
-            
+              fill: '#000'
+            }}
           />
-          <Customized component={(props) => <CustomBars {...props} xAxisId="x" yAxisId="y" setTooltip={setTooltip} />} />
+          <Customized
+            component={(props) => (
+              <CustomBars {...props} xAxisId="x" yAxisId="y" setTooltip={setTooltip} />
+            )}
+          />
         </ScatterChart>
       </ResponsiveContainer>
 
