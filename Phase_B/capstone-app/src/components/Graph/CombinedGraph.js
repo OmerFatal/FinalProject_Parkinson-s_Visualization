@@ -1,4 +1,3 @@
-// CombinedGraph.js
 import React, { useState, useEffect } from 'react';
 import {
   LineChart,
@@ -8,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Scatter
+  Customized
 } from 'recharts';
 
 import CustomTooltip from './DailyAnalysisGraph/CustomTooltip';
@@ -18,25 +17,27 @@ import ToggleButtons from './DailyAnalysisGraph/ToggleButtons';
 import { generateSampleData } from './DailyAnalysisGraph/generateSampleData';
 import activityDataRaw from './ActivitySummaryGraph/activityData';
 import CustomBarsCombined from './ActivitySummaryGraph/CustomBarsCombined';
-import { Customized } from 'recharts';
 import ActivityTooltip from './ActivitySummaryGraph/ActivityTooltip';
-
-const categories = ['Sport', 'Cognitive', 'Household'];
 
 const toMinutes = (timeStr) => {
   const [h, m] = timeStr.split(':').map(Number);
   return h * 60 + m;
 };
 
+// 🧭 מיפוי קטגוריות לערכים מספריים לציר Y (ימני)
+const categoryPositions = {
+  Sport: 1,
+  Cognitive: 3,
+  Household: 5
+};
+
 export default function CombinedGraph({ date, initialAverages }) {
-  // 🟠 שלב 1: הגדר אילו מדדים זמינים
   const availableLines = {
     feeling: initialAverages?.feeling != null,
     parkinson: initialAverages?.parkinson != null,
     physical: initialAverages?.physical != null
   };
 
-  // 🟠 שלב 2: אתחול רק לפי מה שקיים
   const [visibleLines, setVisibleLines] = useState({
     feeling: availableLines.feeling,
     parkinson: availableLines.parkinson,
@@ -64,11 +65,20 @@ export default function CombinedGraph({ date, initialAverages }) {
 
   const sortedSampleData = [...sampleData].sort((a, b) => a.timeMinutes - b.timeMinutes);
 
+  // 🧮 מחשב מתי הפעולה האחרונה באמת מסתיימת
+  const lastActivityEnd = Math.max(
+    ...activityData.map(a => a.timeMinutes + a.duration)
+  );
+
+  const xMax = Math.max(
+    sortedSampleData[sortedSampleData.length - 1]?.timeMinutes || 0,
+    lastActivityEnd
+  );
+
   return (
     <div className="graph-wrapper">
       <h2 className="graph-title">🧠 Daily & Activity Combined Graph</h2>
 
-      {/* 🟠 שלב 3: העברת availableLines ל־ToggleButtons */}
       <ToggleButtons
         visibleLines={visibleLines}
         toggleLine={toggleLine}
@@ -106,7 +116,7 @@ export default function CombinedGraph({ date, initialAverages }) {
             type="number"
             domain={[
               sortedSampleData[0]?.timeMinutes || 0,
-              sortedSampleData[sortedSampleData.length - 1]?.timeMinutes || 1440
+              xMax
             ]}
             tick={(props) => <CustomXAxisTick {...props} sampleData={sortedSampleData} />}
             xAxisId="x"
@@ -116,35 +126,31 @@ export default function CombinedGraph({ date, initialAverages }) {
 
           <YAxis
             yAxisId="left"
-            domain={[1, 5]}
+            domain={[0, 5]}
             ticks={[1, 2, 3, 4, 5]}
             tick={{ fill: '#000', fontSize: 14, fontWeight: 'bold' }}
-            label={{
-              value: 'Score (1=Best, 5=Worst)',
-              angle: -90,
-              position: 'insideLeft',
-              fill: '#000',
-              fontSize: 16,
-              fontWeight: 'bold',
-              dy: 80
-            }}
           />
 
           {showActivity && (
             <YAxis
               yAxisId="right"
               orientation="right"
-              type="category"
-              domain={categories}
+              type="number"
+              domain={[0, 6]}
+              ticks={[1, 3, 5]}
+              tickFormatter={(val) => {
+                const entry = Object.entries(categoryPositions).find(([, pos]) => pos === val);
+                return entry?.[0] || '';
+              }}
               tick={{ fill: '#555', fontSize: 12, fontWeight: 'bold' }}
             />
           )}
 
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip visibleLines={visibleLines} />} />
 
           {visibleLines.feeling && (
             <Line
-              type="monotone"
+              type="linear"
               dataKey="feeling"
               stroke="#2563eb"
               dot={{ r: 6 }}
@@ -156,7 +162,7 @@ export default function CombinedGraph({ date, initialAverages }) {
           )}
           {visibleLines.parkinson && (
             <Line
-              type="monotone"
+              type="linear"
               dataKey="parkinson"
               stroke="#dc2626"
               strokeDasharray="5 5"
@@ -169,7 +175,7 @@ export default function CombinedGraph({ date, initialAverages }) {
           )}
           {visibleLines.physical && (
             <Line
-              type="monotone"
+              type="linear"
               dataKey="physical"
               stroke="#22c55e"
               strokeDasharray="4 2"
@@ -190,6 +196,7 @@ export default function CombinedGraph({ date, initialAverages }) {
                   yAxisId="right"
                   setTooltip={setActivityTooltip}
                   activityData={activityData}
+                  categoryPositions={categoryPositions}
                 />
               )}
             />

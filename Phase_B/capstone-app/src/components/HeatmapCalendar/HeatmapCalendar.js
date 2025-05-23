@@ -1,3 +1,4 @@
+// src/components/HeatmapCalendar/HeatmapCalendar.js
 import React, { useState, useEffect } from 'react';
 import './HeatmapCalendar.css';
 import NavBarHeatMap from './NavBarHeatMap';
@@ -7,7 +8,6 @@ import FutureDateModal from './FutureDateModal';
 import LegendSampleBox from './LegendSampleBox';
 import HeatmapLegend from './HeatmapLegend';
 import MonthYearPicker from './MonthYearPicker';
-console.log("🔥 HeatmapCalendar version with limited days");
 
 export default function HeatmapCalendar() {
   const [selectedDate, setSelectedDate] = useState(() => {
@@ -34,8 +34,7 @@ export default function HeatmapCalendar() {
     } else {
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }));
-      const isCurrentMonth =
-        year === today.getFullYear() && month === today.getMonth();
+      const isCurrentMonth = year === today.getFullYear() && month === today.getMonth();
       const lastDay = isCurrentMonth ? today.getDate() : daysInMonth;
 
       const entries = [];
@@ -62,7 +61,6 @@ export default function HeatmapCalendar() {
 
   const aggregateData = () => {
     const grouped = {};
-
     rawEntries.forEach(({ date, mood, parkinson, physical }) => {
       if (!grouped[date]) grouped[date] = { mood: [], parkinson: [], physical: [] };
       if (mood != null) grouped[date].mood.push(mood);
@@ -97,15 +95,19 @@ export default function HeatmapCalendar() {
   const averagedScores = aggregateData();
   const selectedYear = selectedDate.getFullYear();
   const selectedMonth = selectedDate.getMonth();
-  const monthName = selectedDate.toLocaleString('en-US', { month: 'long' });
-  const fullTitle = `${monthName} ${selectedYear}`;
 
   return (
     <>
       <NavBarHeatMap />
 
       <div className="calendar-container">
-        <div className="monthly-heatmap-title">{fullTitle}</div>
+        <div className="monthly-heatmap-title">
+          Welcome, Michael – Here’s Your Personalized Heatmap:
+        </div>
+
+        <div className="monthly-heatmap-subtitle">
+          Click on a date to view detailed information.
+        </div>
 
         <MonthYearPicker
           selectedDate={selectedDate}

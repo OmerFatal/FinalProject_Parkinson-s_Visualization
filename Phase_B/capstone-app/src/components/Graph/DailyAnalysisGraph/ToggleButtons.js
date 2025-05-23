@@ -1,3 +1,4 @@
+// ToggleButtons.js
 import React from 'react';
 
 export default function ToggleButtons({ visibleLines, toggleLine, availableLines }) {
@@ -25,7 +26,24 @@ export default function ToggleButtons({ visibleLines, toggleLine, availableLines
             >
               {label}
             </button>
-          ) : null
+          ) : (
+            <div
+              key={key}
+              style={{
+                fontSize: '14px',
+                color: '#64748b',
+                fontStyle: 'italic',
+                marginBottom: '6px',
+                border: '1px dashed #94a3b8',
+                borderRadius: '12px',
+                padding: '6px 12px',
+                backgroundColor: '#f8fafc',
+                marginRight: '8px'
+              }}
+            >
+              ⚠️ {label} – No data reported today
+            </div>
+          )
         )}
       </div>
     </div>

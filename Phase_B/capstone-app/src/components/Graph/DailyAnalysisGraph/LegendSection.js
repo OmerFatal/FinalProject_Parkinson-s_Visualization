@@ -12,6 +12,14 @@ export default function LegendSection() {
       </div>
 
       <div className="legend-container">
+        <div className="legend-group" style={{ justifyContent: 'center' }}>
+          <div className="legend-badge" style={{ fontWeight: 600, color: '#1e3a8a' }}>
+            Score Scale: 1 = Best, 5 = Worst
+          </div>
+        </div>
+      </div>
+
+      <div className="legend-container">
         <div className="legend-group">
           <div className="legend-badge">😴 Sleep</div>
           <div className="legend-badge">💊 Medication</div>

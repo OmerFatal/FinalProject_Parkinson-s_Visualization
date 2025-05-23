@@ -44,7 +44,7 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
 
   const actionTimeline = buildActionTimeline(dailyEntries);
   const lastActionTime = actionTimeline[actionTimeline.length - 1];
-  const fullTimeline = buildFullTimeline(dailyEntries).filter(t => t <= lastActionTime);
+const fullTimeline = buildFullTimeline(dailyEntries);
   const data = buildLineData(dailyEntries, fullTimeline);
 
   const displayDate = date ? formatDate(date) : '';
@@ -82,25 +82,17 @@ export default function CombinedStateTimelineGraph({ initialAverages, date }) {
               ticks={[1, 2, 3, 4, 5]}
               tick={{ fill: '#000', fontSize: 18, fontWeight: 'bold' }}
               axisLine={true}
-              label={{
-                value: 'Score (1=Best, 5=Worst)',
-                angle: -90,
-                position: 'insideLeft',
-                fill: '#000',
-                fontSize: 20,
-                fontWeight: 'bold',
-                dy: 85
-              }}
+             
             />
 
             {visibleLines.feeling && (
-              <Line type="monotone" dataKey="feeling" stroke="#2563eb" name="My Mood" dot={false} strokeWidth={3} isAnimationActive={false} />
+              <Line type="linear" dataKey="feeling" stroke="#2563eb" name="My Mood" dot={false} strokeWidth={3} isAnimationActive={false} />
             )}
             {visibleLines.parkinson && (
-              <Line type="monotone" dataKey="parkinson" stroke="#dc2626" name="Parkinson State" strokeDasharray="5 5" dot={false} strokeWidth={3} isAnimationActive={false} />
+              <Line type="linear" dataKey="parkinson" stroke="#dc2626" name="Parkinson State" strokeDasharray="5 5" dot={false} strokeWidth={3} isAnimationActive={false} />
             )}
             {visibleLines.physical && (
-              <Line type="monotone" dataKey="physical" stroke="#22c55e" name="Physical Difficulty" strokeDasharray="4 2" dot={false} strokeWidth={3} isAnimationActive={false} />
+              <Line type="linear" dataKey="physical" stroke="#22c55e" name="Physical Difficulty" strokeDasharray="4 2" dot={false} strokeWidth={3} isAnimationActive={false} />
             )}
 
             <Customized

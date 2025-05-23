@@ -44,17 +44,20 @@ export default function CustomTooltip({ active, payload, visibleLines }) {
       {icon && (
         <div style={{ fontSize: '28px', textAlign: 'center', marginBottom: '8px' }}>{icon}</div>
       )}
-      <div style={{ fontWeight: '700', marginBottom: '8px' }}>
-        Action Time: {entry.time}
-      </div>
 
-      {visibleLines.feeling &&
+      {entry?.time && (
+        <div style={{ fontWeight: '700', marginBottom: '8px' }}>
+          Action Time: {entry.time}
+        </div>
+      )}
+
+      {visibleLines.feeling && entry?.feeling !== undefined &&
         formatLine('My Mood', entry.feeling, entry.feelingTime, '#2563eb')}
 
-      {visibleLines.parkinson &&
+      {visibleLines.parkinson && entry?.parkinson !== undefined &&
         formatLine('Parkinson State', entry.parkinson, entry.parkinsonTime, '#dc2626')}
 
-      {visibleLines.physical &&
+      {visibleLines.physical && entry?.physical !== undefined &&
         formatLine('Physical Difficulty', entry.physical, entry.physicalTime, '#22c55e')}
     </div>
   );

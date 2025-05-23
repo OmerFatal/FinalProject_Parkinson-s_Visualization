@@ -17,6 +17,18 @@ export default function HeatmapLegend() {
         <div className="scale-label">3</div>
         <div className="scale-label">2</div>
         <div className="scale-label">1 (Best)</div>
+
+        <div
+          className="scale-label"
+          style={{
+            marginTop: '12px',
+            fontStyle: 'italic',
+            fontSize: '13px',
+            color: '#000000 '
+          }}
+        >
+          Gray = No data reported
+        </div>
       </div>
     </div>
   );

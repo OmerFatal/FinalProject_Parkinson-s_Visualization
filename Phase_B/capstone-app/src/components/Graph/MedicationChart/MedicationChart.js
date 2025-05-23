@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import ChartCore from './ChartCore';
 import LegendPills from './LegendPills';
-import { pillTypes, pillColors } from './PillTypes';
+import { pillColors } from './PillTypes';
+import { getUsedPillTypes } from './ChartDataUtils';
 
 export default function MedicationChart() {
   const isMobile = window.innerWidth <= 768;
-  const allTypes = Object.keys(pillTypes);
+
+  // ✅ לוקח רק את הסוגים שנמצאים בפועל בדאטה
+  const usedPillTypes = getUsedPillTypes();
+  const allTypes = Object.keys(usedPillTypes);
   const [visibleTypes, setVisibleTypes] = useState(new Set(allTypes));
 
   const handleToggle = (type) => {
@@ -18,9 +22,9 @@ export default function MedicationChart() {
 
   const handleToggleAll = () => {
     if (visibleTypes.size === allTypes.length) {
-      setVisibleTypes(new Set()); // הסרה של כל התרופות
+      setVisibleTypes(new Set());
     } else {
-      setVisibleTypes(new Set(allTypes)); // סימון כל התרופות
+      setVisibleTypes(new Set(allTypes));
     }
   };
 
@@ -65,7 +69,7 @@ export default function MedicationChart() {
         </div>
 
         <LegendPills
-          pillTypes={pillTypes}
+          pillTypes={usedPillTypes}
           pillColors={pillColors}
           visibleTypes={visibleTypes}
           onToggle={handleToggle}

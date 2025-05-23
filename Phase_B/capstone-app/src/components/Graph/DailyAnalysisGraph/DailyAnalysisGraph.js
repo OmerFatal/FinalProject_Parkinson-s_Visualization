@@ -66,7 +66,6 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
         toggleLine={toggleLine}
         availableLines={availableLines}
       />
-
       <LegendSection />
 
       <ResponsiveContainer width="100%" height={400}>
@@ -90,33 +89,25 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
             />
           )}
           <YAxis
-            domain={[1, 5]}
+            domain={[0, 5]}
             ticks={[1, 2, 3, 4, 5]}
             tick={{
               fill: '#000',
               fontSize: window.innerWidth < 768 ? 12 : 18,
               fontWeight: 'bold'
             }}
-            label={{
-              value: 'Score (1=Best, 5=Worst)',
-              angle: -90,
-              position: 'insideLeft',
-              fill: '#000',
-              fontSize: window.innerWidth < 768 ? 14 : 20,
-              fontWeight: 'bold',
-              dy: 85
-            }}
+
           />
           <Tooltip content={<CustomTooltip visibleLines={visibleLines} />} />
 
           {visibleLines.feeling && (
-            <Line type="monotone" dataKey="feeling" stroke="#2563eb" name="My Mood" dot={{ r: 6 }} strokeWidth={3} />
+            <Line type="linear" dataKey="feeling" stroke="#2563eb" name="My Mood" dot={{ r: 6 }} strokeWidth={3} />
           )}
           {visibleLines.parkinson && (
-            <Line type="monotone" dataKey="parkinson" stroke="#dc2626" name="Parkinson State" strokeDasharray="5 5" dot={{ r: 6 }} strokeWidth={3} />
+            <Line type="linear" dataKey="parkinson" stroke="#dc2626" name="Parkinson State" strokeDasharray="5 5" dot={{ r: 6 }} strokeWidth={3} />
           )}
           {visibleLines.physical && (
-            <Line type="monotone" dataKey="physical" stroke="#22c55e" name="Physical Difficulty" strokeDasharray="4 2" dot={{ r: 6 }} strokeWidth={3} />
+            <Line type="linear" dataKey="physical" stroke="#22c55e" name="Physical Difficulty" strokeDasharray="4 2" dot={{ r: 6 }} strokeWidth={3} />
           )}
         </LineChart>
       </ResponsiveContainer>

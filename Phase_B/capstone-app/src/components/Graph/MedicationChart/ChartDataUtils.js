@@ -1,6 +1,7 @@
 import rawMedicationData from './medicationData';
-import { pillColors } from './PillTypes';
+import { pillColors, pillTypes } from './PillTypes';
 
+// ממיין לפי שעה
 export function sortByTime(data) {
   return [...data].sort((a, b) => {
     const [h1, m1] = a.time.split(':').map(Number);
@@ -9,6 +10,7 @@ export function sortByTime(data) {
   });
 }
 
+// עיבוד כללי ל־medicationData
 export const medicationData = sortByTime(
   rawMedicationData.map(entry => {
     const medObject = { time: entry.time };
@@ -20,6 +22,7 @@ export const medicationData = sortByTime(
   })
 );
 
+// סה"כ מקסימלי – לציר Y
 export const maxTotal = Math.ceil(
   Math.max(...medicationData.map(entry =>
     Object.keys(entry)
@@ -28,11 +31,13 @@ export const maxTotal = Math.ceil(
   ))
 );
 
+// יצירת רשימת ticks
 export const yTicks = [];
 for (let i = 0; i <= maxTotal; i += 0.25) {
   yTicks.push(Number(i.toFixed(2)));
 }
 
+// תרופה עליונה בכל זמן
 export const topPillsPerTime = (() => {
   const renderedPills = Object.keys(pillColors);
   const result = {};
@@ -43,3 +48,24 @@ export const topPillsPerTime = (() => {
   });
   return result;
 })();
+
+// ✅ חדש: מחזיר רק סוגי תרופות שבאמת נמצאות בדאטה
+export const getUsedPillTypes = () => {
+  const usedPills = new Set();
+
+  rawMedicationData.forEach(entry => {
+    entry.medications.forEach(med => {
+      usedPills.add(med.pillName);
+    });
+  });
+
+  const usedTypes = {};
+  Object.entries(pillTypes).forEach(([type, pills]) => {
+    const filtered = pills.filter(p => usedPills.has(p));
+    if (filtered.length > 0) {
+      usedTypes[type] = filtered;
+    }
+  });
+
+  return usedTypes;
+};

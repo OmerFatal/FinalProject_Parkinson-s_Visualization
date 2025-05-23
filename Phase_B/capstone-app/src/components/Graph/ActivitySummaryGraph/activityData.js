@@ -7,8 +7,8 @@ const activityData = [
   { name: 'Reading Newspaper', category: 'Cognitive', time: '10:15', duration: 30, intensity: 'Low' },
   { name: 'Cycling', category: 'Sport', time: '18:30', duration: 65, intensity: 'High' },
   { name: 'Organizing Clothes', category: 'Household', time: '19:30', duration: 70, intensity: 'Low' },
-  { name: 'Reading Book', category: 'Cognitive', time: '21:45', duration: 80, intensity: 'Moderate' },
-  { name: 'Kitchen Cleaning', category: 'Household', time: '23:00', duration: 40, intensity: 'Low' }
+  { name: 'Reading Book', category: 'Cognitive', time: '21:45', duration: 55, intensity: 'Moderate' },
+  { name: 'Kitchen Cleaning', category: 'Household', time: '23:00', duration: 20, intensity: 'Low' }
 ];
 
 export default activityData;
