@@ -14,7 +14,7 @@ import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph/Combi
 export default function Dashboard() {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const selectedDate = query.get('date');
+  const selectedDate = query.get('date') || new Date().toISOString().slice(0, 10);
   const selectedMonth = query.get('month');
   const selectedYear = query.get('year');
 
