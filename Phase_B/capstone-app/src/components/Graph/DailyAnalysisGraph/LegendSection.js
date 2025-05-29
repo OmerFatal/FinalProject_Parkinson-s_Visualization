@@ -21,10 +21,12 @@ export default function LegendSection() {
 
       <div className="legend-container">
         <div className="legend-group">
-          <div className="legend-badge">😴 Sleep</div>
-          <div className="legend-badge">💊 Medication</div>
-          <div className="legend-badge">🍽️ Nutrition</div>
-          <div className="legend-badge">🚶‍♂️ Activity</div>
+<div className="legend-badge">🌙 Going to Sleep</div>
+<div className="legend-badge">🌅 Waking Up</div>
+<div className="legend-badge">💊 Medication</div>
+<div className="legend-badge">🍽️ Nutrition</div>
+<div className="legend-badge">🚶‍♂️ Activity</div>
+
         </div>
       </div>
     </div>

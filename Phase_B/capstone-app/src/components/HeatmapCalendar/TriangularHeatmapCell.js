@@ -11,7 +11,6 @@ export default function TriangularHeatmapCell({
   physicalColor = '#ccc'
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
-
   return (
     <div
       className="triangular-heatmap-cell triangle-wrapper"
@@ -39,24 +38,25 @@ export default function TriangularHeatmapCell({
         />
 
         {/* שלושת המשולשים */}
-        <polygon
-          points="0,0 100,0 50,100"
-          fill={parkinsonColor}
-          stroke="black"
-          strokeWidth="1.5"
-        />
-        <polygon
-          points="0,0 0,100 50,100"
-          fill={physicalColor}
-          stroke="black"
-          strokeWidth="1.5"
-        />
-        <polygon
-          points="100,0 100,100 50,100"
-          fill={moodColor}
-          stroke="black"
-          strokeWidth="1.5"
-        />
+<polygon
+  points="0,0 100,0 50,100"
+  fill={parkinsonColor}
+  stroke="black"
+  strokeWidth="1.5"
+/>
+<polygon
+  points="0,0 0,100 50,100"
+  fill={physicalColor}
+  stroke="black"
+  strokeWidth="1.5"
+/>
+<polygon
+  points="100,0 100,100 50,100"
+  fill={moodColor} // 👈 Mood מצויר הכי למעלה!
+  stroke="black"
+  strokeWidth="1.5"
+/>
+
 
         {/* מספר היום */}
         <text

@@ -3,7 +3,15 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function MonthYearPicker({ selectedDate, setSelectedDate }) {
+export default function MonthYearPicker({ selectedYear, selectedMonth, setSelectedYear, setSelectedMonth }) {
+  const selectedDate = new Date(selectedYear, selectedMonth, 1);
+
+  const handleDateChange = (date) => {
+    if (!date) return;
+    setSelectedYear(date.getFullYear());
+    setSelectedMonth(date.getMonth());
+  };
+
   return (
     <div
       className="datepicker-label-group"
@@ -30,7 +38,7 @@ export default function MonthYearPicker({ selectedDate, setSelectedDate }) {
       </div>
       <DatePicker
         selected={selectedDate}
-        onChange={(date) => date && setSelectedDate(date)}
+        onChange={handleDateChange}
         dateFormat="MMMM yyyy"
         showMonthYearPicker
         maxDate={new Date()}

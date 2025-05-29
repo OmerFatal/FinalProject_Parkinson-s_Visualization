@@ -1,17 +1,19 @@
-// Dashboard.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import './Dashboard.css';
 
 import DailyAnalysisGraph from './Graph/DailyAnalysisGraph/DailyAnalysisGraph';
-import CombinedGraph from './Graph/CombinedGraph'; // ✅ גרף משולב חדש
+import CombinedGraph from './Graph/CombinedGraph';
 import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
 import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph/CombinedStateTimelineGraph';
 
-export default function Dashboard() {
+
+
+
+export default function Dashboard({ entries = [] }) {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const selectedDate = query.get('date') || new Date().toISOString().slice(0, 10);
@@ -25,8 +27,6 @@ export default function Dashboard() {
     physical: rawState.physical ?? null
   };
 
-  const [dayData, setDayData] = useState(null);
-
   useEffect(() => {
     if (selectedYear !== null && selectedMonth !== null) {
       localStorage.setItem('heatmap-monthYear', `${selectedYear}-${selectedMonth}`);
@@ -36,79 +36,49 @@ export default function Dashboard() {
     }
   }, [selectedDate, selectedMonth, selectedYear]);
 
-  useEffect(() => {
-    const fetchDayData = async () => {
-      if (!selectedDate) return;
-
-      try {
-        const response = await fetch(`/api/get-day-details?date=${selectedDate}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch day details');
-        }
-
-        const data = await response.json();
-        console.log('🔥 Fetched nutritions data:', data.nutritions);
-
-        setDayData(data);
-      } catch (error) {
-        console.error('Error fetching day details:', error);
-      }
-    };
-
-    fetchDayData();
-  }, [selectedDate]);
-
   return (
     <>
       <NavBar />
       <div className="dashboard-wrapper">
-        {/* 🔹 הגרף היומי המקורי */}
+        {/* 🔹 גרף ניתוח יומי */}
         <div className="dashboard-card full-width" id="analysis">
           <DailyAnalysisGraph
             date={selectedDate}
             initialAverages={initialAverages}
-            dailyData={dayData}
           />
         </div>
 
-                {/* 🔹 גרף משולב חדש: שלושה קווים + אייקונים */}
-                <div className="dashboard-card full-width" id="combined-state-timeline-graph">
-          <CombinedStateTimelineGraph initialAverages={initialAverages} date={selectedDate} />
+        {/* 🔹 גרף משולב של שלושת המצבים */}
+        <div className="dashboard-card full-width" id="combined-state-timeline-graph">
+          <CombinedStateTimelineGraph
+            initialAverages={initialAverages}
+            date={selectedDate}
+          />
         </div>
-      </div>
 
-        {/* 🔹 הגרף המשולב החדש (יומי + פעילויות בציר נוסף) */}
+        {/* 🔹 גרף משולב נוסף */}
         <div className="dashboard-card full-width" id="combined-graph">
           <CombinedGraph
             date={selectedDate}
             initialAverages={initialAverages}
-            dailyData={dayData}
           />
         </div>
 
         {/* 🔹 גרף חלבון */}
         <div className="dashboard-card full-width" id="protein">
-          <ProteinChart />
+          <ProteinChart date={selectedDate} entries={entries} />
         </div>
 
         {/* 🔹 גרף תרופות */}
         <div className="dashboard-card full-width" id="medication">
-          <MedicationChart />
+          <MedicationChart date={selectedDate} entries={entries} />
         </div>
 
-        {/* 🔹 גרף פעילויות מלא */}
+        {/* 🔹 גרף סיכום פעילויות */}
         <div className="dashboard-card full-width" id="activity-summary">
-          <ActivitySummaryGraph />
+          <ActivitySummaryGraph date={selectedDate} entries={entries} />
         </div>
-
-
-
+      </div>
 
       <footer className="dashboard-footer">
         <p>© {new Date().getFullYear()} Parkinson Visualization. All rights reserved.</p>

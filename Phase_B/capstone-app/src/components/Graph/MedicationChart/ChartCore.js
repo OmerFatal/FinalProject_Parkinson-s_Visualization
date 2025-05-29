@@ -1,44 +1,74 @@
 import React from 'react';
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
 import MedicationTooltip from './MedicationTooltip';
-import { medicationData, maxTotal, yTicks } from './ChartDataUtils';
 import { pillColors, pillTypes } from './PillTypes';
 
-export default function ChartCore({ isMobile, visibleTypes }) {
-  const visibleTypeList = Array.from(visibleTypes);
+export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTypes), medicationData }) {
+  const normalize = (s) => s?.replace(/\s+/g, ' ').trim().toLowerCase();
 
-  // כל התרופות שמותר להציג
-  const visiblePillNames = Object.entries(pillColors).filter(([pillName]) =>
-    visibleTypeList.some(type => {
-      const pills = pillTypes[type];
-      return pills && pills.includes(pillName);
+  // Map of normalizedName -> originalName (for coloring)
+  const originalNameMap = {};
+
+  // אוסף את כל שמות התרופות לפי הקבוצות המסומנות
+  const visiblePillNames = new Set();
+  visibleTypes.forEach(type => {
+    (pillTypes[type] || []).forEach(original => {
+      const n = normalize(original);
+      visiblePillNames.add(n);
+      originalNameMap[n] = original;
+    });
+  });
+
+  const filteredData = medicationData
+    .map(entry => {
+      const meds = entry.medications.filter(m =>
+        visiblePillNames.has(normalize(m.pillName))
+      );
+
+      // ✅ בדיקת דיבאג ספציפית לשעה 22:25
+      if (entry.time === '22:25') {
+        console.log('🕒 22:25 entry:', entry);
+        console.log('🔎 Dopicar 250 mg medication exists in entry?',
+          entry.medications.find(m => normalize(m.pillName) === 'dopicar 250 mg')
+        );
+        console.log('✅ visiblePillNames:', Array.from(visiblePillNames));
+        console.log('🔍 meds that passed filter:', meds.map(m => m.pillName));
+        console.log('✅ visiblePillNames has dopicar 250 mg:',
+          visiblePillNames.has('dopicar 250 mg')
+        );
+      }
+
+      if (!meds.length) return null;
+
+      const obj = { time: entry.time, medications: meds };
+      meds.forEach(m => {
+        const name = normalize(m.pillName);
+        obj[name] = m.amount;
+      });
+      return obj;
     })
-  );
+    .filter(Boolean);
 
-  const visiblePillSet = new Set(visiblePillNames.map(([pill]) => pill));
-
-  // סינון הזמנים – רק אם יש לפחות תרופה אחת מוצגת
-  const filteredData = medicationData.filter(entry =>
-    entry.medications.some(med => visiblePillSet.has(med.pillName))
-  );
-
-  // מציאת התרופה העליונה בפועל
-  const renderedPills = Object.keys(pillColors);
+  const renderedPills = Array.from(visiblePillNames);
   const topPillsPerTime = {};
   filteredData.forEach(entry => {
-    const present = entry.medications.map(m => m.pillName);
-    const last = renderedPills.findLast(p => present.includes(p) && visiblePillSet.has(p));
+    const present = entry.medications.map(m => normalize(m.pillName));
+    const last = renderedPills.findLast(p => present.includes(p));
     if (last) topPillsPerTime[entry.time] = last;
   });
+
+  const maxTotal = Math.ceil(
+    Math.max(...filteredData.map(entry =>
+      entry.medications.reduce((sum, med) => sum + med.amount, 0)
+    ), 0)
+  );
+
+  const yTicks = [];
+  for (let i = 0; i <= maxTotal; i += 0.25) {
+    yTicks.push(Number(i.toFixed(2)));
+  }
 
   return (
     <ResponsiveContainer width="100%" height={isMobile ? 260 : 320}>
@@ -66,22 +96,18 @@ export default function ChartCore({ isMobile, visibleTypes }) {
         />
         <Tooltip content={<MedicationTooltip />} />
 
-        {visiblePillNames.map(([pillName, color]) => (
+        {renderedPills.map(pillName => (
           <Bar
             key={pillName}
             dataKey={pillName}
             stackId="a"
-            fill={color}
+            fill={pillColors[originalNameMap[pillName]] || '#aaa'}
             barSize={isMobile ? 24 : 40}
           >
             {filteredData.map((entry, index) => (
               <Cell
                 key={`cell-${pillName}-${index}`}
-                radius={
-                  topPillsPerTime[entry.time] === pillName
-                    ? [10, 10, 0, 0]
-                    : [0, 0, 0, 0]
-                }
+                radius={topPillsPerTime[entry.time] === pillName ? [10, 10, 0, 0] : [0, 0, 0, 0]}
                 stroke="black"
                 strokeWidth={2.5}
               />

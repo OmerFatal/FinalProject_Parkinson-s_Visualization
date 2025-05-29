@@ -16,8 +16,7 @@ export default function LegendPills({ pillTypes, pillColors, visibleTypes, onTog
       alignItems: 'center',
       gap: '10px',
       fontSize: '16px',
-      cursor: 'pointer',
-      width: 'calc(100% / 8 - 16px)', // 8 בעמודה בדסקטופ
+      width: 'calc(100% / 8 - 16px)',
       minWidth: '140px'
     },
     checkbox: {
@@ -39,18 +38,22 @@ export default function LegendPills({ pillTypes, pillColors, visibleTypes, onTog
 
   return (
     <div style={styles.container}>
-      {Object.entries(pillTypes).map(([type]) => (
-        <label key={type} style={styles.item}>
-          <input
-            type="checkbox"
-            checked={visibleTypes.has(type)}
-            onChange={() => onToggle(type)}
-            style={styles.checkbox}
-          />
-          <span style={styles.colorBox(pillColors[pillTypes[type][0]])} />
-          <span style={styles.labelText}>{type}</span>
-        </label>
-      ))}
+      {Object.entries(pillTypes).map(([type]) => {
+        const isChecked = visibleTypes.includes(type);
+        const colorKey = pillTypes[type][0];
+        return (
+          <label key={type} style={styles.item}>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={() => onToggle(type)}
+              style={styles.checkbox}
+            />
+            <span style={styles.colorBox(pillColors[colorKey] || '#999')} />
+            <span style={styles.labelText}>{type}</span>
+          </label>
+        );
+      })}
     </div>
   );
 }

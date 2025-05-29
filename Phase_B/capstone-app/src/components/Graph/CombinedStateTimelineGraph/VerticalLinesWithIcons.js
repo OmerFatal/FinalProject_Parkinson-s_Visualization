@@ -1,17 +1,23 @@
-// src/components/Graph/CombinedStateTimelineGraph/VerticalLinesWithIcons.js
-
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
+  const [hovered, setHovered] = useState(null);
+
+  const tooltipWidth = 200;
+  const tooltipHeight = 48;
+
   return (
     <g>
       {points.map((pt, i) => {
         if (!pt.actionIcon) return null;
-        let x = xScale(pt.timeMinutes);
-        if (i === 0) x += 12;
+
+        const x = xScale(pt.timeMinutes) + (i === 0 ? 12 : 0);
         const y = yScale(3);
+        const isHovered = hovered?.index === i;
+
         return (
           <g key={i}>
+            {/* קו אנכי */}
             <line
               x1={x}
               y1={yScale.range()[0]}
@@ -21,18 +27,75 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
               strokeWidth={3}
               opacity={0.25}
             />
+
+            {/* האייקון */}
             <text
               x={x}
               y={y + 6}
               textAnchor="middle"
               fontSize={20}
               filter="url(#shadow)"
+              style={{ cursor: 'pointer' }}
+              onMouseEnter={() =>
+                setHovered({
+                  index: i,
+                  x,
+                  y,
+                  text: pt.tooltipText || '',
+                })
+              }
+              onMouseLeave={() => setHovered(null)}
             >
               {pt.actionIcon}
             </text>
+
+            {/* טולטיפ */}
+            {isHovered && hovered.text && (
+              (() => {
+                const graphRight = xScale.range()[1];
+                const graphLeft = xScale.range()[0];
+                let tooltipX = hovered.x - tooltipWidth / 2;
+
+                // הגנה מגבולות הגרף
+                if (tooltipX + tooltipWidth > graphRight) {
+                  tooltipX = graphRight - tooltipWidth - 4;
+                }
+                if (tooltipX < graphLeft) {
+                  tooltipX = graphLeft + 4;
+                }
+
+                return (
+                  <foreignObject
+                    x={tooltipX}
+                    y={Math.max(hovered.y - tooltipHeight - 10, 0)}
+                    width={tooltipWidth}
+                    height={tooltipHeight + 18 * (hovered.text.split('\n').length - 1)}
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    <div style={{
+                      background: '#fff',
+                      border: '1px solid #cbd5e1',
+                      borderRadius: 10,
+                      padding: '10px 14px',
+                      fontSize: 15,
+                      color: '#222',
+                      textAlign: 'center',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                      fontWeight: 600
+                    }}>
+                      {hovered.text.split('\n').map((line, idx) => (
+                        <div key={idx}>{line}</div>
+                      ))}
+                    </div>
+                  </foreignObject>
+                );
+              })()
+            )}
           </g>
         );
       })}
+
+      {/* אפקט צל */}
       <defs>
         <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
           <feDropShadow

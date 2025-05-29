@@ -1,5 +1,4 @@
 import React from 'react';
-import activityData from './activityData';
 
 const categoryColors = {
   Sport: '#3b82f6',
@@ -8,15 +7,21 @@ const categoryColors = {
 };
 
 function parseTimeToFloat(timeStr) {
-  const [h, m] = timeStr.split(':').map(Number);
-  return h + m / 60;
+  if (!timeStr || typeof timeStr !== 'string') return 0;
+  const [h = '0', m = '0'] = timeStr.trim().split(':');
+  return parseInt(h) + parseInt(m) / 60;
 }
 
-export default function CustomBars({ xAxisMap, yAxisMap, xAxisId, yAxisId, setTooltip }) {
-  return activityData.map((activity, index) => {
-    const startTime = parseTimeToFloat(activity.time);
-    const xScale = xAxisMap[xAxisId].scale;
-    const yScale = yAxisMap[yAxisId].scale;
+export default function CustomBars({ xAxisMap, yAxisMap, xAxisId, yAxisId, setTooltip, data }) {
+  if (!xAxisMap[xAxisId] || !yAxisMap[yAxisId]) return null;
+
+  const xScale = xAxisMap[xAxisId].scale;
+  const yScale = yAxisMap[yAxisId].scale;
+
+  return data.map((activity, index) => {
+    const startTime = activity.timeMinutes !== undefined
+      ? activity.timeMinutes
+      : parseTimeToFloat(activity.time);
 
     const xStart = xScale(startTime);
     const barWidth = (activity.duration / 60) * (xScale(1) - xScale(0));
