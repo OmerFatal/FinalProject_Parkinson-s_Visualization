@@ -1,0 +1,19 @@
+.activity-graph-wrapper {
+  width: 100%;
+  padding: 0 24px;
+  position: relative;
+}
+
+.activity-graph-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 24px; /* גודל ברירת מחדל */
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+  .activity-graph-title {
+    font-size: 20px;
+  }
+}

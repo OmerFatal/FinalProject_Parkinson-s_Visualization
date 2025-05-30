@@ -11,41 +11,18 @@ import {
 import LegendBox from './LegendBox';
 import CustomBars from './CustomBars';
 import ActivityTooltip from './ActivityTooltip';
+import useActivityData from './useActivityData';
+
+import './ActivitySummaryGraph.css';
 
 const categories = ['Sport', 'Cognitive', 'Household'];
 
-function parseTimeToFloat(timeStr) {
-  if (!timeStr || typeof timeStr !== 'string') return 0;
-  const [h = '0', m = '0', s = '0'] = timeStr.trim().split(':');
-  return parseInt(h) + parseInt(m) / 60 + parseInt(s || 0) / 3600;
-}
-
 export default function ActivitySummaryGraph({ entries, date }) {
-  const [activityData, setActivityData] = useState([]);
   const [tooltip, setTooltip] = useState(null);
   const isMobile = window.innerWidth <= 768;
   const graphRef = useRef(null);
 
-  useEffect(() => {
-    const mapped = entries
-      .filter(row =>
-        row.Report === 'Activity' &&
-        ['Home activities', 'Cognitive activities', 'Sports activities'].includes(row.Type) &&
-        row.Date === date
-      )
-      .map(row => ({
-        name: row.Name,
-        time: row.Time?.trim(),
-        timeMinutes: parseTimeToFloat(row.Time),
-        duration: parseInt(row.Duration),
-        intensity: row.Intensity,
-        category: row.Type.includes('Home') ? 'Household'
-                 : row.Type.includes('Cognitive') ? 'Cognitive'
-                 : 'Sport'
-      }));
-
-    setActivityData(mapped);
-  }, [entries, date]);
+  const activityData = useActivityData(entries, date);
 
   useEffect(() => {
     const handleScroll = () => setTooltip(null);
@@ -66,13 +43,8 @@ export default function ActivitySummaryGraph({ entries, date }) {
   }, []);
 
   return (
-    <div ref={graphRef} style={{ width: '100%', padding: '0 24px', position: 'relative' }}>
-      <h2 style={{
-        textAlign: 'center',
-        fontSize: isMobile ? '20px' : '24px',
-        fontWeight: 'bold',
-        marginBottom: '8px'
-      }}>
+    <div ref={graphRef} className="activity-graph-wrapper">
+      <h2 className="activity-graph-title">
         Activity Summary – Grouped by Category
       </h2>
 

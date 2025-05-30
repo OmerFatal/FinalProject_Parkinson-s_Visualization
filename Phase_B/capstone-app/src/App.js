@@ -10,7 +10,7 @@ function App() {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    loadCSVData('/data/updated_combined_daily_view_activities.csv')
+    loadCSVData('/data/activities_partially_updated.csv')
       .then((result) => {
         const mapped = result.map((r) => {
           let isoDate = r.Date;

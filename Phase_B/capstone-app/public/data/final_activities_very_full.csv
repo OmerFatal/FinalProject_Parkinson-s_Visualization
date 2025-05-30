@@ -7,8 +7,8 @@ Dietary Fiber: 10g"
 01/05/2025,09:02:00,My Feelings,My Mood,,4,,
 01/05/2025,09:22:00,My Feelings,Physical Difficulty,,1,,
 01/05/2025,09:36:00,My Feelings,Parkinson's State,,3,,
-01/05/2025,10:00:00,Activity,Sports activities,Group workout,High,45,
-01/05/2025,12:21:00,Activity,Sports activities,Group workout,High,15,
+01/05/2025,10:00:00,Activity,Sports activities,Group workout,High,45.0,
+01/05/2025,12:21:00,Activity,Sports activities,Group workout,High,15.0,
 01/05/2025,13:09:00,Nutrition,Coffee and cornflakes,,,,"Proteins: 9g
 Fats: 3g
 Carbohydrates: 50g
@@ -16,8 +16,8 @@ Dietary Fiber: 8g"
 01/05/2025,14:00:00,My Feelings,Physical Difficulty,,4,,
 01/05/2025,14:14:00,My Feelings,My Mood,,4,,
 01/05/2025,14:14:00,My Feelings,Parkinson's State,,4,,
-01/05/2025,16:39:00,Activity,Home activities,Gardening,High,15,
-01/05/2025,18:26:00,Activity,Home activities,Gardening,Moderate,45,
+01/05/2025,16:39:00,Activity,Home activities,Gardening,High,15.0,
+01/05/2025,18:26:00,Activity,Home activities,Gardening,Moderate,45.0,
 01/05/2025,19:13:00,Nutrition,Cornflakes with milk and soy,,,,"Proteins: 26g
 Fats: 6g
 Carbohydrates: 49g
@@ -34,8 +34,8 @@ Dietary Fiber: 8g"
 02/05/2025,09:27:00,My Feelings,Parkinson's State,,1,,
 02/05/2025,09:33:00,My Feelings,Physical Difficulty,,1,,
 02/05/2025,09:35:00,My Feelings,My Mood,,2,,
-02/05/2025,10:35:00,Activity,Home activities,Gardening,Moderate,15,
-02/05/2025,12:17:00,Activity,Cognitive activities,Taki,Low,15,
+02/05/2025,10:35:00,Activity,Home activities,Gardening,Moderate,15.0,
+02/05/2025,12:17:00,Activity,Cognitive activities,Taki,Low,15.0,
 02/05/2025,13:00:00,Nutrition,Chicken breast with tahini,,,,"Proteins: 19g
 Fats: 15g
 Carbohydrates: 43g
@@ -43,8 +43,8 @@ Dietary Fiber: 4g"
 02/05/2025,14:00:00,My Feelings,My Mood,,5,,
 02/05/2025,14:05:00,My Feelings,Physical Difficulty,,1,,
 02/05/2025,14:27:00,My Feelings,Parkinson's State,,3,,
-02/05/2025,16:26:00,Activity,Cognitive activities,Taki,Moderate,15,
-02/05/2025,18:09:00,Activity,Sports activities,Group workout,Moderate,30,
+02/05/2025,16:26:00,Activity,Cognitive activities,Taki,Moderate,15.0,
+02/05/2025,18:09:00,Activity,Sports activities,Group workout,Moderate,30.0,
 02/05/2025,19:29:00,Nutrition,Flavored soy yogurt,,,,"Proteins: 30g
 Fats: 3g
 Carbohydrates: 34g
@@ -61,8 +61,8 @@ Dietary Fiber: 5g"
 03/05/2025,09:13:00,My Feelings,Parkinson's State,,5,,
 03/05/2025,09:15:00,My Feelings,Physical Difficulty,,4,,
 03/05/2025,09:17:00,My Feelings,My Mood,,2,,
-03/05/2025,10:15:00,Activity,Cognitive activities,Taki,Low,45,
-03/05/2025,12:38:00,Activity,Cognitive activities,Taki,Low,15,
+03/05/2025,10:15:00,Activity,Cognitive activities,Taki,Low,45.0,
+03/05/2025,12:38:00,Activity,Cognitive activities,Taki,Low,15.0,
 03/05/2025,13:11:00,Nutrition,Apricot soy yogurt,,,,"Proteins: 12g
 Fats: 14g
 Carbohydrates: 16g
@@ -70,8 +70,8 @@ Dietary Fiber: 8g"
 03/05/2025,14:14:00,My Feelings,Parkinson's State,,5,,
 03/05/2025,14:20:00,My Feelings,Physical Difficulty,,2,,
 03/05/2025,14:24:00,My Feelings,My Mood,,3,,
-03/05/2025,16:13:00,Activity,Home activities,Gardening,Moderate,30,
-03/05/2025,18:40:00,Activity,Home activities,Gardening,Low,45,
+03/05/2025,16:13:00,Activity,Home activities,Gardening,Moderate,30.0,
+03/05/2025,18:40:00,Activity,Home activities,Gardening,Low,45.0,
 03/05/2025,19:00:00,Nutrition,Half pita with lots of spread,,,,"Proteins: 27g
 Fats: 4g
 Carbohydrates: 52g
@@ -88,8 +88,8 @@ Dietary Fiber: 5g"
 04/05/2025,09:00:00,My Feelings,Parkinson's State,,3,,
 04/05/2025,09:10:00,My Feelings,Physical Difficulty,,5,,
 04/05/2025,09:42:00,My Feelings,My Mood,,3,,
-04/05/2025,10:32:00,Activity,Cognitive activities,Taki,High,15,
-04/05/2025,12:48:00,Activity,Home activities,Gardening,High,45,
+04/05/2025,10:32:00,Activity,Cognitive activities,Taki,High,15.0,
+04/05/2025,12:48:00,Activity,Home activities,Gardening,High,45.0,
 04/05/2025,13:10:00,Nutrition,Toast with hard-boiled egg,,,,"Proteins: 28g
 Fats: 12g
 Carbohydrates: 26g
@@ -97,8 +97,8 @@ Dietary Fiber: 9g"
 04/05/2025,14:11:00,My Feelings,My Mood,,2,,
 04/05/2025,14:14:00,My Feelings,Parkinson's State,,3,,
 04/05/2025,14:19:00,My Feelings,Physical Difficulty,,1,,
-04/05/2025,16:37:00,Activity,Home activities,Gardening,High,45,
-04/05/2025,18:24:00,Activity,Sports activities,Group workout,Moderate,15,
+04/05/2025,16:37:00,Activity,Home activities,Gardening,High,45.0,
+04/05/2025,18:24:00,Activity,Sports activities,Group workout,Moderate,15.0,
 04/05/2025,19:11:00,Nutrition,Red lentils with mushrooms,,,,"Proteins: 8g
 Fats: 19g
 Carbohydrates: 41g
@@ -115,8 +115,8 @@ Dietary Fiber: 5g"
 05/05/2025,09:00:00,My Feelings,My Mood,,4,,
 05/05/2025,09:21:00,My Feelings,Physical Difficulty,,3,,
 05/05/2025,09:29:00,My Feelings,Parkinson's State,,5,,
-05/05/2025,10:00:00,Activity,Home activities,Gardening,Low,30,
-05/05/2025,12:48:00,Activity,Cognitive activities,Taki,Moderate,30,
+05/05/2025,10:00:00,Activity,Home activities,Gardening,Low,30.0,
+05/05/2025,12:48:00,Activity,Cognitive activities,Taki,Moderate,30.0,
 05/05/2025,13:00:00,Nutrition,Lentils and rice,,,,"Proteins: 11g
 Fats: 18g
 Carbohydrates: 40g
@@ -124,8 +124,8 @@ Dietary Fiber: 9g"
 05/05/2025,14:22:00,My Feelings,Parkinson's State,,3,,
 05/05/2025,14:30:00,My Feelings,Physical Difficulty,,5,,
 05/05/2025,14:42:00,My Feelings,My Mood,,5,,
-05/05/2025,16:25:00,Activity,Cognitive activities,Taki,Moderate,15,
-05/05/2025,18:41:00,Activity,Home activities,Gardening,Low,15,
+05/05/2025,16:25:00,Activity,Cognitive activities,Taki,Moderate,15.0,
+05/05/2025,18:41:00,Activity,Home activities,Gardening,Low,15.0,
 05/05/2025,19:13:00,Nutrition,Grilled hamburger,,,,"Proteins: 10g
 Fats: 18g
 Carbohydrates: 44g
@@ -142,8 +142,8 @@ Dietary Fiber: 9g"
 06/05/2025,09:14:00,My Feelings,Physical Difficulty,,2,,
 06/05/2025,09:22:00,My Feelings,My Mood,,4,,
 06/05/2025,09:22:00,My Feelings,Parkinson's State,,3,,
-06/05/2025,10:59:00,Activity,Sports activities,Group workout,Moderate,15,
-06/05/2025,12:09:00,Activity,Cognitive activities,Taki,Low,45,
+06/05/2025,10:59:00,Activity,Sports activities,Group workout,Moderate,15.0,
+06/05/2025,12:09:00,Activity,Cognitive activities,Taki,Low,45.0,
 06/05/2025,13:25:00,Nutrition,Coffee and cornflakes,,,,"Proteins: 24g
 Fats: 6g
 Carbohydrates: 53g
@@ -151,8 +151,8 @@ Dietary Fiber: 2g"
 06/05/2025,14:03:00,My Feelings,Parkinson's State,,1,,
 06/05/2025,14:09:00,My Feelings,My Mood,,2,,
 06/05/2025,14:28:00,My Feelings,Physical Difficulty,,4,,
-06/05/2025,16:29:00,Activity,Home activities,Gardening,High,45,
-06/05/2025,18:00:00,Activity,Sports activities,Group workout,High,15,
+06/05/2025,16:29:00,Activity,Home activities,Gardening,High,45.0,
+06/05/2025,18:00:00,Activity,Sports activities,Group workout,High,15.0,
 06/05/2025,19:11:00,Nutrition,Vanilla soy yogurt,,,,"Proteins: 16g
 Fats: 3g
 Carbohydrates: 40g
@@ -169,8 +169,8 @@ Dietary Fiber: 2g"
 07/05/2025,09:06:00,My Feelings,Parkinson's State,,1,,
 07/05/2025,09:11:00,My Feelings,My Mood,,1,,
 07/05/2025,09:36:00,My Feelings,Physical Difficulty,,4,,
-07/05/2025,10:40:00,Activity,Home activities,Gardening,Low,15,
-07/05/2025,12:15:00,Activity,Home activities,Gardening,High,45,
+07/05/2025,10:40:00,Activity,Home activities,Gardening,Low,15.0,
+07/05/2025,12:15:00,Activity,Home activities,Gardening,High,45.0,
 07/05/2025,13:11:00,Nutrition,Coffee and cornflakes,,,,"Proteins: 10g
 Fats: 7g
 Carbohydrates: 18g
@@ -178,8 +178,8 @@ Dietary Fiber: 6g"
 07/05/2025,14:00:00,My Feelings,Parkinson's State,,1,,
 07/05/2025,14:03:00,My Feelings,My Mood,,2,,
 07/05/2025,14:11:00,My Feelings,Physical Difficulty,,3,,
-07/05/2025,16:02:00,Activity,Cognitive activities,Taki,Low,30,
-07/05/2025,18:03:00,Activity,Home activities,Gardening,Moderate,45,
+07/05/2025,16:02:00,Activity,Cognitive activities,Taki,Low,30.0,
+07/05/2025,18:03:00,Activity,Home activities,Gardening,Moderate,45.0,
 07/05/2025,19:25:00,Nutrition,Ground beef in pita,,,,"Proteins: 14g
 Fats: 7g
 Carbohydrates: 41g
@@ -196,8 +196,8 @@ Dietary Fiber: 7g"
 08/05/2025,09:18:00,My Feelings,My Mood,,2,,
 08/05/2025,09:21:00,My Feelings,Parkinson's State,,1,,
 08/05/2025,09:34:00,My Feelings,Physical Difficulty,,2,,
-08/05/2025,10:34:00,Activity,Home activities,Gardening,Low,15,
-08/05/2025,12:38:00,Activity,Sports activities,Group workout,High,15,
+08/05/2025,10:34:00,Activity,Home activities,Gardening,Low,15.0,
+08/05/2025,12:38:00,Activity,Sports activities,Group workout,High,15.0,
 08/05/2025,13:07:00,Nutrition,Soy yogurt with dates,,,,"Proteins: 24g
 Fats: 11g
 Carbohydrates: 56g
@@ -205,8 +205,8 @@ Dietary Fiber: 2g"
 08/05/2025,14:18:00,My Feelings,Parkinson's State,,4,,
 08/05/2025,14:20:00,My Feelings,My Mood,,4,,
 08/05/2025,14:25:00,My Feelings,Physical Difficulty,,1,,
-08/05/2025,16:06:00,Activity,Cognitive activities,Taki,Low,45,
-08/05/2025,18:59:00,Activity,Sports activities,Group workout,High,45,
+08/05/2025,16:06:00,Activity,Cognitive activities,Taki,Low,45.0,
+08/05/2025,18:59:00,Activity,Sports activities,Group workout,High,45.0,
 08/05/2025,19:27:00,Nutrition,Ground beef in pita,,,,"Proteins: 17g
 Fats: 5g
 Carbohydrates: 58g
@@ -223,8 +223,8 @@ Dietary Fiber: 5g"
 09/05/2025,09:05:00,My Feelings,Physical Difficulty,,5,,
 09/05/2025,09:24:00,My Feelings,My Mood,,1,,
 09/05/2025,09:39:00,My Feelings,Parkinson's State,,5,,
-09/05/2025,10:13:00,Activity,Home activities,Gardening,Low,45,
-09/05/2025,12:35:00,Activity,Sports activities,Group workout,Low,45,
+09/05/2025,10:13:00,Activity,Home activities,Gardening,Low,45.0,
+09/05/2025,12:35:00,Activity,Sports activities,Group workout,Low,45.0,
 09/05/2025,13:22:00,Nutrition,Apple and coffee,,,,"Proteins: 26g
 Fats: 8g
 Carbohydrates: 58g
@@ -232,8 +232,8 @@ Dietary Fiber: 7g"
 09/05/2025,14:20:00,My Feelings,Parkinson's State,,5,,
 09/05/2025,14:24:00,My Feelings,My Mood,,1,,
 09/05/2025,14:29:00,My Feelings,Physical Difficulty,,5,,
-09/05/2025,16:37:00,Activity,Cognitive activities,Taki,Low,45,
-09/05/2025,18:48:00,Activity,Sports activities,Group workout,High,30,
+09/05/2025,16:37:00,Activity,Cognitive activities,Taki,Low,45.0,
+09/05/2025,18:48:00,Activity,Sports activities,Group workout,High,30.0,
 09/05/2025,19:00:00,Nutrition,Snacks of legumes and fruit,,,,"Proteins: 29g
 Fats: 3g
 Carbohydrates: 26g
@@ -250,8 +250,8 @@ Dietary Fiber: 5g"
 10/05/2025,09:00:00,My Feelings,My Mood,,2,,
 10/05/2025,09:10:00,My Feelings,Physical Difficulty,,5,,
 10/05/2025,09:31:00,My Feelings,Parkinson's State,,5,,
-10/05/2025,10:00:00,Activity,Cognitive activities,Taki,Low,30,
-10/05/2025,12:52:00,Activity,Home activities,Gardening,High,30,
+10/05/2025,10:00:00,Activity,Cognitive activities,Taki,Low,30.0,
+10/05/2025,12:52:00,Activity,Home activities,Gardening,High,30.0,
 10/05/2025,13:00:00,Nutrition,Mashed sweet potato,,,,"Proteins: 20g
 Fats: 9g
 Carbohydrates: 24g
@@ -259,8 +259,8 @@ Dietary Fiber: 4g"
 10/05/2025,14:08:00,My Feelings,My Mood,,5,,
 10/05/2025,14:33:00,My Feelings,Physical Difficulty,,5,,
 10/05/2025,14:35:00,My Feelings,Parkinson's State,,5,,
-10/05/2025,16:26:00,Activity,Home activities,Gardening,Low,30,
-10/05/2025,18:30:00,Activity,Sports activities,Group workout,High,15,
+10/05/2025,16:26:00,Activity,Home activities,Gardening,Low,30.0,
+10/05/2025,18:30:00,Activity,Sports activities,Group workout,High,15.0,
 10/05/2025,19:22:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 30g
 Fats: 8g
 Carbohydrates: 52g
@@ -277,8 +277,8 @@ Dietary Fiber: 7g"
 11/05/2025,09:08:00,My Feelings,Parkinson's State,,4,,
 11/05/2025,09:09:00,My Feelings,Physical Difficulty,,2,,
 11/05/2025,09:20:00,My Feelings,My Mood,,3,,
-11/05/2025,10:31:00,Activity,Home activities,Gardening,High,45,
-11/05/2025,12:34:00,Activity,Sports activities,Group workout,Low,15,
+11/05/2025,10:31:00,Activity,Home activities,Gardening,High,45.0,
+11/05/2025,12:34:00,Activity,Sports activities,Group workout,Low,15.0,
 11/05/2025,13:15:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 13g
 Fats: 20g
 Carbohydrates: 60g
@@ -286,8 +286,8 @@ Dietary Fiber: 7g"
 11/05/2025,14:14:00,My Feelings,My Mood,,4,,
 11/05/2025,14:17:00,My Feelings,Parkinson's State,,4,,
 11/05/2025,14:24:00,My Feelings,Physical Difficulty,,4,,
-11/05/2025,16:24:00,Activity,Home activities,Gardening,Low,45,
-11/05/2025,18:00:00,Activity,Sports activities,Group workout,Moderate,15,
+11/05/2025,16:24:00,Activity,Home activities,Gardening,Low,45.0,
+11/05/2025,18:00:00,Activity,Sports activities,Group workout,Moderate,15.0,
 11/05/2025,19:09:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 10g
 Fats: 16g
 Carbohydrates: 13g
@@ -304,8 +304,8 @@ Dietary Fiber: 10g"
 12/05/2025,09:04:00,My Feelings,Physical Difficulty,,5,,
 12/05/2025,09:21:00,My Feelings,My Mood,,5,,
 12/05/2025,09:31:00,My Feelings,Parkinson's State,,2,,
-12/05/2025,10:27:00,Activity,Home activities,Gardening,Low,30,
-12/05/2025,12:37:00,Activity,Sports activities,Group workout,High,15,
+12/05/2025,10:27:00,Activity,Home activities,Gardening,Low,30.0,
+12/05/2025,12:37:00,Activity,Sports activities,Group workout,High,15.0,
 12/05/2025,13:00:00,Nutrition,Vanilla soy yogurt,,,,"Proteins: 28g
 Fats: 20g
 Carbohydrates: 36g
@@ -313,8 +313,8 @@ Dietary Fiber: 6g"
 12/05/2025,14:06:00,My Feelings,My Mood,,5,,
 12/05/2025,14:26:00,My Feelings,Parkinson's State,,3,,
 12/05/2025,14:29:00,My Feelings,Physical Difficulty,,1,,
-12/05/2025,16:19:00,Activity,Home activities,Gardening,Low,30,
-12/05/2025,18:45:00,Activity,Sports activities,Group workout,High,30,
+12/05/2025,16:19:00,Activity,Home activities,Gardening,Low,30.0,
+12/05/2025,18:45:00,Activity,Sports activities,Group workout,High,30.0,
 12/05/2025,19:02:00,Nutrition,Mashed sweet potato,,,,"Proteins: 9g
 Fats: 17g
 Carbohydrates: 37g
@@ -331,8 +331,8 @@ Dietary Fiber: 7g"
 13/05/2025,09:09:00,My Feelings,Physical Difficulty,,3,,
 13/05/2025,09:15:00,My Feelings,My Mood,,3,,
 13/05/2025,09:19:00,My Feelings,Parkinson's State,,3,,
-13/05/2025,10:10:00,Activity,Home activities,Gardening,Moderate,30,
-13/05/2025,12:26:00,Activity,Sports activities,Group workout,High,45,
+13/05/2025,10:10:00,Activity,Home activities,Gardening,Moderate,30.0,
+13/05/2025,12:26:00,Activity,Sports activities,Group workout,High,45.0,
 13/05/2025,13:01:00,Nutrition,Tofu stew with vegetables,,,,"Proteins: 16g
 Fats: 16g
 Carbohydrates: 43g
@@ -340,8 +340,8 @@ Dietary Fiber: 7g"
 13/05/2025,14:00:00,My Feelings,Parkinson's State,,1,,
 13/05/2025,14:00:00,My Feelings,Physical Difficulty,,2,,
 13/05/2025,14:10:00,My Feelings,My Mood,,5,,
-13/05/2025,16:35:00,Activity,Sports activities,Group workout,High,45,
-13/05/2025,18:34:00,Activity,Home activities,Gardening,High,30,
+13/05/2025,16:35:00,Activity,Sports activities,Group workout,High,45.0,
+13/05/2025,18:34:00,Activity,Home activities,Gardening,High,30.0,
 13/05/2025,19:20:00,Nutrition,Cornflakes with milk and soy,,,,"Proteins: 9g
 Fats: 17g
 Carbohydrates: 30g
@@ -358,8 +358,8 @@ Dietary Fiber: 6g"
 14/05/2025,09:20:00,My Feelings,Physical Difficulty,,4,,
 14/05/2025,09:24:00,My Feelings,My Mood,,3,,
 14/05/2025,09:26:00,My Feelings,Parkinson's State,,5,,
-14/05/2025,10:32:00,Activity,Home activities,Gardening,High,15,
-14/05/2025,12:34:00,Activity,Home activities,Gardening,Moderate,30,
+14/05/2025,10:32:00,Activity,Home activities,Gardening,High,15.0,
+14/05/2025,12:34:00,Activity,Home activities,Gardening,Moderate,30.0,
 14/05/2025,13:27:00,Nutrition,Omelette with hard-boiled egg,,,,"Proteins: 24g
 Fats: 14g
 Carbohydrates: 14g
@@ -367,8 +367,8 @@ Dietary Fiber: 6g"
 14/05/2025,14:12:00,My Feelings,My Mood,,5,,
 14/05/2025,14:38:00,My Feelings,Parkinson's State,,4,,
 14/05/2025,14:42:00,My Feelings,Physical Difficulty,,2,,
-14/05/2025,16:46:00,Activity,Cognitive activities,Taki,High,45,
-14/05/2025,18:27:00,Activity,Sports activities,Group workout,High,15,
+14/05/2025,16:46:00,Activity,Cognitive activities,Taki,High,45.0,
+14/05/2025,18:27:00,Activity,Sports activities,Group workout,High,15.0,
 14/05/2025,19:17:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 14g
 Fats: 7g
 Carbohydrates: 24g
@@ -385,8 +385,8 @@ Dietary Fiber: 3g"
 15/05/2025,09:00:00,My Feelings,My Mood,,5,,
 15/05/2025,09:21:00,My Feelings,Physical Difficulty,,3,,
 15/05/2025,09:26:00,My Feelings,Parkinson's State,,2,,
-15/05/2025,10:32:00,Activity,Sports activities,Group workout,High,45,
-15/05/2025,12:15:00,Activity,Sports activities,Group workout,High,15,
+15/05/2025,10:32:00,Activity,Sports activities,Group workout,High,45.0,
+15/05/2025,12:15:00,Activity,Sports activities,Group workout,High,15.0,
 15/05/2025,13:00:00,Nutrition,Soy yogurt with dates,,,,"Proteins: 8g
 Fats: 5g
 Carbohydrates: 30g
@@ -394,8 +394,8 @@ Dietary Fiber: 6g"
 15/05/2025,14:16:00,My Feelings,Physical Difficulty,,5,,
 15/05/2025,14:19:00,My Feelings,My Mood,,2,,
 15/05/2025,14:22:00,My Feelings,Parkinson's State,,2,,
-15/05/2025,16:28:00,Activity,Sports activities,Group workout,Moderate,30,
-15/05/2025,18:28:00,Activity,Home activities,Gardening,Moderate,45,
+15/05/2025,16:28:00,Activity,Sports activities,Group workout,Moderate,30.0,
+15/05/2025,18:28:00,Activity,Home activities,Gardening,Moderate,45.0,
 15/05/2025,19:08:00,Nutrition,Apricot soy yogurt,,,,"Proteins: 24g
 Fats: 20g
 Carbohydrates: 48g
@@ -412,8 +412,8 @@ Dietary Fiber: 2g"
 16/05/2025,09:12:00,My Feelings,Physical Difficulty,,5,,
 16/05/2025,09:16:00,My Feelings,My Mood,,3,,
 16/05/2025,09:25:00,My Feelings,Parkinson's State,,5,,
-16/05/2025,10:15:00,Activity,Home activities,Gardening,Low,30,
-16/05/2025,12:10:00,Activity,Sports activities,Group workout,Low,45,
+16/05/2025,10:15:00,Activity,Home activities,Gardening,Low,30.0,
+16/05/2025,12:10:00,Activity,Sports activities,Group workout,Low,45.0,
 16/05/2025,13:07:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 22g
 Fats: 14g
 Carbohydrates: 34g
@@ -421,8 +421,8 @@ Dietary Fiber: 2g"
 16/05/2025,14:00:00,My Feelings,My Mood,,3,,
 16/05/2025,14:02:00,My Feelings,Parkinson's State,,5,,
 16/05/2025,14:07:00,My Feelings,Physical Difficulty,,5,,
-16/05/2025,16:49:00,Activity,Cognitive activities,Taki,High,45,
-16/05/2025,18:17:00,Activity,Cognitive activities,Taki,Moderate,45,
+16/05/2025,16:49:00,Activity,Cognitive activities,Taki,High,45.0,
+16/05/2025,18:17:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 16/05/2025,19:19:00,Nutrition,Grilled hamburger,,,,"Proteins: 21g
 Fats: 20g
 Carbohydrates: 10g
@@ -439,8 +439,8 @@ Dietary Fiber: 6g"
 17/05/2025,09:08:00,My Feelings,My Mood,,4,,
 17/05/2025,09:19:00,My Feelings,Physical Difficulty,,3,,
 17/05/2025,09:21:00,My Feelings,Parkinson's State,,2,,
-17/05/2025,10:24:00,Activity,Cognitive activities,Taki,Low,45,
-17/05/2025,12:39:00,Activity,Home activities,Gardening,Low,30,
+17/05/2025,10:24:00,Activity,Cognitive activities,Taki,Low,45.0,
+17/05/2025,12:39:00,Activity,Home activities,Gardening,Low,30.0,
 17/05/2025,13:10:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 17g
 Fats: 6g
 Carbohydrates: 25g
@@ -448,8 +448,8 @@ Dietary Fiber: 7g"
 17/05/2025,14:12:00,My Feelings,My Mood,,3,,
 17/05/2025,14:12:00,My Feelings,Physical Difficulty,,3,,
 17/05/2025,14:27:00,My Feelings,Parkinson's State,,5,,
-17/05/2025,16:52:00,Activity,Cognitive activities,Taki,Moderate,30,
-17/05/2025,18:21:00,Activity,Home activities,Gardening,High,45,
+17/05/2025,16:52:00,Activity,Cognitive activities,Taki,Moderate,30.0,
+17/05/2025,18:21:00,Activity,Home activities,Gardening,High,45.0,
 17/05/2025,19:00:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 19g
 Fats: 13g
 Carbohydrates: 58g
@@ -466,8 +466,8 @@ Dietary Fiber: 6g"
 18/05/2025,09:00:00,My Feelings,My Mood,,2,,
 18/05/2025,09:07:00,My Feelings,Parkinson's State,,5,,
 18/05/2025,09:43:00,My Feelings,Physical Difficulty,,5,,
-18/05/2025,10:27:00,Activity,Home activities,Gardening,Moderate,45,
-18/05/2025,12:46:00,Activity,Home activities,Gardening,High,15,
+18/05/2025,10:27:00,Activity,Home activities,Gardening,Moderate,45.0,
+18/05/2025,12:46:00,Activity,Home activities,Gardening,High,15.0,
 18/05/2025,13:22:00,Nutrition,Snacks of legumes and fruit,,,,"Proteins: 25g
 Fats: 9g
 Carbohydrates: 17g
@@ -475,8 +475,8 @@ Dietary Fiber: 5g"
 18/05/2025,14:05:00,My Feelings,Parkinson's State,,5,,
 18/05/2025,14:12:00,My Feelings,My Mood,,5,,
 18/05/2025,14:30:00,My Feelings,Physical Difficulty,,5,,
-18/05/2025,16:45:00,Activity,Cognitive activities,Taki,Low,30,
-18/05/2025,18:28:00,Activity,Cognitive activities,Taki,High,30,
+18/05/2025,16:45:00,Activity,Cognitive activities,Taki,Low,30.0,
+18/05/2025,18:28:00,Activity,Cognitive activities,Taki,High,30.0,
 18/05/2025,19:00:00,Nutrition,Toast with hard-boiled egg,,,,"Proteins: 30g
 Fats: 12g
 Carbohydrates: 57g
@@ -493,8 +493,8 @@ Dietary Fiber: 9g"
 19/05/2025,09:09:00,My Feelings,My Mood,,4,,
 19/05/2025,09:11:00,My Feelings,Physical Difficulty,,3,,
 19/05/2025,09:25:00,My Feelings,Parkinson's State,,1,,
-19/05/2025,10:24:00,Activity,Home activities,Gardening,Low,45,
-19/05/2025,12:01:00,Activity,Cognitive activities,Taki,Moderate,45,
+19/05/2025,10:24:00,Activity,Home activities,Gardening,Low,45.0,
+19/05/2025,12:01:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 19/05/2025,13:07:00,Nutrition,Mashed sweet potato,,,,"Proteins: 5g
 Fats: 12g
 Carbohydrates: 59g
@@ -502,8 +502,8 @@ Dietary Fiber: 5g"
 19/05/2025,14:12:00,My Feelings,Physical Difficulty,,2,,
 19/05/2025,14:13:00,My Feelings,My Mood,,2,,
 19/05/2025,14:15:00,My Feelings,Parkinson's State,,4,,
-19/05/2025,16:20:00,Activity,Cognitive activities,Taki,Moderate,45,
-19/05/2025,18:26:00,Activity,Cognitive activities,Taki,Low,30,
+19/05/2025,16:20:00,Activity,Cognitive activities,Taki,Moderate,45.0,
+19/05/2025,18:26:00,Activity,Cognitive activities,Taki,Low,30.0,
 19/05/2025,19:02:00,Nutrition,Apricot soy yogurt,,,,"Proteins: 13g
 Fats: 12g
 Carbohydrates: 13g
@@ -520,8 +520,8 @@ Dietary Fiber: 3g"
 20/05/2025,09:00:00,My Feelings,My Mood,,5,,
 20/05/2025,09:00:00,My Feelings,Parkinson's State,,4,,
 20/05/2025,09:17:00,My Feelings,Physical Difficulty,,2,,
-20/05/2025,10:27:00,Activity,Home activities,Gardening,Moderate,45,
-20/05/2025,12:52:00,Activity,Cognitive activities,Taki,Moderate,45,
+20/05/2025,10:27:00,Activity,Home activities,Gardening,Moderate,45.0,
+20/05/2025,12:52:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 20/05/2025,13:20:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 30g
 Fats: 7g
 Carbohydrates: 10g
@@ -529,8 +529,8 @@ Dietary Fiber: 3g"
 20/05/2025,14:00:00,My Feelings,My Mood,,5,,
 20/05/2025,14:07:00,My Feelings,Physical Difficulty,,1,,
 20/05/2025,14:24:00,My Feelings,Parkinson's State,,5,,
-20/05/2025,16:47:00,Activity,Home activities,Gardening,Low,30,
-20/05/2025,18:33:00,Activity,Home activities,Gardening,High,45,
+20/05/2025,16:47:00,Activity,Home activities,Gardening,Low,30.0,
+20/05/2025,18:33:00,Activity,Home activities,Gardening,High,45.0,
 20/05/2025,19:22:00,Nutrition,Vanilla soy yogurt,,,,"Proteins: 21g
 Fats: 6g
 Carbohydrates: 44g
@@ -547,8 +547,8 @@ Dietary Fiber: 6g"
 21/05/2025,09:24:00,My Feelings,Physical Difficulty,,3,,
 21/05/2025,09:31:00,My Feelings,Parkinson's State,,3,,
 21/05/2025,09:32:00,My Feelings,My Mood,,5,,
-21/05/2025,10:38:00,Activity,Cognitive activities,Taki,Low,15,
-21/05/2025,12:36:00,Activity,Sports activities,Group workout,High,15,
+21/05/2025,10:38:00,Activity,Cognitive activities,Taki,Low,15.0,
+21/05/2025,12:36:00,Activity,Sports activities,Group workout,High,15.0,
 21/05/2025,13:03:00,Nutrition,Apricot soy yogurt,,,,"Proteins: 15g
 Fats: 12g
 Carbohydrates: 27g
@@ -556,8 +556,8 @@ Dietary Fiber: 6g"
 21/05/2025,14:05:00,My Feelings,My Mood,,5,,
 21/05/2025,14:12:00,My Feelings,Parkinson's State,,5,,
 21/05/2025,14:37:00,My Feelings,Physical Difficulty,,4,,
-21/05/2025,16:52:00,Activity,Cognitive activities,Taki,Low,45,
-21/05/2025,18:12:00,Activity,Cognitive activities,Taki,Moderate,30,
+21/05/2025,16:52:00,Activity,Cognitive activities,Taki,Low,45.0,
+21/05/2025,18:12:00,Activity,Cognitive activities,Taki,Moderate,30.0,
 21/05/2025,19:10:00,Nutrition,Lentils and rice,,,,"Proteins: 17g
 Fats: 4g
 Carbohydrates: 37g
@@ -574,8 +574,8 @@ Dietary Fiber: 9g"
 22/05/2025,09:13:00,My Feelings,My Mood,,3,,
 22/05/2025,09:21:00,My Feelings,Parkinson's State,,5,,
 22/05/2025,09:30:00,My Feelings,Physical Difficulty,,5,,
-22/05/2025,10:20:00,Activity,Home activities,Gardening,High,15,
-22/05/2025,12:22:00,Activity,Home activities,Gardening,High,15,
+22/05/2025,10:20:00,Activity,Home activities,Gardening,High,15.0,
+22/05/2025,12:22:00,Activity,Home activities,Gardening,High,15.0,
 22/05/2025,13:03:00,Nutrition,Lentils and rice,,,,"Proteins: 21g
 Fats: 9g
 Carbohydrates: 27g
@@ -583,8 +583,8 @@ Dietary Fiber: 6g"
 22/05/2025,14:00:00,My Feelings,My Mood,,3,,
 22/05/2025,14:10:00,My Feelings,Parkinson's State,,2,,
 22/05/2025,14:23:00,My Feelings,Physical Difficulty,,5,,
-22/05/2025,16:34:00,Activity,Home activities,Gardening,Moderate,15,
-22/05/2025,18:38:00,Activity,Sports activities,Group workout,High,30,
+22/05/2025,16:34:00,Activity,Home activities,Gardening,Moderate,15.0,
+22/05/2025,18:38:00,Activity,Sports activities,Group workout,High,30.0,
 22/05/2025,19:03:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 13g
 Fats: 16g
 Carbohydrates: 13g
@@ -601,8 +601,8 @@ Dietary Fiber: 8g"
 23/05/2025,09:19:00,My Feelings,My Mood,,2,,
 23/05/2025,09:20:00,My Feelings,Parkinson's State,,3,,
 23/05/2025,09:29:00,My Feelings,Physical Difficulty,,3,,
-23/05/2025,10:30:00,Activity,Cognitive activities,Taki,Moderate,15,
-23/05/2025,12:05:00,Activity,Sports activities,Group workout,High,30,
+23/05/2025,10:30:00,Activity,Cognitive activities,Taki,Moderate,15.0,
+23/05/2025,12:05:00,Activity,Sports activities,Group workout,High,30.0,
 23/05/2025,13:00:00,Nutrition,Snacks of legumes and fruit,,,,"Proteins: 17g
 Fats: 13g
 Carbohydrates: 55g
@@ -610,8 +610,8 @@ Dietary Fiber: 10g"
 23/05/2025,14:13:00,My Feelings,Parkinson's State,,4,,
 23/05/2025,14:17:00,My Feelings,My Mood,,4,,
 23/05/2025,14:31:00,My Feelings,Physical Difficulty,,2,,
-23/05/2025,16:28:00,Activity,Home activities,Gardening,Moderate,15,
-23/05/2025,18:25:00,Activity,Home activities,Gardening,Low,45,
+23/05/2025,16:28:00,Activity,Home activities,Gardening,Moderate,15.0,
+23/05/2025,18:25:00,Activity,Home activities,Gardening,Low,45.0,
 23/05/2025,19:16:00,Nutrition,Ground beef in pita,,,,"Proteins: 24g
 Fats: 10g
 Carbohydrates: 39g
@@ -628,8 +628,8 @@ Dietary Fiber: 8g"
 24/05/2025,09:00:00,My Feelings,Parkinson's State,,5,,
 24/05/2025,09:00:00,My Feelings,Physical Difficulty,,5,,
 24/05/2025,09:22:00,My Feelings,My Mood,,3,,
-24/05/2025,10:30:00,Activity,Cognitive activities,Taki,Low,15,
-24/05/2025,12:48:00,Activity,Cognitive activities,Taki,Moderate,30,
+24/05/2025,10:30:00,Activity,Cognitive activities,Taki,Low,15.0,
+24/05/2025,12:48:00,Activity,Cognitive activities,Taki,Moderate,30.0,
 24/05/2025,13:17:00,Nutrition,Half pita with lots of spread,,,,"Proteins: 17g
 Fats: 4g
 Carbohydrates: 58g
@@ -637,8 +637,8 @@ Dietary Fiber: 10g"
 24/05/2025,14:09:00,My Feelings,Physical Difficulty,,5,,
 24/05/2025,14:11:00,My Feelings,My Mood,,4,,
 24/05/2025,14:38:00,My Feelings,Parkinson's State,,5,,
-24/05/2025,16:21:00,Activity,Sports activities,Group workout,Low,15,
-24/05/2025,18:20:00,Activity,Home activities,Gardening,Moderate,15,
+24/05/2025,16:21:00,Activity,Sports activities,Group workout,Low,15.0,
+24/05/2025,18:20:00,Activity,Home activities,Gardening,Moderate,15.0,
 24/05/2025,19:09:00,Nutrition,Apricot soy yogurt,,,,"Proteins: 11g
 Fats: 14g
 Carbohydrates: 41g
@@ -655,8 +655,8 @@ Dietary Fiber: 6g"
 25/05/2025,09:00:00,My Feelings,My Mood,,4,,
 25/05/2025,09:19:00,My Feelings,Physical Difficulty,,4,,
 25/05/2025,09:27:00,My Feelings,Parkinson's State,,1,,
-25/05/2025,10:38:00,Activity,Home activities,Gardening,Low,30,
-25/05/2025,12:26:00,Activity,Cognitive activities,Taki,High,45,
+25/05/2025,10:38:00,Activity,Home activities,Gardening,Low,30.0,
+25/05/2025,12:26:00,Activity,Cognitive activities,Taki,High,45.0,
 25/05/2025,13:19:00,Nutrition,Coffee and cornflakes,,,,"Proteins: 12g
 Fats: 11g
 Carbohydrates: 44g
@@ -664,8 +664,8 @@ Dietary Fiber: 9g"
 25/05/2025,14:07:00,My Feelings,Physical Difficulty,,2,,
 25/05/2025,14:11:00,My Feelings,My Mood,,4,,
 25/05/2025,14:17:00,My Feelings,Parkinson's State,,1,,
-25/05/2025,16:33:00,Activity,Home activities,Gardening,Moderate,45,
-25/05/2025,18:33:00,Activity,Cognitive activities,Taki,Moderate,45,
+25/05/2025,16:33:00,Activity,Home activities,Gardening,Moderate,45.0,
+25/05/2025,18:33:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 25/05/2025,19:24:00,Nutrition,Tofu stew with vegetables,,,,"Proteins: 28g
 Fats: 6g
 Carbohydrates: 42g
@@ -682,8 +682,8 @@ Dietary Fiber: 10g"
 26/05/2025,09:08:00,My Feelings,Physical Difficulty,,5,,
 26/05/2025,09:09:00,My Feelings,Parkinson's State,,5,,
 26/05/2025,09:38:00,My Feelings,My Mood,,3,,
-26/05/2025,10:47:00,Activity,Home activities,Gardening,High,30,
-26/05/2025,12:28:00,Activity,Home activities,Gardening,High,15,
+26/05/2025,10:47:00,Activity,Home activities,Gardening,High,30.0,
+26/05/2025,12:28:00,Activity,Home activities,Gardening,High,15.0,
 26/05/2025,13:24:00,Nutrition,Red lentils with mushrooms,,,,"Proteins: 22g
 Fats: 11g
 Carbohydrates: 30g
@@ -691,8 +691,8 @@ Dietary Fiber: 6g"
 26/05/2025,14:08:00,My Feelings,My Mood,,2,,
 26/05/2025,14:28:00,My Feelings,Parkinson's State,,4,,
 26/05/2025,14:39:00,My Feelings,Physical Difficulty,,3,,
-26/05/2025,16:19:00,Activity,Cognitive activities,Taki,Moderate,30,
-26/05/2025,18:26:00,Activity,Cognitive activities,Taki,Moderate,30,
+26/05/2025,16:19:00,Activity,Cognitive activities,Taki,Moderate,30.0,
+26/05/2025,18:26:00,Activity,Cognitive activities,Taki,Moderate,30.0,
 26/05/2025,19:05:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 24g
 Fats: 17g
 Carbohydrates: 28g
@@ -709,8 +709,8 @@ Dietary Fiber: 5g"
 27/05/2025,09:09:00,My Feelings,My Mood,,3,,
 27/05/2025,09:21:00,My Feelings,Parkinson's State,,3,,
 27/05/2025,09:33:00,My Feelings,Physical Difficulty,,2,,
-27/05/2025,10:28:00,Activity,Home activities,Gardening,Moderate,15,
-27/05/2025,12:27:00,Activity,Sports activities,Group workout,Low,45,
+27/05/2025,10:28:00,Activity,Home activities,Gardening,Moderate,15.0,
+27/05/2025,12:27:00,Activity,Sports activities,Group workout,Low,45.0,
 27/05/2025,13:22:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 8g
 Fats: 13g
 Carbohydrates: 41g
@@ -718,8 +718,8 @@ Dietary Fiber: 3g"
 27/05/2025,14:00:00,My Feelings,Parkinson's State,,1,,
 27/05/2025,14:11:00,My Feelings,Physical Difficulty,,1,,
 27/05/2025,14:28:00,My Feelings,My Mood,,1,,
-27/05/2025,16:15:00,Activity,Sports activities,Group workout,Low,45,
-27/05/2025,18:35:00,Activity,Home activities,Gardening,Low,30,
+27/05/2025,16:15:00,Activity,Sports activities,Group workout,Low,45.0,
+27/05/2025,18:35:00,Activity,Home activities,Gardening,Low,30.0,
 27/05/2025,19:28:00,Nutrition,Half pita with sweet potato,,,,"Proteins: 14g
 Fats: 15g
 Carbohydrates: 31g
@@ -736,8 +736,8 @@ Dietary Fiber: 8g"
 28/05/2025,09:14:00,My Feelings,Physical Difficulty,,5,,
 28/05/2025,09:16:00,My Feelings,My Mood,,5,,
 28/05/2025,09:34:00,My Feelings,Parkinson's State,,5,,
-28/05/2025,10:20:00,Activity,Sports activities,Group workout,Moderate,45,
-28/05/2025,12:11:00,Activity,Cognitive activities,Taki,Moderate,45,
+28/05/2025,10:20:00,Activity,Sports activities,Group workout,Moderate,45.0,
+28/05/2025,12:11:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 28/05/2025,13:11:00,Nutrition,Chickpeas and lentils,,,,"Proteins: 27g
 Fats: 18g
 Carbohydrates: 42g
@@ -745,8 +745,8 @@ Dietary Fiber: 6g"
 28/05/2025,14:06:00,My Feelings,Parkinson's State,,5,,
 28/05/2025,14:18:00,My Feelings,My Mood,,3,,
 28/05/2025,14:28:00,My Feelings,Physical Difficulty,,5,,
-28/05/2025,16:26:00,Activity,Home activities,Gardening,Low,15,
-28/05/2025,18:32:00,Activity,Cognitive activities,Taki,Moderate,45,
+28/05/2025,16:26:00,Activity,Home activities,Gardening,Low,15.0,
+28/05/2025,18:32:00,Activity,Cognitive activities,Taki,Moderate,45.0,
 28/05/2025,19:23:00,Nutrition,Flavored soy yogurt,,,,"Proteins: 21g
 Fats: 13g
 Carbohydrates: 21g
@@ -763,8 +763,8 @@ Dietary Fiber: 7g"
 29/05/2025,09:26:00,My Feelings,Parkinson's State,,4,,
 29/05/2025,09:34:00,My Feelings,My Mood,,5,,
 29/05/2025,09:38:00,My Feelings,Physical Difficulty,,3,,
-29/05/2025,10:01:00,Activity,Cognitive activities,Taki,High,47,
-29/05/2025,12:32:00,Activity,Home activities,Gardening,Low,76,
+29/05/2025,10:01:00,Activity,Cognitive activities,Taki,High,47.0,
+29/05/2025,12:32:00,Activity,Home activities,Gardening,Low,76.0,
 29/05/2025,13:00:00,Nutrition,Omelette with hard-boiled egg,,,,"Proteins: 24g
 Fats: 10g
 Carbohydrates: 55g
@@ -772,8 +772,8 @@ Dietary Fiber: 4g"
 29/05/2025,14:12:00,My Feelings,Parkinson's State,,5,,
 29/05/2025,14:13:00,My Feelings,Physical Difficulty,,2,,
 29/05/2025,14:29:00,My Feelings,My Mood,,4,,
-29/05/2025,16:17:00,Activity,Sports activities,Group workout,Moderate,56,
-29/05/2025,18:00:00,Activity,Cognitive activities,Taki,Moderate,42,
+29/05/2025,16:17:00,Activity,Sports activities,Group workout,Moderate,56.0,
+29/05/2025,18:00:00,Activity,Cognitive activities,Taki,Moderate,42.0,
 29/05/2025,19:20:00,Nutrition,Cornflakes with milk and soy,,,,"Proteins: 6g
 Fats: 18g
 Carbohydrates: 21g
@@ -790,8 +790,8 @@ Dietary Fiber: 10g"
 30/05/2025,08:56:00,My Feelings,My Mood,,1,,
 30/05/2025,09:05:00,My Feelings,Parkinson's State,,5,,
 30/05/2025,09:07:00,My Feelings,Physical Difficulty,,3,,
-30/05/2025,10:44:00,Activity,Home activities,Gardening,High,51,
-30/05/2025,11:42:00,Activity,Sports activities,Group workout,Low,41,
+30/05/2025,10:44:00,Activity,Home activities,Gardening,High,51.0,
+30/05/2025,11:42:00,Activity,Sports activities,Group workout,Low,41.0,
 30/05/2025,13:09:00,Nutrition,Cabbage and cooked carrots soup,,,,"Proteins: 8g
 Fats: 18g
 Carbohydrates: 60g
@@ -799,8 +799,8 @@ Dietary Fiber: 3g"
 30/05/2025,14:13:00,My Feelings,Physical Difficulty,,2,,
 30/05/2025,14:28:00,My Feelings,My Mood,,4,,
 30/05/2025,14:28:00,My Feelings,Parkinson's State,,2,,
-30/05/2025,16:03:00,Activity,Home activities,Gardening,Low,35,
-30/05/2025,18:45:00,Activity,Cognitive activities,Taki,Moderate,24,
+30/05/2025,16:03:00,Activity,Home activities,Gardening,Low,35.0,
+30/05/2025,18:45:00,Activity,Cognitive activities,Taki,Moderate,24.0,
 30/05/2025,19:29:00,Nutrition,Soy yogurt with berries,,,,"Proteins: 8g
 Fats: 14g
 Carbohydrates: 10g
@@ -1057,3 +1057,181 @@ Dietary Fiber: 3g"
 30/05/2025,23:51:00,Medicine,Jumex,,,,Number of pills: 0.75
 31/05/2025,22:40:00,Medicine,Azilect,,,,Number of pills: 0.5
 31/05/2025,22:40:00,Medicine,Levodopa 125 mg,,,,Number of pills: 0.25
+06/05/2025,20:51:00,Activity,Cognitive activities,Chess,,,
+06/05/2025,14:05:00,Activity,Cognitive activities,Chess,,,
+07/05/2025,14:21:00,Activity,Cognitive activities,Chess,,,
+07/05/2025,18:48:00,Activity,Cognitive activities,Chess,,,
+06/05/2025,14:50:00,Activity,Cognitive activities,Chess,,,
+05/05/2025,14:31:00,Activity,Cognitive activities,Chess,,,
+04/05/2025,20:36:00,Activity,Cognitive activities,Chess,,,
+03/05/2025,11:29:00,Activity,Cognitive activities,Chess,,,
+03/05/2025,16:33:00,Activity,Cognitive activities,Chess,,,
+03/05/2025,19:56:00,Activity,Cognitive activities,Chess,,,
+07/05/2025,13:46:00,Activity,Cognitive activities,Chess,,,
+06/05/2025,09:42:00,Activity,Cognitive activities,Chess,,,
+05/05/2025,10:34:00,Activity,Cognitive activities,Chess,,,
+05/05/2025,14:34:00,Activity,Cognitive activities,Chess,,,
+06/05/2025,20:53:00,Activity,Cognitive activities,Chess,,,
+05/05/2025,18:13:00,Activity,Cognitive activities,Chess,,,
+04/05/2025,17:27:00,Activity,Cognitive activities,Chess,,,
+08/05/2025,19:54:00,Activity,Cognitive activities,Solitaire,,,
+03/05/2025,15:04:00,Activity,Cognitive activities,Solitaire,,,
+07/05/2025,16:09:00,Activity,Cognitive activities,Solitaire,,,
+08/05/2025,16:54:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,09:28:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,13:29:00,Activity,Cognitive activities,Solitaire,,,
+07/05/2025,10:06:00,Activity,Cognitive activities,Solitaire,,,
+08/05/2025,22:14:00,Activity,Cognitive activities,Solitaire,,,
+07/05/2025,14:44:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,21:03:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,12:24:00,Activity,Cognitive activities,Solitaire,,,
+06/05/2025,21:41:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,18:35:00,Activity,Cognitive activities,Solitaire,,,
+04/05/2025,14:38:00,Activity,Cognitive activities,Solitaire,,,
+07/05/2025,23:47:00,Activity,Cognitive activities,Solitaire,,,
+06/05/2025,12:09:00,Activity,Cognitive activities,Solitaire,,,
+05/05/2025,09:07:00,Activity,Cognitive activities,Solitaire,,,
+07/05/2025,23:44:00,Activity,Home activities,Assembling garden chairs,,,
+04/05/2025,12:52:00,Activity,Home activities,Assembling garden chairs,,,
+05/05/2025,11:49:00,Activity,Home activities,Assembling garden chairs,,,
+07/05/2025,17:12:00,Activity,Home activities,Assembling garden chairs,,,
+04/05/2025,19:50:00,Activity,Home activities,Assembling garden chairs,,,
+08/05/2025,17:56:00,Activity,Home activities,Assembling garden chairs,,,
+03/05/2025,16:57:00,Activity,Home activities,Assembling garden chairs,,,
+04/05/2025,00:11:00,Activity,Home activities,Assembling garden chairs,,,
+05/05/2025,00:33:00,Activity,Home activities,Assembling garden chairs,,,
+05/05/2025,16:28:00,Activity,Home activities,Assembling garden chairs,,,
+05/05/2025,11:15:00,Activity,Home activities,Assembling garden chairs,,,
+03/05/2025,14:33:00,Activity,Home activities,Assembling garden chairs,,,
+03/05/2025,20:21:00,Activity,Home activities,Assembling garden chairs,,,
+08/05/2025,22:51:00,Activity,Home activities,Assembling garden chairs,,,
+03/05/2025,13:54:00,Activity,Home activities,Assembling garden chairs,,,
+05/05/2025,00:11:00,Activity,Home activities,Gardening,,,
+06/05/2025,18:55:00,Activity,Home activities,Gardening,,,
+03/05/2025,00:30:00,Activity,Home activities,Gardening,,,
+04/05/2025,23:38:00,Activity,Home activities,Gardening,,,
+03/05/2025,00:50:00,Activity,Home activities,Gardening,,,
+07/05/2025,16:53:00,Activity,Home activities,Gardening,,,
+08/05/2025,19:28:00,Activity,Home activities,Gardening,,,
+03/05/2025,23:00:00,Activity,Home activities,Gardening,,,
+05/05/2025,00:52:00,Activity,Home activities,Gardening,,,
+04/05/2025,17:48:00,Activity,Home activities,Gardening,,,
+05/05/2025,15:26:00,Activity,Home activities,Gardening,,,
+08/05/2025,19:29:00,Activity,Home activities,Gardening,,,
+08/05/2025,20:40:00,Activity,Home activities,Gardening,,,
+03/05/2025,21:37:00,Activity,Home activities,Gardening,,,
+05/05/2025,11:51:00,Activity,Home activities,Gardening,,,
+04/05/2025,00:25:00,Activity,Home activities,Gardening,,,
+07/05/2025,14:53:00,Activity,Home activities,Gardening,,,
+03/05/2025,11:41:00,Activity,Home activities,Gardening,,,
+06/05/2025,14:50:00,Activity,Home activities,Driving,,,
+06/05/2025,17:14:00,Activity,Home activities,Driving,,,
+03/05/2025,21:29:00,Activity,Home activities,Driving,,,
+08/05/2025,13:55:00,Activity,Home activities,Driving,,,
+07/05/2025,19:38:00,Activity,Home activities,Driving,,,
+08/05/2025,15:28:00,Activity,Home activities,Driving,,,
+03/05/2025,00:02:00,Activity,Home activities,Driving,,,
+06/05/2025,23:16:00,Activity,Home activities,Driving,,,
+05/05/2025,20:56:00,Activity,Home activities,Driving,,,
+06/05/2025,00:40:00,Activity,Home activities,Driving,,,
+07/05/2025,15:17:00,Activity,Home activities,Driving,,,
+03/05/2025,14:00:00,Activity,Home activities,Driving,,,
+04/05/2025,21:32:00,Activity,Home activities,Driving,,,
+03/05/2025,23:00:00,Activity,Home activities,Driving,,,
+05/05/2025,12:39:00,Activity,Home activities,Driving,,,
+04/05/2025,16:56:00,Activity,Home activities,Driving,,,
+04/05/2025,15:34:00,Activity,Home activities,Driving,,,
+08/05/2025,23:05:00,Activity,Home activities,Driving,,,
+04/05/2025,23:53:00,Activity,Home activities,Driving,,,
+08/05/2025,10:45:00,Activity,Home activities,Conference call,,,
+05/05/2025,13:43:00,Activity,Home activities,Conference call,,,
+04/05/2025,15:47:00,Activity,Home activities,Conference call,,,
+04/05/2025,10:33:00,Activity,Home activities,Conference call,,,
+05/05/2025,01:15:00,Activity,Home activities,Conference call,,,
+05/05/2025,11:23:00,Activity,Home activities,Conference call,,,
+08/05/2025,20:52:00,Activity,Home activities,Conference call,,,
+07/05/2025,19:12:00,Activity,Home activities,Conference call,,,
+07/05/2025,01:07:00,Activity,Home activities,Conference call,,,
+08/05/2025,17:19:00,Activity,Home activities,Conference call,,,
+06/05/2025,23:02:00,Activity,Home activities,Conference call,,,
+05/05/2025,14:38:00,Activity,Home activities,Conference call,,,
+06/05/2025,11:26:00,Activity,Home activities,Conference call,,,
+03/05/2025,11:11:00,Activity,Home activities,Conference call,,,
+07/05/2025,17:45:00,Activity,Home activities,Conference call,,,
+04/05/2025,12:33:00,Activity,Home activities,Conference call,,,
+05/05/2025,19:53:00,Activity,Home activities,Conference call,,,
+04/05/2025,22:33:00,Activity,Home activities,Conference call,,,
+08/05/2025,17:44:00,Activity,Home activities,Conference call,,,
+03/05/2025,16:24:00,Activity,Home activities,Acupuncture,,,
+05/05/2025,12:49:00,Activity,Home activities,Acupuncture,,,
+07/05/2025,10:54:00,Activity,Home activities,Acupuncture,,,
+04/05/2025,23:54:00,Activity,Home activities,Acupuncture,,,
+05/05/2025,14:20:00,Activity,Home activities,Acupuncture,,,
+08/05/2025,16:34:00,Activity,Home activities,Acupuncture,,,
+03/05/2025,14:31:00,Activity,Home activities,Acupuncture,,,
+08/05/2025,00:01:00,Activity,Home activities,Acupuncture,,,
+03/05/2025,15:00:00,Activity,Home activities,Acupuncture,,,
+04/05/2025,15:10:00,Activity,Home activities,Acupuncture,,,
+07/05/2025,18:00:00,Activity,Home activities,Acupuncture,,,
+04/05/2025,15:06:00,Activity,Home activities,Acupuncture,,,
+03/05/2025,22:11:00,Activity,Home activities,Acupuncture,,,
+03/05/2025,21:49:00,Activity,Home activities,Acupuncture,,,
+05/05/2025,17:37:00,Activity,Home activities,Acupuncture,,,
+06/05/2025,17:55:00,Activity,Home activities,Acupuncture,,,
+08/05/2025,10:49:00,Activity,Home activities,Acupuncture,,,
+08/05/2025,15:34:00,Activity,Home activities,Acupuncture,,,
+06/05/2025,00:49:00,Activity,Home activities,Acupuncture,,,
+08/05/2025,19:02:00,Activity,Sports activities,Ping Pong,,,
+03/05/2025,23:49:00,Activity,Sports activities,Ping Pong,,,
+04/05/2025,02:24:00,Activity,Sports activities,Ping Pong,,,
+03/05/2025,14:57:00,Activity,Sports activities,Ping Pong,,,
+05/05/2025,20:12:00,Activity,Sports activities,Ping Pong,,,
+07/05/2025,23:50:00,Activity,Sports activities,Ping Pong,,,
+06/05/2025,15:43:00,Activity,Sports activities,Ping Pong,,,
+06/05/2025,03:53:00,Activity,Sports activities,Ping Pong,,,
+07/05/2025,19:37:00,Activity,Sports activities,Ping Pong,,,
+06/05/2025,14:37:00,Activity,Sports activities,Ping Pong,,,
+05/05/2025,21:46:00,Activity,Sports activities,Ping Pong,,,
+07/05/2025,00:12:00,Activity,Sports activities,Ping Pong,,,
+05/05/2025,20:55:00,Activity,Sports activities,Ping Pong,,,
+05/05/2025,18:04:00,Activity,Sports activities,Ping Pong,,,
+03/05/2025,16:29:00,Activity,Sports activities,Ping Pong,,,
+05/05/2025,01:10:00,Activity,Sports activities,Ping Pong,,,
+08/05/2025,22:27:00,Activity,Sports activities,Ping Pong,,,
+07/05/2025,16:15:00,Activity,Sports activities,Ping Pong,,,
+07/05/2025,19:27:00,Activity,Sports activities,Ping Pong,,,
+06/05/2025,01:42:00,Activity,Sports activities,Ping Pong Tournament,,,
+06/05/2025,14:02:00,Activity,Sports activities,Ping Pong Tournament,,,
+05/05/2025,04:39:00,Activity,Sports activities,Ping Pong Tournament,,,
+07/05/2025,18:01:00,Activity,Sports activities,Ping Pong Tournament,,,
+06/05/2025,16:52:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,03:47:00,Activity,Sports activities,Ping Pong Tournament,,,
+03/05/2025,21:15:00,Activity,Sports activities,Ping Pong Tournament,,,
+04/05/2025,00:28:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,01:38:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,15:04:00,Activity,Sports activities,Ping Pong Tournament,,,
+05/05/2025,04:28:00,Activity,Sports activities,Ping Pong Tournament,,,
+06/05/2025,04:21:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,21:22:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,17:08:00,Activity,Sports activities,Ping Pong Tournament,,,
+05/05/2025,20:59:00,Activity,Sports activities,Ping Pong Tournament,,,
+06/05/2025,22:01:00,Activity,Sports activities,Ping Pong Tournament,,,
+06/05/2025,22:11:00,Activity,Sports activities,Ping Pong Tournament,,,
+08/05/2025,19:55:00,Activity,Sports activities,Ping Pong Tournament,,,
+05/05/2025,17:17:00,Activity,Sports activities,Ping Pong Tournament,,,
+07/05/2025,01:45:00,Activity,Sports activities,Ping Pong Tournament,,,
+04/05/2025,16:09:00,Activity,Sports activities,Golani Museum Tour,,,
+06/05/2025,01:48:00,Activity,Sports activities,Golani Museum Tour,,,
+06/05/2025,23:43:00,Activity,Sports activities,Golani Museum Tour,,,
+08/05/2025,23:30:00,Activity,Sports activities,Golani Museum Tour,,,
+03/05/2025,18:57:00,Activity,Sports activities,Golani Museum Tour,,,
+07/05/2025,15:29:00,Activity,Sports activities,Golani Museum Tour,,,
+05/05/2025,20:45:00,Activity,Sports activities,Golani Museum Tour,,,
+08/05/2025,00:51:00,Activity,Sports activities,Golani Museum Tour,,,
+06/05/2025,02:09:00,Activity,Sports activities,Golani Museum Tour,,,
+04/05/2025,04:56:00,Activity,Sports activities,Golani Museum Tour,,,
+05/05/2025,21:10:00,Activity,Sports activities,Golani Museum Tour,,,
+05/05/2025,02:49:00,Activity,Sports activities,Golani Museum Tour,,,
+04/05/2025,22:43:00,Activity,Sports activities,Golani Museum Tour,,,
+07/05/2025,22:12:00,Activity,Sports activities,Golani Museum Tour,,,
+03/05/2025,02:22:00,Activity,Sports activities,Golani Museum Tour,,,

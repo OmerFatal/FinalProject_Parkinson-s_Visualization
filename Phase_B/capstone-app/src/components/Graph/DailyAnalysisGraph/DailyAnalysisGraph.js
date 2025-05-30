@@ -48,7 +48,8 @@ export default function DailyAnalysisGraph({ date, initialAverages }) {
       parkinson: availableLines.parkinson,
       physical: availableLines.physical
     });
-  }, [date, initialAverages]);
+  // הוספנו את כל התלויות החסרות כאן:
+  }, [date, initialAverages, availableLines.feeling, availableLines.parkinson, availableLines.physical]);
 
   const toggleLine = (key) => {
     setVisibleLines(prev => ({ ...prev, [key]: !prev[key] }));

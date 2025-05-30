@@ -1,6 +1,4 @@
-// ProteinChart.js
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -11,51 +9,22 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import ProteinTooltip from './ProteinTooltip';
+import useProteinData from './useProteinData';
+
+import './ProteinChart.css';
 
 export default function ProteinChart({ entries = [], date }) {
   const isMobile = window.innerWidth <= 768;
-  const [proteinData, setProteinData] = useState([]);
-
-  useEffect(() => {
-    if (!entries || entries.length === 0) return;
-
-    const nutritionEntries = entries.filter(row =>
-      row.Report === 'Nutrition' &&
-      row.Date === date &&
-      row.Time &&
-      row.Type &&
-      row.Notes
-    );
-
-    const formatted = nutritionEntries.map(row => {
-      // שליפת ערך החלבון מהשדה Notes
-      const match = row.Notes.match(/Proteins:\s*(\d+)g/i);
-      const proteinValue = match ? Number(match[1]) : 0;
-
-      return {
-        time: row.Time.slice(0, 5), // חותך את השניות
-        protein: proteinValue,
-        food: row.Type,
-        notes: row.Notes.trim()
-      };
-    });
-
-    setProteinData(formatted);
-  }, [entries, date]);
+  const proteinData = useProteinData(entries, date);
 
   return (
-    <div style={{ width: '100%', padding: '0 24px' }}>
-      <h2 style={{
-        textAlign: 'center',
-        fontSize: isMobile ? '20px' : '24px',
-        fontWeight: 'bold',
-        marginBottom: '16px'
-      }}>
+    <div className="protein-chart-wrapper">
+      <h2 className="protein-chart-title">
         Protein Intake Analysis
       </h2>
 
       {proteinData.length === 0 ? (
-        <div style={{ textAlign: 'center', marginTop: 40, color: '#888' }}>
+        <div className="protein-chart-no-data">
           No protein intake data for this day.
         </div>
       ) : (

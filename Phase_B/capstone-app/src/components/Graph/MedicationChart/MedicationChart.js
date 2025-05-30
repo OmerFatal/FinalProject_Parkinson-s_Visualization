@@ -1,76 +1,26 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartCore from './ChartCore';
 import LegendPills from './LegendPills';
-import { pillTypes, pillColors } from './PillTypes';
-import { sortByTime } from './ChartDataUtils';
+import { pillColors } from './PillTypes';
+import useMedicationData from './useMedicationData';
 
 export default function MedicationChart({ entries, date }) {
   const isMobile = window.innerWidth <= 768;
+  const formattedDate = new Date(date).toLocaleDateString('en-GB');
 
-  const formattedDate = new Date(date).toLocaleDateString('en-GB'); // DD/MM/YYYY
-
-  // 1. סינון לפי תאריך וסוג
-  const filtered = useMemo(() => {
-    return entries.filter(
-      (e) => e.Date === date && e.Report === 'Medicine' && e.Type && e.Notes
-    );
-  }, [entries, date]);
-
-  // 2. בניית medicationData לפי שעות
-  const medicationData = useMemo(() => {
-    const grouped = {};
-
-    filtered.forEach((entry) => {
-      const pillName = entry.Type?.trim();
-      const time = entry.Time?.trim().slice(0, 5);
-      const amountMatch = entry.Notes?.trim().match(/([0-9.]+)/);
-      const amount = amountMatch ? parseFloat(amountMatch[1]) : 1;
-
-      if (!grouped[time]) {
-        grouped[time] = { time, medications: [] };
-      }
-
-      grouped[time].medications.push({ pillName, amount });
-    });
-
-    const mapped = Object.values(grouped).map((entry) => {
-      const obj = { time: entry.time };
-      entry.medications.forEach((med) => {
-        const name = med.pillName?.trim();
-        obj[name] = (obj[name] || 0) + med.amount;
-      });
-      obj.medications = entry.medications;
-      return obj;
-    });
-
-    return sortByTime(mapped);
-  }, [filtered]);
-
-  // 3. זיהוי הקבוצות שהופיעו בפועל
-  const usedPills = new Set();
-  medicationData.forEach((entry) => {
-    entry.medications.forEach((m) => usedPills.add(m.pillName.trim()));
-  });
-
-  const usedPillTypes = {};
-  Object.entries(pillTypes).forEach(([type, pills]) => {
-    const matched = pills.filter((p) =>
-      Array.from(usedPills).some(up =>
-        up.toLowerCase().includes(p.toLowerCase()) || p.toLowerCase().includes(up.toLowerCase())
-      )
-    );
-    if (matched.length > 0) {
-      usedPillTypes[type] = matched;
-    }
-  });
+  const { medicationData, usedPillTypes } = useMedicationData(entries, date);
 
   const allTypes = Object.keys(usedPillTypes);
   const [visibleTypes, setVisibleTypes] = useState([]);
-  useEffect(() => {
-    setVisibleTypes(allTypes);
-  }, [allTypes.length]);
 
-  // 4. שליטה על checkbox
+  useEffect(() => {
+    if (allTypes.length > 0) {
+      setVisibleTypes(allTypes);
+    } else {
+      setVisibleTypes([]);
+    }
+  }, [allTypes]); // <-- כאן התיקון: הוספנו allTypes במערך התלויות
+
   const handleToggle = (type) => {
     setVisibleTypes(prev =>
       prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
