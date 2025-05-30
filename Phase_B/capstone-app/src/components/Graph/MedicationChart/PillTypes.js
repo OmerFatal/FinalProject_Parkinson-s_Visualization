@@ -2,7 +2,7 @@ export const pillTypes = {
   Levopar: ['Levodopa 125 mg', 'Levodopa 250 mg'],
   Madopar: ['Madopar 125 mg', 'Madopar 250 mg'],
   Sinemet: ['Sinemet', 'Sinemet CR 200 mg', 'Sinemet 100 mg'],
-  Dopicar: ['Dopicar 125 mg', 'Dopicar 175 mg', 'Dopicar 250 mg'],
+  Dopicar: ['Dopicar 125', 'Dopicar 175', 'Dopicar 250'],
   Stalevo: [
     'Stalevo 50 mg', 'Stalevo 75 mg', 'Stalevo 100 mg',
     'Stalevo 125 mg', 'Stalevo 150 mg', 'Stalevo 175 mg', 'Stalevo 200 mg'

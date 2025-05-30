@@ -7,62 +7,45 @@ import {
   ScatterChart,
   Customized
 } from 'recharts';
-import Papa from 'papaparse';
+
 import LegendBox from './LegendBox';
 import CustomBars from './CustomBars';
 import ActivityTooltip from './ActivityTooltip';
 
 const categories = ['Sport', 'Cognitive', 'Household'];
 
-// 🕒 ממיר זמן בפורמט HH:MM או HH:MM:SS למספר עשרוני
 function parseTimeToFloat(timeStr) {
   if (!timeStr || typeof timeStr !== 'string') return 0;
   const [h = '0', m = '0', s = '0'] = timeStr.trim().split(':');
   return parseInt(h) + parseInt(m) / 60 + parseInt(s || 0) / 3600;
 }
 
-// 📆 ממיר תאריך בפורמט DD/MM/YYYY ל-YYYY-MM-DD
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  const [day, month, year] = dateStr.split('/');
-  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-}
-
-export default function ActivitySummaryGraph({ date }) {
+export default function ActivitySummaryGraph({ entries, date }) {
   const [activityData, setActivityData] = useState([]);
   const [tooltip, setTooltip] = useState(null);
   const isMobile = window.innerWidth <= 768;
   const graphRef = useRef(null);
 
   useEffect(() => {
-    fetch('/data/combined_daily_view_activities_fixed_final_with_intensity.csv')
-      .then(res => res.text())
-      .then(csv => {
-        Papa.parse(csv, {
-          header: true,
-          skipEmptyLines: true,
-          complete: (results) => {
-            const mapped = results.data
-              .filter(row =>
-                row.Report === 'Activity' &&
-                ['Home activities', 'Cognitive activities', 'Sports activities'].includes(row.Type) &&
-                formatDate(row.Date?.trim()) === date // ✅ התאמה לפי תאריך
-              )
-              .map(row => ({
-                name: row.Name,
-                time: row.Time?.trim(),
-                timeMinutes: parseTimeToFloat(row.Time),
-                duration: parseInt(row.Duration),
-                intensity: row.Intensity,
-                category: row.Type.includes('Home') ? 'Household'
-                         : row.Type.includes('Cognitive') ? 'Cognitive'
-                         : 'Sport'
-              }));
-            setActivityData(mapped);
-          }
-        });
-      });
-  }, [date]);
+    const mapped = entries
+      .filter(row =>
+        row.Report === 'Activity' &&
+        ['Home activities', 'Cognitive activities', 'Sports activities'].includes(row.Type) &&
+        row.Date === date
+      )
+      .map(row => ({
+        name: row.Name,
+        time: row.Time?.trim(),
+        timeMinutes: parseTimeToFloat(row.Time),
+        duration: parseInt(row.Duration),
+        intensity: row.Intensity,
+        category: row.Type.includes('Home') ? 'Household'
+                 : row.Type.includes('Cognitive') ? 'Cognitive'
+                 : 'Sport'
+      }));
+
+    setActivityData(mapped);
+  }, [entries, date]);
 
   useEffect(() => {
     const handleScroll = () => setTooltip(null);

@@ -12,18 +12,25 @@ export default function NavBar() {
   const [activeSection, setActiveSection] = useState('analysis');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['analysis', 'protein', 'medication', 'activity-summary'];
-      let found = 'analysis';
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 80) found = id;
-        }
+const handleScroll = () => {
+  const sections = ['analysis', 'protein', 'medication', 'activity-summary'];
+  let currentSection = null;
+
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 100) {
+        currentSection = id;
       }
-      setActiveSection(found);
-    };
+    }
+  }
+
+  if (currentSection) {
+    setActiveSection(currentSection);
+  }
+};
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -57,19 +64,19 @@ export default function NavBar() {
           className={`navbar-link back-link${activeSection === 'protein' ? ' active' : ''}`}
           onClick={() => scrollToSection('protein')}
         >
-          Protein
+          Protein Intake 
         </button>
         <button
           className={`navbar-link back-link${activeSection === 'medication' ? ' active' : ''}`}
           onClick={() => scrollToSection('medication')}
         >
-          Medication
+          Medication Intake
         </button>
         <button
           className={`navbar-link back-link${activeSection === 'activity-summary' ? ' active' : ''}`}
           onClick={() => scrollToSection('activity-summary')}
         >
-          Activity Summary
+          Daily Activities
         </button>
       </div>
     </nav>

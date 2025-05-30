@@ -1,3 +1,5 @@
+// Dashboard.js
+
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -9,9 +11,6 @@ import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
 import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph/CombinedStateTimelineGraph';
-
-
-
 
 export default function Dashboard({ entries = [] }) {
   const location = useLocation();
@@ -40,23 +39,17 @@ export default function Dashboard({ entries = [] }) {
     <>
       <NavBar />
       <div className="dashboard-wrapper">
-        {/* 🔹 גרף ניתוח יומי */}
+
+        {/* 🔹 גרף מצב כללי תלת-מצבי */}
         <div className="dashboard-card full-width" id="analysis">
-          <DailyAnalysisGraph
-            date={selectedDate}
-            initialAverages={initialAverages}
-          />
-        </div>
-
-        {/* 🔹 גרף משולב של שלושת המצבים */}
-        <div className="dashboard-card full-width" id="combined-state-timeline-graph">
           <CombinedStateTimelineGraph
+            entries={entries}
             initialAverages={initialAverages}
             date={selectedDate}
           />
         </div>
 
-        {/* 🔹 גרף משולב נוסף */}
+        {/* 🔹 גרף משולב חזותי נוסף */}
         <div className="dashboard-card full-width" id="combined-graph">
           <CombinedGraph
             date={selectedDate}
@@ -64,20 +57,30 @@ export default function Dashboard({ entries = [] }) {
           />
         </div>
 
-        {/* 🔹 גרף חלבון */}
+        {/* 🔹 גרף חלבונים */}
         <div className="dashboard-card full-width" id="protein">
-          <ProteinChart date={selectedDate} entries={entries} />
+          <ProteinChart
+            date={selectedDate}
+            entries={entries}
+          />
         </div>
 
         {/* 🔹 גרף תרופות */}
         <div className="dashboard-card full-width" id="medication">
-          <MedicationChart date={selectedDate} entries={entries} />
+          <MedicationChart
+            date={selectedDate}
+            entries={entries}
+          />
         </div>
 
-        {/* 🔹 גרף סיכום פעילויות */}
+        {/* 🔹 גרף פעילויות לפי קטגוריה */}
         <div className="dashboard-card full-width" id="activity-summary">
-          <ActivitySummaryGraph date={selectedDate} entries={entries} />
+          <ActivitySummaryGraph
+            date={selectedDate}
+            entries={entries}
+          />
         </div>
+
       </div>
 
       <footer className="dashboard-footer">

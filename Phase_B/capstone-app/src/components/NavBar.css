@@ -1,84 +1,80 @@
+/* סגנון כולל ל־NavBar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #1e293b;
-  color: white;
-  padding: 16px 32px;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.navbar.scrolled {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
 .navbar-logo {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  color: #ffffff ;
-  display: flex;
-  align-items: center;
+  color: #ffffff;
+  margin-right: 10px;
 }
 
 .navbar-links {
   display: flex;
-  gap: 16px;
-  flex-wrap: nowrap;
+  gap: 12px;
 }
 
 .navbar-link {
-  background-color: #334155;
+  background-color: #475569;
   padding: 8px 14px;
   border-radius: 12px;
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
-  transition: background-color 0.2s ease;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit; /* ✅ מיישר בין Link ל־Button */
+  appearance: none;     /* ✅ מבטל עיצוב ברירת מחדל של כפתורים */
 }
 
-.navbar-link:hover {
+/* אין הדגשה על hover או active */
+.navbar-link:hover,
+.navbar-link.active {
   background-color: #475569;
+  border: none;
 }
 
-.back-link {
-  background-color: #475569;
+/* אפשרות לנגישות – קו מתאר במצב פוקוס */
+.navbar-link:focus {
+  outline: 2px solid #ffffff;
 }
 
-/* 📱 רספונסיביות למובייל */
+/* רספונסיביות לניידים */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 20px;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   .navbar-left {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    width: 100%;
-  }
-
-  .navbar-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 12px;
-    width: 100%;
-  }
-
-  .navbar-link {
-    font-size: 14px;
-    padding: 8px 12px;
   }
 }

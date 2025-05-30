@@ -1,19 +1,18 @@
+// App.js
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Papa from 'papaparse';
 
 import HeatmapCalendar from './components/HeatmapCalendar/HeatmapCalendar';
 import Dashboard from './components/Dashboard';
+import { loadCSVData } from './utils/loadCSV';
 
 function App() {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    Papa.parse('/data/combined_daily_view_activities_fixed_final_with_intensity.csv', {
-      download: true,
-      header: true,
-      complete: (result) => {
-        const mapped = result.data.map((r) => {
+    loadCSVData('/data/updated_combined_daily_view_activities.csv')
+      .then((result) => {
+        const mapped = result.map((r) => {
           let isoDate = r.Date;
 
           if (typeof r.Date === 'string' && r.Date.includes('/')) {
@@ -32,8 +31,8 @@ function App() {
         });
 
         setEntries(mapped);
-      }
-    });
+      })
+      .catch((err) => console.error('CSV Load Error:', err));
   }, []);
 
   return (

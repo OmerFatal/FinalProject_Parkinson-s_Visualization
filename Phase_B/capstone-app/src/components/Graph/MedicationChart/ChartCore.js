@@ -65,10 +65,12 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
     ), 0)
   );
 
-  const yTicks = [];
-  for (let i = 0; i <= maxTotal; i += 0.25) {
-    yTicks.push(Number(i.toFixed(2)));
-  }
+const step = maxTotal <= 2 ? 0.5 : 1;  // 🔁 התאמה חכמה לפי טווח כולל
+const yTicks = [];
+for (let i = 0; i <= maxTotal; i += step) {
+  yTicks.push(Number(i.toFixed(2)));
+}
+
 
   return (
     <ResponsiveContainer width="100%" height={isMobile ? 260 : 320}>

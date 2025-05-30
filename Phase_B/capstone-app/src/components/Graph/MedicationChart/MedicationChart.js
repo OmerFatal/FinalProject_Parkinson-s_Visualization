@@ -7,6 +7,8 @@ import { sortByTime } from './ChartDataUtils';
 export default function MedicationChart({ entries, date }) {
   const isMobile = window.innerWidth <= 768;
 
+  const formattedDate = new Date(date).toLocaleDateString('en-GB'); // DD/MM/YYYY
+
   // 1. סינון לפי תאריך וסוג
   const filtered = useMemo(() => {
     return entries.filter(
@@ -63,10 +65,10 @@ export default function MedicationChart({ entries, date }) {
   });
 
   const allTypes = Object.keys(usedPillTypes);
-const [visibleTypes, setVisibleTypes] = useState([]);
-useEffect(() => {
-  setVisibleTypes(allTypes);
-}, [allTypes.length]);
+  const [visibleTypes, setVisibleTypes] = useState([]);
+  useEffect(() => {
+    setVisibleTypes(allTypes);
+  }, [allTypes.length]);
 
   // 4. שליטה על checkbox
   const handleToggle = (type) => {
@@ -89,7 +91,7 @@ useEffect(() => {
         fontWeight: 'bold',
         marginBottom: '16px'
       }}>
-        Medication Taken Throughout the Day
+        Medication Intake Summary – {formattedDate}
       </h2>
 
       <ChartCore
