@@ -1,5 +1,3 @@
-// src/components/Graph/CombinedStateTimelineGraph/FeelingDots.js
-
 import React, { useState } from 'react';
 
 export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
@@ -14,115 +12,189 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
   const tooltipWidth = 170;
   const tooltipHeight = 48;
 
-  function getDotsAtTimeAndY(time, yValue) {
-    const pt = data.find(d => d?.timeMinutes === time);
-    if (!pt) return [];
-    const result = [];
+  // ✅ החזרת כל הדיווחים עם אותו ערך וקרבה של עד דקה
+  function getDotsAroundTimeAndY(hoveredTime, yValue) {
+    return data.flatMap((pt) => {
+      const dots = [];
 
-    if (visibleLines.feeling && pt.feelingDot != null && pt.feelingDotTime && pt.feeling === yValue) {
-      result.push({
-        type: 'feeling',
-        label: 'Mood',
-        value: pt.feelingDot,
-        color: '#2563eb',
-        time: pt.feelingDotTime
-      });
-    }
-    if (visibleLines.parkinson && pt.parkinsonDot != null && pt.parkinsonDotTime && pt.parkinson === yValue) {
-      result.push({
-        type: 'parkinson',
-        label: 'Parkinson',
-        value: pt.parkinsonDot,
-        color: '#dc2626',
-        time: pt.parkinsonDotTime
-      });
-    }
-    if (visibleLines.physical && pt.physicalDot != null && pt.physicalDotTime && pt.physical === yValue) {
-      result.push({
-        type: 'physical',
-        label: 'Physical',
-        value: pt.physicalDot,
-        color: '#22c55e',
-        time: pt.physicalDotTime
-      });
-    }
+      const isNearby = Math.abs(pt.timeMinutes - hoveredTime) <= 1;
+
+      if (
+        visibleLines.feeling &&
+        pt.feelingDot != null &&
+        pt.feelingDotTime &&
+        pt.feeling === yValue &&
+        isNearby
+      ) {
+        dots.push({
+          type: 'feeling',
+          label: 'Mood',
+          value: pt.feelingDot,
+          color: '#2563eb',
+          time: pt.feelingDotTime
+        });
+      }
+
+      if (
+        visibleLines.parkinson &&
+        pt.parkinsonDot != null &&
+        pt.parkinsonDotTime &&
+        pt.parkinson === yValue &&
+        isNearby
+      ) {
+        dots.push({
+          type: 'parkinson',
+          label: 'Parkinson',
+          value: pt.parkinsonDot,
+          color: '#dc2626',
+          time: pt.parkinsonDotTime
+        });
+      }
+
+      if (
+        visibleLines.physical &&
+        pt.physicalDot != null &&
+        pt.physicalDotTime &&
+        pt.physical === yValue &&
+        isNearby
+      ) {
+        dots.push({
+          type: 'physical',
+          label: 'Physical',
+          value: pt.physicalDot,
+          color: '#22c55e',
+          time: pt.physicalDotTime
+        });
+      }
+
+      return dots;
+    });
+  }
+
+  // ✅ מוצא את כל סוגי הנקודות באותו זמן
+  function getPointTypesAtTime(pt) {
+    const result = [];
+    ['feeling', 'parkinson', 'physical'].forEach((type) => {
+      if (
+        visibleLines[type] &&
+        pt[`${type}Dot`] != null &&
+        pt[`${type}DotTime`] &&
+        pt[type] != null
+      ) {
+        result.push(type);
+      }
+    });
     return result;
   }
 
   return (
     <g>
+      <defs>
+        <filter id="dotShadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#000" floodOpacity="0.2" />
+        </filter>
+      </defs>
+
       {data.map((pt, i) => {
-        if (!pt) return null; // ✅ הגנה: דילוג על שורות לא תקינות
+        if (!pt) return null;
 
-        const tooltipCandidates = ['feeling', 'parkinson', 'physical'].filter(type => {
-          return visibleLines[type] && pt[`${type}Dot`] != null && pt[`${type}DotTime`] && hovered?.time === pt.timeMinutes && hovered?.yValue === pt[type];
-        });
+        const tooltipCandidates = ['feeling', 'parkinson', 'physical'].filter(
+          (type) =>
+            visibleLines[type] &&
+            pt[`${type}Dot`] != null &&
+            pt[`${type}DotTime`] &&
+            hovered?.yValue === pt[type] &&
+            Math.abs(pt.timeMinutes - hovered?.time) <= 1
+        );
 
-        const tooltip = tooltipCandidates.length > 0
-          ? (() => {
-              const dots = getDotsAtTimeAndY(pt.timeMinutes, hovered.yValue);
-              if (dots.length === 0) return null;
+        const tooltip =
+          tooltipCandidates.length > 0
+            ? (() => {
+                const dots = getDotsAroundTimeAndY(hovered.time, hovered.yValue);
+                if (dots.length === 0) return null;
 
-              let tooltipX = hovered.x - tooltipWidth / 2;
-              const graphRight = xScale.range()[1];
-              if (tooltipX + tooltipWidth > graphRight) tooltipX = graphRight - tooltipWidth - 4;
-              if (tooltipX < 0) tooltipX = 4;
+                let tooltipX = hovered.x - tooltipWidth / 2;
+                const graphRight = xScale.range()[1];
+                if (tooltipX + tooltipWidth > graphRight) tooltipX = graphRight - tooltipWidth - 4;
+                if (tooltipX < 0) tooltipX = 4;
 
-              return (
-                <foreignObject
-                  x={tooltipX}
-                  y={Math.max(hovered.y - tooltipHeight - 14, 0)}
-                  width={tooltipWidth}
-                  height={tooltipHeight + 18 * (dots.length - 1)}
-                  style={{ pointerEvents: 'none' }}
-                >
-                  <div style={{
-                    background: '#fff',
-                    border: '1px solid #cbd5e1',
-                    borderRadius: 10,
-                    padding: '10px 14px',
-                    fontSize: 15,
-                    color: '#222',
-                    textAlign: 'center',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                    fontWeight: 600
-                  }}>
-                    {dots.map(dot => (
-                      <div key={dot.type} style={{ color: dot.color, marginBottom: 2 }}>
-                        {dot.label}: {dot.value} <span style={{ color: '#555', fontSize: 13 }}>({dot.time})</span>
-                      </div>
-                    ))}
-                  </div>
-                </foreignObject>
-              );
-            })()
-          : null;
+                return (
+                  <foreignObject
+                    x={tooltipX}
+                    y={Math.max(hovered.y - tooltipHeight - 14, 0)}
+                    width={tooltipWidth}
+                    height={tooltipHeight + 18 * (dots.length - 1)}
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    <div
+                      style={{
+                        background: '#fff',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: 10,
+                        padding: '10px 14px',
+                        fontSize: 15,
+                        color: '#222',
+                        textAlign: 'center',
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                        fontWeight: 600
+                      }}
+                    >
+                      {dots.map((dot) => (
+                        <div key={dot.type} style={{ color: dot.color, marginBottom: 2 }}>
+                          {dot.label}: {dot.value}{' '}
+                          <span style={{ color: '#555', fontSize: 13 }}>({dot.time})</span>
+                        </div>
+                      ))}
+                    </div>
+                  </foreignObject>
+                );
+              })()
+            : null;
 
         return (
           <React.Fragment key={i}>
-            {['feeling', 'parkinson', 'physical'].map(type => (
-              visibleLines[type] &&
-              pt[`${type}Dot`] != null &&
-              pt[`${type}DotTime`] &&
-              pt[type] != null && (
+            {getPointTypesAtTime(pt).map((type) => {
+              const isHovered =
+                hovered &&
+                hovered.yValue === pt[type] &&
+                Math.abs(pt.timeMinutes - hovered.time) <= 1;
+
+              // 🧠 שלב הזיהוי הדינמי: מי עוד בסביבה עם אותו ערך
+              const sameYNearby = getPointTypesAtTime(pt).filter(
+                (t) =>
+                  visibleLines[t] &&
+                  pt[`${t}`] === pt[type] &&
+                  pt[`${t}Dot`] != null &&
+                  pt[`${t}DotTime`] != null
+              );
+              const index = sameYNearby.indexOf(type);
+              const total = sameYNearby.length;
+              const spacing = 10; // פיקסלים בין נקודות
+              const offset = total > 1 ? (index - (total - 1) / 2) * spacing : 0;
+
+              return (
                 <circle
                   key={type}
-                  cx={xScale(pt.timeMinutes)}
+                  cx={xScale(pt.timeMinutes) + offset}
                   cy={yScale(pt[type])}
-                  {...dotProps[type]}
+                  fill={dotProps[type].fill}
+                  stroke={dotProps[type].stroke}
+                  strokeWidth={dotProps[type].strokeWidth}
+                  r={isHovered ? dotProps[type].r + 2 : dotProps[type].r}
+                  filter={isHovered ? 'url(#dotShadow)' : undefined}
                   onMouseEnter={() =>
                     setHovered({
                       time: pt.timeMinutes,
                       yValue: pt[type],
-                      x: xScale(pt.timeMinutes),
+                      x: xScale(pt.timeMinutes) + offset,
                       y: yScale(pt[type])
                     })
                   }
                   onMouseLeave={() => setHovered(null)}
                   style={{ cursor: 'pointer' }}
                 />
-              )
-            ))}
+              );
+            })}
             {tooltip}
           </React.Fragment>
         );

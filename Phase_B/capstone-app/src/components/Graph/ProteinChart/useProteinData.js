@@ -23,6 +23,7 @@ export default function useProteinData(entries, date) {
           food: row.Type,
           notes: row.Notes.trim()
         };
-      });
+      })
+      .sort((a, b) => a.time.localeCompare(b.time));
   }, [entries, date]);
 }

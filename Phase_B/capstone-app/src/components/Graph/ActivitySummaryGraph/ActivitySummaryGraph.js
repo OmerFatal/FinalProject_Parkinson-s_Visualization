@@ -45,7 +45,7 @@ export default function ActivitySummaryGraph({ entries, date }) {
   return (
     <div ref={graphRef} className="activity-graph-wrapper">
       <h2 className="activity-graph-title">
-        Activity Summary – Grouped by Category
+        Daily Activities – Grouped by Category
       </h2>
 
       <LegendBox />

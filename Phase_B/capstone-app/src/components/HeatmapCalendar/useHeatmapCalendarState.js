@@ -1,8 +1,18 @@
+// useHeatmapCalendarState.js
 import { useState, useEffect } from 'react';
 
 export default function useHeatmapCalendarState(entries) {
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+  // 🔹 טוען את החודש והשנה האחרונים שהמשתמש צפה בהם (אם קיימים)
+  const storedMonthYear = localStorage.getItem('heatmap-monthYear');
+  const defaultDate = storedMonthYear
+    ? (() => {
+        const [year, month] = storedMonthYear.split('-').map(Number);
+        return { year, month };
+      })()
+    : { year: new Date().getFullYear(), month: new Date().getMonth() };
+
+  const [selectedYear, setSelectedYear] = useState(defaultDate.year);
+  const [selectedMonth, setSelectedMonth] = useState(defaultDate.month);
   const [futureDateClicked, setFutureDateClicked] = useState(null);
   const [showFutureModal, setShowFutureModal] = useState(false);
   const [noDataClicked, setNoDataClicked] = useState(null);

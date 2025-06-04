@@ -10,7 +10,7 @@ export default function HeatmapCalendarHeader({
   return (
     <>
       <div className="monthly-heatmap-title">
-        Welcome, Michael – Here's Your Personal Health Calendar
+        Welcome, Michael – Here's Your Heatmap Calendar
       </div>
       <div className="monthly-heatmap-subtitle">
         Click on a date to view detailed information.
