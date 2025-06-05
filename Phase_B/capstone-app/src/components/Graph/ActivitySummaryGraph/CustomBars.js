@@ -39,6 +39,8 @@ export default function CustomBars({ xAxisMap, yAxisMap, xAxisId, yAxisId, setTo
         height={barHeight}
         rx={4}
         fill={categoryColors[activity.category] || '#888'}
+        stroke="black"
+        strokeWidth={2.5}
         onMouseEnter={(e) => {
           setTooltip({
             x: e.clientX,

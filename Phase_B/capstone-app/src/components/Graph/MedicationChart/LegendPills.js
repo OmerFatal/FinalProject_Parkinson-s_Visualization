@@ -40,7 +40,6 @@ export default function LegendPills({ pillTypes, pillColors, visibleTypes, onTog
     <div style={styles.container}>
       {Object.entries(pillTypes).map(([type]) => {
         const isChecked = visibleTypes.includes(type);
-        const colorKey = pillTypes[type][0];
         return (
           <label key={type} style={styles.item}>
             <input
@@ -49,7 +48,7 @@ export default function LegendPills({ pillTypes, pillColors, visibleTypes, onTog
               onChange={() => onToggle(type)}
               style={styles.checkbox}
             />
-            <span style={styles.colorBox(pillColors[colorKey] || '#999')} />
+            <span style={styles.colorBox(pillColors[type] || '#999')} />
             <span style={styles.labelText}>{type}</span>
           </label>
         );

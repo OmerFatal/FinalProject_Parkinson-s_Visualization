@@ -57,13 +57,7 @@ export default function Dashboard({ entries = [] }) {
           />
         </div>
 
-        {/* 🔹 גרף חלבונים */}
-        <div className="dashboard-card full-width" id="protein">
-          <ProteinChart
-            date={selectedDate}
-            entries={entries}
-          />
-        </div>
+
 
         {/* 🔹 גרף תרופות */}
         <div className="dashboard-card full-width" id="medication">
@@ -72,7 +66,13 @@ export default function Dashboard({ entries = [] }) {
             entries={entries}
           />
         </div>
-
+        {/* 🔹 גרף חלבונים */}
+        <div className="dashboard-card full-width" id="protein">
+          <ProteinChart
+            date={selectedDate}
+            entries={entries}
+          />
+        </div>
         {/* 🔹 גרף פעילויות לפי קטגוריה */}
         <div className="dashboard-card full-width" id="activity-summary">
           <ActivitySummaryGraph

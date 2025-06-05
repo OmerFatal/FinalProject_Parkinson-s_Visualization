@@ -1,15 +1,20 @@
 import React from 'react';
-import { pillColors } from './PillTypes';
+import { pillColors, pillTypes } from './PillTypes';
 
 export default function MedicationTooltip({ active, payload }) {
   if (active && payload && payload.length && payload[0]?.payload?.medications) {
     const meds = payload[0].payload.medications;
 
-    const items = meds.map(med => ({
-      pillName: med.pillName,
-      amount: med.amount,
-      color: pillColors[med.pillName] || '#ddd'
-    }));
+    const items = meds.map(med => {
+      const category = Object.entries(pillTypes).find(([cat, names]) =>
+        names.includes(med.pillName)
+      )?.[0];
+      return {
+        pillName: med.pillName,
+        amount: med.amount,
+        color: pillColors[category] || '#ddd'
+      };
+    });
 
     return (
       <div

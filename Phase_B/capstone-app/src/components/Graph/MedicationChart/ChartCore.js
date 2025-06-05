@@ -98,24 +98,32 @@ for (let i = 0; i <= maxTotal; i += step) {
         />
         <Tooltip content={<MedicationTooltip />} />
 
-        {renderedPills.map(pillName => (
-          <Bar
-            key={pillName}
-            dataKey={pillName}
-            stackId="a"
-            fill={pillColors[originalNameMap[pillName]] || '#aaa'}
-            barSize={isMobile ? 24 : 40}
-          >
-            {filteredData.map((entry, index) => (
-              <Cell
-                key={`cell-${pillName}-${index}`}
-                radius={topPillsPerTime[entry.time] === pillName ? [10, 10, 0, 0] : [0, 0, 0, 0]}
-                stroke="black"
-                strokeWidth={2.5}
-              />
-            ))}
-          </Bar>
-        ))}
+{renderedPills.map(pillName => (
+  <Bar
+    key={pillName}
+    dataKey={pillName}
+    stackId="a"
+    fill={
+      (() => {
+        const category = Object.entries(pillTypes).find(([cat, names]) =>
+          names.includes(originalNameMap[pillName])
+        )?.[0];
+        return pillColors[category] || '#aaa';
+      })()
+    }
+    barSize={isMobile ? 24 : 40}
+  >
+    {filteredData.map((entry, index) => (
+      <Cell
+        key={`cell-${pillName}-${index}`}
+        radius={topPillsPerTime[entry.time] === pillName ? [10, 10, 0, 0] : [0, 0, 0, 0]}
+        stroke="black"
+        strokeWidth={2.5}
+      />
+    ))}
+  </Bar>
+))}
+
       </BarChart>
     </ResponsiveContainer>
   );

@@ -3,10 +3,7 @@ export const pillTypes = {
   Madopar: ['Madopar 125 mg', 'Madopar 250 mg'],
   Sinemet: ['Sinemet', 'Sinemet CR 200 mg', 'Sinemet 100 mg'],
   Dopicar: ['Dopicar 125', 'Dopicar 175', 'Dopicar 250'],
-  Stalevo: [
-    'Stalevo 50 mg', 'Stalevo 75 mg', 'Stalevo 100 mg',
-    'Stalevo 125 mg', 'Stalevo 150 mg', 'Stalevo 175 mg', 'Stalevo 200 mg'
-  ],
+  Stalevo: ['Stalevo 50 mg', 'Stalevo 75 mg', 'Stalevo 100 mg'],
   Requip: ['Requip 2 mg', 'Requip 4 mg', 'Requip 8 mg'],
   Sifrol: ['Sifrol 1 mg'],
   'PK-Merz': ['PK-Merz 100 mg'],
@@ -20,20 +17,22 @@ export const pillTypes = {
   Xadago: ['Xadago 50 mg', 'Xadago 100 mg']
 };
 
-// 🎨 מיפוי צבעים
+// צבע אחד לכל קטגוריה בלבד
 export const pillColors = {
-  'Sinemet': '#e74c3c',
-  'Sinemet CR 200 mg': '#c0392b',
-  'Sinemet 100 mg': '#d63031',
-  'Dopicar 125 mg': '#f39c12',
-  'Dopicar 175 mg': '#e67e22',
-  'Dopicar 250 mg': '#d35400',
-  'Azilect': '#8e44ad',
-  'Azilect 1mg': '#9b59b6',
-  'Jumex': '#1abc9c',
-  'Requip 2 mg': '#2ecc71',
-  'Requip 4 mg': '#27ae60',
-  'Requip 8 mg': '#1e8449',
-  'Levodopa 125 mg': '#3498db',
-  'Levodopa 250 mg': '#2980b9'
+  Levopar: '#3498db',
+  Madopar: '#9b59b6',
+  Sinemet: '#e74c3c',
+  Dopicar: '#f39c12',
+  Stalevo: '#d35400',
+  Requip: '#2ecc71',
+  Sifrol: '#1abc9c',
+  'PK-Merz': '#34495e',
+  Paritrel: '#16a085',
+  'Artane, Partane': '#8e44ad',
+  Cogentin: '#7f8c8d',
+  Dekinet: '#27ae60',
+  Kemadrin: '#e67e22',
+  Jumex: '#1abc9c',
+  Azilect: '#8e44ad',
+  Xadago: '#2980b9'
 };

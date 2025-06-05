@@ -6,7 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
+  Cell
 } from 'recharts';
 import ProteinTooltip from './ProteinTooltip';
 import useProteinData from './useProteinData';
@@ -57,10 +58,18 @@ export default function ProteinChart({ entries = [], date }) {
             <Tooltip content={<ProteinTooltip />} />
             <Bar
               dataKey="protein"
-              fill="#22c55e"
+              fill="#2ecc71"
               radius={[6, 6, 0, 0]}
               barSize={isMobile ? 24 : 40}
-            />
+            >
+              {proteinData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  stroke="black"
+                  strokeWidth={2.5}
+                />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       )}

@@ -9,14 +9,11 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
     physical: { fill: '#22c55e', r: 7, stroke: '#fff', strokeWidth: 2 }
   };
 
-  const tooltipWidth = 170;
-  const tooltipHeight = 48;
+  const tooltipWidth = 220;
 
-  // ✅ החזרת כל הדיווחים עם אותו ערך וקרבה של עד דקה
   function getDotsAroundTimeAndY(hoveredTime, yValue) {
     return data.flatMap((pt) => {
       const dots = [];
-
       const isNearby = Math.abs(pt.timeMinutes - hoveredTime) <= 1;
 
       if (
@@ -28,7 +25,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
       ) {
         dots.push({
           type: 'feeling',
-          label: 'Mood',
+          label: 'My Mood',
           value: pt.feelingDot,
           color: '#2563eb',
           time: pt.feelingDotTime
@@ -44,7 +41,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
       ) {
         dots.push({
           type: 'parkinson',
-          label: 'Parkinson',
+          label: 'Parkinson State',
           value: pt.parkinsonDot,
           color: '#dc2626',
           time: pt.parkinsonDotTime
@@ -60,7 +57,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
       ) {
         dots.push({
           type: 'physical',
-          label: 'Physical',
+          label: 'Physical Difficulty',
           value: pt.physicalDot,
           color: '#22c55e',
           time: pt.physicalDotTime
@@ -71,7 +68,6 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
     });
   }
 
-  // ✅ מוצא את כל סוגי הנקודות באותו זמן
   function getPointTypesAtTime(pt) {
     const result = [];
     ['feeling', 'parkinson', 'physical'].forEach((type) => {
@@ -118,12 +114,25 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
                 if (tooltipX + tooltipWidth > graphRight) tooltipX = graphRight - tooltipWidth - 4;
                 if (tooltipX < 0) tooltipX = 4;
 
+                
+                let tooltipHeight;
+                switch (dots.length) {
+                  case 1:
+                    tooltipHeight = 35;
+                    break;
+                  case 2:
+                    tooltipHeight = 55;
+                    break;
+                  default:
+                    tooltipHeight = 75;
+                }
+
                 return (
                   <foreignObject
                     x={tooltipX}
                     y={Math.max(hovered.y - tooltipHeight - 14, 0)}
                     width={tooltipWidth}
-                    height={tooltipHeight + 18 * (dots.length - 1)}
+                    height={tooltipHeight}
                     style={{ pointerEvents: 'none' }}
                   >
                     <div
@@ -136,11 +145,14 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
                         color: '#222',
                         textAlign: 'center',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                        fontWeight: 600
+                        fontWeight: 600,
+                        height: '100%',
+                        overflow: 'visible'
                       }}
                     >
                       {dots.map((dot) => (
-                        <div key={dot.type} style={{ color: dot.color, marginBottom: 2 }}>
+                        <div key={dot.type} style={{ color: dot.color, marginBottom: 2,
+    whiteSpace: 'nowrap' }}>
                           {dot.label}: {dot.value}{' '}
                           <span style={{ color: '#555', fontSize: 13 }}>({dot.time})</span>
                         </div>
@@ -159,7 +171,6 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
                 hovered.yValue === pt[type] &&
                 Math.abs(pt.timeMinutes - hovered.time) <= 1;
 
-              // 🧠 שלב הזיהוי הדינמי: מי עוד בסביבה עם אותו ערך
               const sameYNearby = getPointTypesAtTime(pt).filter(
                 (t) =>
                   visibleLines[t] &&
@@ -169,7 +180,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
               );
               const index = sameYNearby.indexOf(type);
               const total = sameYNearby.length;
-              const spacing = 10; // פיקסלים בין נקודות
+              const spacing = 10;
               const offset = total > 1 ? (index - (total - 1) / 2) * spacing : 0;
 
               return (
