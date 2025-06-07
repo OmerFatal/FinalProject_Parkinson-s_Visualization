@@ -68,10 +68,10 @@ export default function MedicationChart({ entries, date }) {
   const allTypes = Object.keys(usedPillTypes);
   const [visibleTypes, setVisibleTypes] = useState([]);
 
-  // ✅ עובד כמו בגרסה הישנה – מתרחש רק כשהמספר של הסוגים משתנה
-  useEffect(() => {
-    setVisibleTypes(allTypes);
-  }, [allTypes.length]);
+useEffect(() => {
+  setVisibleTypes(allTypes);
+}, [allTypes]);
+
 
   // 4. שליטה על checkbox
   const handleToggle = (type) => {

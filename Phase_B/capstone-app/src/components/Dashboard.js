@@ -1,12 +1,7 @@
-// Dashboard.js
-
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import './Dashboard.css';
-
-import DailyAnalysisGraph from './Graph/DailyAnalysisGraph/DailyAnalysisGraph';
-import CombinedGraph from './Graph/CombinedGraph';
 import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
@@ -48,17 +43,6 @@ export default function Dashboard({ entries = [] }) {
             date={selectedDate}
           />
         </div>
-
-        {/* 🔹 גרף משולב חזותי נוסף */}
-        <div className="dashboard-card full-width" id="combined-graph">
-          <CombinedGraph
-            date={selectedDate}
-            initialAverages={initialAverages}
-          />
-        </div>
-
-
-
         {/* 🔹 גרף תרופות */}
         <div className="dashboard-card full-width" id="medication">
           <MedicationChart
