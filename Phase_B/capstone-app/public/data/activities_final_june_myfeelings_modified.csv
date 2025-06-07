@@ -989,7 +989,7 @@ Dietary Fiber: 7g"
 29/05/2025,09:34:00,My Feelings,My Mood,,5,,
 29/05/2025,09:38:00,My Feelings,Physical Difficulty,,3,,
 29/05/2025,10:01:00,Activity,Cognitive activities,Taki,High,47,
-29/05/2025,12:32:00,Activity,Home activities,Acupuncture,Low,76,
+29/05/2025,12:02:00,Activity,Home activities,Acupuncture,Low,43,
 29/05/2025,13:00:00,Nutrition,Omelette with hard-boiled egg,,,,"Proteins: 24g
 Fats: 10g
 Carbohydrates: 55g
@@ -1083,7 +1083,6 @@ Dietary Fiber: 2g"
 Fats: 5g
 Carbohydrates: 39g
 Dietary Fiber: 10g"
-01/06/2025,08:59:00,My Feelings,My Mood,,1,,
 01/06/2025,08:58:00,My Feelings,Physical Difficulty,,4,,
 01/06/2025,09:35:00,My Feelings,Parkinson's State,,5,,
 01/06/2025,10:00:00,Activity,Sports activities,Golani Museum Tour,High,48,
@@ -1093,7 +1092,6 @@ Fats: 3g
 Carbohydrates: 50g
 Dietary Fiber: 8g"
 01/06/2025,14:01:00,My Feelings,Physical Difficulty,,2,,
-01/06/2025,14:13:00,My Feelings,My Mood,,2,,
 01/06/2025,14:14:00,My Feelings,Parkinson's State,,3,,
 01/06/2025,13:41:00,Medicine,Levodopa 125 mg,,,,Number of pills: 2
 01/06/2025,16:17:00,Medicine,Requip 2 mg,,,,Number of pills: 1.5
@@ -1105,7 +1103,6 @@ Carbohydrates: 49g
 Dietary Fiber: 4g"
 01/06/2025,21:10:00,My Feelings,Parkinson's State,,3,,
 01/06/2025,21:23:00,My Feelings,Physical Difficulty,,4,,
-01/06/2025,21:36:00,My Feelings,My Mood,,2,,
 01/06/2025,22:47:00,Medicine,Dopicar 250,,,,Number of pills: 2
 01/06/2025,23:25:00,Sleep/Wake,Going to Sleep,,,,
 02/06/2025,06:14:00,Sleep/Wake,Waking Up,,,,
@@ -1209,7 +1206,7 @@ Dietary Fiber: 6g"
 Fats: 14g
 Carbohydrates: 40g
 Dietary Fiber: 5g"
-05/06/2025,08:56:00,My Feelings,My Mood,,1,,
+05/06/2025,08:36:00,My Feelings,My Mood,,3,,
 05/06/2025,09:22:00,My Feelings,Physical Difficulty,,5,,
 05/06/2025,09:26:00,My Feelings,Parkinson's State,,4,,
 05/06/2025,09:41:00,Medicine,Azilect,,,,Number of pills: 2
@@ -1221,7 +1218,7 @@ Carbohydrates: 40g
 Dietary Fiber: 9g"
 05/06/2025,13:55:00,Medicine,Dopicar 175,,,,Number of pills: 1.75
 05/06/2025,14:25:00,My Feelings,Parkinson's State,,5,,
-05/06/2025,14:33:00,My Feelings,Physical Difficulty,,5,,
+05/06/2025,14:33:00,My Feelings,Physical Difficulty,,4,,
 05/06/2025,14:44:00,My Feelings,My Mood,,4,,
 05/06/2025,16:23:00,Activity,Cognitive activities,Solitaire,Moderate,10,
 05/06/2025,20:15:00,Activity,Home activities,Acupuncture,Low,14,
@@ -1231,7 +1228,7 @@ Carbohydrates: 44g
 Dietary Fiber: 8g"
 05/06/2025,21:01:00,My Feelings,Physical Difficulty,,5,,
 05/06/2025,21:05:00,My Feelings,My Mood,,2,,
-05/06/2025,21:28:00,My Feelings,Parkinson's State,,5,,
+05/06/2025,22:19:00,My Feelings,Parkinson's State,,5,,
 05/06/2025,22:31:00,Medicine,Levodopa 125 mg,,,,Number of pills: 0.5
 05/06/2025,23:13:00,Sleep/Wake,Going to Sleep,,,,
 06/06/2025,06:32:00,Sleep/Wake,Waking Up,,,,
@@ -2114,3 +2111,4 @@ Dietary Fiber: 3g"
 05/06/2025,18:01:00,Medicine,Dopicar 175,,,,Number of pills: 1.5
 05/06/2025,22:31:00,Medicine,Sinemet,,,,Number of pills: 0.5
 05/06/2025,22:31:00,Medicine,Jumex,,,,Number of pills: 0.5
+05/06/2025,21:25:00,Activity,Sports activities,Group workout,High,29,

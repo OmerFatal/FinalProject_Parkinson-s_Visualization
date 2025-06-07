@@ -44,9 +44,17 @@ export default function ActivitySummaryGraph({ entries, date }) {
 
   return (
     <div ref={graphRef} className="activity-graph-wrapper">
-      <h2 className="activity-graph-title">
-        Daily Activities – Grouped by Category
-      </h2>
+    <h2 style={{
+  textAlign: 'center',
+  fontSize: isMobile ? '20px' : '24px',
+  fontWeight: 'bold',
+  marginBottom: '16px'
+}}>
+  Daily Activities – {new Date(date).toLocaleDateString('en-GB')}
+</h2>
+
+
+
 
       <LegendBox />
 

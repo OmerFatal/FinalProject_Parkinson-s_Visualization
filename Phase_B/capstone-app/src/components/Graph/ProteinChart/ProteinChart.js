@@ -20,9 +20,17 @@ export default function ProteinChart({ entries = [], date }) {
 
   return (
     <div className="protein-chart-wrapper">
-      <h2 className="protein-chart-title">
-        Protein Intake Analysis
-      </h2>
+    <h2 style={{
+  textAlign: 'center',
+  fontSize: isMobile ? '20px' : '24px',
+  fontWeight: 'bold',
+  marginBottom: '16px'
+}}>
+  Protein Intake Summary – {new Date(date).toLocaleDateString('en-GB')}
+</h2>
+
+
+
 
       {proteinData.length === 0 ? (
         <div className="protein-chart-no-data">
