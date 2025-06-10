@@ -1,10 +1,11 @@
 // CombinedStateTimelineGraph.js
 import React, { useState } from 'react';
-import ToggleButtons from '../DailyAnalysisGraph/ToggleButtons';
-import LegendSection from '../DailyAnalysisGraph/LegendSection';
+import ToggleButtons from './ToggleButtons';
+import LegendSection from './LegendSection';
 import AveragesDisplay from './AveragesDisplay';
 import GraphContainer from './GraphContainer';
 import useFilteredEntries from './useFilteredEntries';
+import './CombinedStateTimelineGraph.css';
 
 export default function CombinedStateTimelineGraph({ entries = [], initialAverages, date }) {
   const formattedDate = new Date(date).toLocaleDateString('en-GB');

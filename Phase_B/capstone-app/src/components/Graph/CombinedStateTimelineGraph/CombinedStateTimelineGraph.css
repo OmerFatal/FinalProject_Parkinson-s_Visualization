@@ -1,0 +1,157 @@
+.graph-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.graph-summary-label {
+  text-align: center;
+  font-size: 22px; 
+  font-weight: 800; 
+  color: #1e3a8a; 
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.graph-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.graph-summary-box {
+  background-color: #ffffff; 
+  border: 3px solid;
+  border-radius: 14px;
+  font-weight: 800; 
+  font-size: 16px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06); 
+  color: #1e293b;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.graph-summary-box img {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  padding: 4px;
+}
+
+.graph-buttons-with-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.graph-buttons-label {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e3a8a;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.graph-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.graph-button {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #cbd5e1;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.legend-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legend-container {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 10px 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.legend-group {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.legend-badge {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .graph-title {
+    font-size: 20px;
+  }
+
+  .graph-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .graph-summary-box {
+    font-size: 13px;
+    padding: 8px 10px;
+    min-width: unset;
+    flex: 1 1 100%;
+  }
+
+  .graph-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graph-buttons-with-label {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graph-buttons-label {
+    text-align: center;
+  }
+
+  .legend-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
