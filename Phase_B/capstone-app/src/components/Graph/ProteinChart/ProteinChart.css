@@ -10,7 +10,6 @@
   font-size: 24px;
 }
 
-/* התאמה למובייל */
 @media (max-width: 768px) {
   .protein-chart-title {
     font-size: 20px;

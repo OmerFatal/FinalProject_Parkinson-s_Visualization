@@ -17,7 +17,6 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
 
         return (
           <g key={i}>
-            {/* קו אנכי */}
             <line
               x1={x}
               y1={yScale.range()[0]}
@@ -28,7 +27,6 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
               opacity={0.25}
             />
 
-            {/* האייקון */}
             <text
               x={x}
               y={y + 6}
@@ -49,14 +47,12 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
               {pt.actionIcon}
             </text>
 
-            {/* טולטיפ */}
             {isHovered && hovered.text && (
               (() => {
                 const graphRight = xScale.range()[1];
                 const graphLeft = xScale.range()[0];
                 let tooltipX = hovered.x - tooltipWidth / 2;
 
-                // הגנה מגבולות הגרף
                 if (tooltipX + tooltipWidth > graphRight) {
                   tooltipX = graphRight - tooltipWidth - 4;
                 }
@@ -95,7 +91,6 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
         );
       })}
 
-      {/* אפקט צל */}
       <defs>
         <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
           <feDropShadow

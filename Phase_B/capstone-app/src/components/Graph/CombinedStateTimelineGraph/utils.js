@@ -97,9 +97,9 @@ tooltipText: (action?.tooltipTexts || []).join('\n'),
 }
 
 export const iconMap = {
-  sleep: '😴',           // fallback כללי
-  sleepStart: '🌙',      // Going to Sleep
-  sleepEnd: '🌅',        // Waking Up
+  sleep: '😴',           
+  sleepStart: '🌙',      
+  sleepEnd: '🌅',        
   medication: '💊',
   nutrition: '🍽️',
   activity: '🚶‍♂️'

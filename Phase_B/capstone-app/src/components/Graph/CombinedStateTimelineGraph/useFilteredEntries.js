@@ -1,4 +1,3 @@
-// useFilteredEntries.js
 import { useMemo } from 'react';
 import { buildActionTimeline, buildFullTimeline, buildLineData, toMinutes } from './utils';
 import { mapReportToIcon } from './mapReportToIcon';

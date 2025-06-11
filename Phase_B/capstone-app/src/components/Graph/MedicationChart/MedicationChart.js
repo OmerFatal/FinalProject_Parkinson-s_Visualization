@@ -1,36 +1,30 @@
-// MedicationChart.js
-
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import ChartCore from './ChartCore';
 import LegendPills from './LegendPills';
 import { pillTypes, pillColors } from './PillTypes';
 import { sortByTime } from './ChartDataUtils';
 
+import './MedicationGraph.css';
+
 export default function MedicationChart({ entries, date }) {
   const isMobile = window.innerWidth <= 768;
   const formattedDate = new Date(date).toLocaleDateString('en-GB');
 
-  // 1. סינון לפי תאריך וסוג
   const filtered = useMemo(() => {
     return entries.filter(
       (e) => e.Date === date && e.Report === 'Medicine' && e.Type && e.Notes
     );
   }, [entries, date]);
 
-  // 2. בניית medicationData לפי שעות
   const medicationData = useMemo(() => {
     const grouped = {};
-
     filtered.forEach((entry) => {
       const pillName = entry.Type?.trim();
       const time = entry.Time?.trim().slice(0, 5);
       const amountMatch = entry.Notes?.trim().match(/([0-9.]+)/);
       const amount = amountMatch ? parseFloat(amountMatch[1]) : 1;
 
-      if (!grouped[time]) {
-        grouped[time] = { time, medications: [] };
-      }
-
+      if (!grouped[time]) grouped[time] = { time, medications: [] };
       grouped[time].medications.push({ pillName, amount });
     });
 
@@ -47,7 +41,6 @@ export default function MedicationChart({ entries, date }) {
     return sortByTime(mapped);
   }, [filtered]);
 
-  // 3. זיהוי קבוצות שהופיעו בפועל
   const usedPills = new Set();
   medicationData.forEach((entry) => {
     entry.medications.forEach((m) => usedPills.add(m.pillName.trim()));
@@ -60,20 +53,12 @@ export default function MedicationChart({ entries, date }) {
         up.toLowerCase().includes(p.toLowerCase()) || p.toLowerCase().includes(up.toLowerCase())
       )
     );
-    if (matched.length > 0) {
-      usedPillTypes[type] = matched;
-    }
+    if (matched.length > 0) usedPillTypes[type] = matched;
   });
 
   const allTypes = Object.keys(usedPillTypes);
-  const [visibleTypes, setVisibleTypes] = useState([]);
+  const [visibleTypes, setVisibleTypes] = useState(allTypes);
 
-  // ✅ עובד כמו בגרסה הישנה – מתרחש רק כשהמספר של הסוגים משתנה
-  useEffect(() => {
-    setVisibleTypes(allTypes);
-  }, [allTypes.length]);
-
-  // 4. שליטה על checkbox
   const handleToggle = (type) => {
     setVisibleTypes(prev =>
       prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
@@ -87,13 +72,8 @@ export default function MedicationChart({ entries, date }) {
   };
 
   return (
-    <div style={{ width: '100%', padding: '0 24px' }}>
-      <h2 style={{
-        textAlign: 'center',
-        fontSize: isMobile ? '20px' : '24px',
-        fontWeight: 'bold',
-        marginBottom: '16px'
-      }}>
+    <div className="medication-chart-wrapper">
+      <h2 className="medication-chart-title">
         Medication Intake Summary – {formattedDate}
       </h2>
 
@@ -103,26 +83,11 @@ export default function MedicationChart({ entries, date }) {
         medicationData={medicationData}
       />
 
-      <div style={{
-        backgroundColor: '#f8fafc',
-        border: '1px solid #e2e8f0',
-        borderRadius: '12px',
-        padding: '16px',
-        marginTop: '24px'
-      }}>
-        <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <div className="medication-controls-container">
+        <div className="medication-controls-button-wrapper">
           <button
             onClick={handleToggleAll}
-            style={{
-              padding: '6px 12px',
-              fontSize: '14px',
-              fontWeight: 'bold',
-              backgroundColor: '#2563eb',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer'
-            }}
+            className="medication-controls-button"
           >
             {visibleTypes.length === allTypes.length ? 'Deselect All' : 'Select All'}
           </button>

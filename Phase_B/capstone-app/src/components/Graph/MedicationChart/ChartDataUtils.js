@@ -1,6 +1,3 @@
-// ChartDataUtils.js
-
-// ממיין לפי שעה בפורמט 'HH:MM'
 export function sortByTime(data) {
   return [...data].sort((a, b) => {
     const [h1, m1] = a.time.split(':').map(Number);

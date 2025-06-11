@@ -1,4 +1,3 @@
-// ToggleButtons.js
 import React from 'react';
 
 export default function ToggleButtons({ visibleLines, toggleLine, availableLines }) {

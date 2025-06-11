@@ -1,4 +1,3 @@
-/* סגנון כולל ל־NavBar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -43,23 +42,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: inherit; /* ✅ מיישר בין Link ל־Button */
-  appearance: none;     /* ✅ מבטל עיצוב ברירת מחדל של כפתורים */
+  font-family: inherit; 
+  appearance: none;     
 }
 
-/* אין הדגשה על hover או active */
 .navbar-link:hover,
 .navbar-link.active {
   background-color: #475569;
   border: none;
 }
 
-/* אפשרות לנגישות – קו מתאר במצב פוקוס */
 .navbar-link:focus {
   outline: 2px solid #ffffff;
 }
 
-/* רספונסיביות לניידים */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

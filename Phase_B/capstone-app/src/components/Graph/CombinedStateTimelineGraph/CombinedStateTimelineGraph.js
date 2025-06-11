@@ -1,4 +1,3 @@
-// CombinedStateTimelineGraph.js
 import React, { useState } from 'react';
 import ToggleButtons from './ToggleButtons';
 import LegendSection from './LegendSection';

@@ -12,7 +12,6 @@ import LegendBox from './LegendBox';
 import CustomBars from './CustomBars';
 import ActivityTooltip from './ActivityTooltip';
 import useActivityData from './useActivityData';
-
 import './ActivitySummaryGraph.css';
 
 const categories = ['Sport', 'Cognitive', 'Household'];
@@ -52,10 +51,6 @@ export default function ActivitySummaryGraph({ entries, date }) {
 }}>
   Daily Activities – {new Date(date).toLocaleDateString('en-GB')}
 </h2>
-
-
-
-
       <LegendBox />
 
       <ResponsiveContainer width="100%" height={isMobile ? 260 : 300}>

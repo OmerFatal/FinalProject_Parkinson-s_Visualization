@@ -11,7 +11,6 @@ import {
 } from 'recharts';
 import ProteinTooltip from './ProteinTooltip';
 import useProteinData from './useProteinData';
-
 import './ProteinChart.css';
 
 export default function ProteinChart({ entries = [], date }) {
@@ -28,10 +27,6 @@ export default function ProteinChart({ entries = [], date }) {
 }}>
   Protein Intake Summary – {new Date(date).toLocaleDateString('en-GB')}
 </h2>
-
-
-
-
       {proteinData.length === 0 ? (
         <div className="protein-chart-no-data">
           No protein intake data for this day.

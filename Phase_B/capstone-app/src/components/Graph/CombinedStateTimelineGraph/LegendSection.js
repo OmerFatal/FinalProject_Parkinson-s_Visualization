@@ -1,12 +1,8 @@
-// LegendSection.js
-
 import React from 'react';
 
 export default function LegendSection() {
   return (
     <div className="legend-wrapper">
-      
-      {/* 🔹 שורת המצבים */}
       <div className="legend-container">
         <div className="legend-group">
           <div className="legend-badge" style={{ color: '#2563eb' }}>─ My Mood</div>
@@ -15,7 +11,6 @@ export default function LegendSection() {
         </div>
       </div>
 
-      {/* 🔹 מדרג 1–5 – בדיוק כמו השאר */}
       <div className="legend-container">
         <div className="legend-group">
           <div
@@ -31,7 +26,6 @@ export default function LegendSection() {
         </div>
       </div>
 
-      {/* 🔹 שורת האיקונים */}
       <div className="legend-container">
         <div className="legend-group">
           <div className="legend-badge">🌙 Going to Sleep</div>

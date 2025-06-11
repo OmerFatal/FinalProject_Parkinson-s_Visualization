@@ -1,5 +1,3 @@
-// src/components/Graph/CombinedStateTimelineGraph/CustomXAxisWithTimes.js
-
 import React from 'react';
 import { formatTime } from './utils';
 

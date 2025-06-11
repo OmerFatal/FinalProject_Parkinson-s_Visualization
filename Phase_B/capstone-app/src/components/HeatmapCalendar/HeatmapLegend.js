@@ -1,4 +1,3 @@
-// src/components/HeatmapCalendar/HeatmapLegend.js
 import React from 'react';
 
 export default function HeatmapLegend() {

@@ -1,4 +1,3 @@
-// src/components/HeatmapCalendar/CalendarHeader.js
 import React from 'react';
 
 export default function CalendarHeader() {

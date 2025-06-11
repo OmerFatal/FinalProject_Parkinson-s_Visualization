@@ -1,10 +1,7 @@
-// Dashboard.js
-
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import './Dashboard.css';
-
 import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
@@ -38,7 +35,7 @@ export default function Dashboard({ entries = [] }) {
       <NavBar />
       <div className="dashboard-wrapper">
 
-        {/* 🔹 גרף מצב כללי תלת-מצבי */}
+        {/*  גרף מצב כללי תלת-מצבי */}
         <div className="dashboard-card full-width" id="analysis">
           <CombinedStateTimelineGraph
             entries={entries}
@@ -46,21 +43,21 @@ export default function Dashboard({ entries = [] }) {
             date={selectedDate}
           />
         </div>
-        {/* 🔹 גרף תרופות */}
+        {/*  גרף תרופות */}
         <div className="dashboard-card full-width" id="medication">
           <MedicationChart
             date={selectedDate}
             entries={entries}
           />
         </div>
-        {/* 🔹 גרף חלבונים */}
+        {/*  גרף חלבונים */}
         <div className="dashboard-card full-width" id="protein">
           <ProteinChart
             date={selectedDate}
             entries={entries}
           />
         </div>
-        {/* 🔹 גרף פעילויות לפי קטגוריה */}
+        {/*  גרף פעילויות */}
         <div className="dashboard-card full-width" id="activity-summary">
           <ActivitySummaryGraph
             date={selectedDate}

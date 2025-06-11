@@ -31,7 +31,7 @@ export default function CustomBarsCombined({
       ? activity.timeMinutes
       : parseTimeToFloat(activity.time) * 60;
 
-    const maxTime = 1440; // סוף היום בדקות
+    const maxTime = 1440; 
     const endMinutes = xValue + activity.duration;
     const clampedDuration = Math.min(activity.duration, maxTime - xValue);
 

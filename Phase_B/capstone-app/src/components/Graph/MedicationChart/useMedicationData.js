@@ -1,4 +1,3 @@
-// useMedicationData.js
 import { useMemo } from 'react';
 import { sortByTime } from './ChartDataUtils';
 import { pillTypes } from './PillTypes';

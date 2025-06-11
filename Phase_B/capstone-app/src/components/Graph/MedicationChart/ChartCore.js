@@ -8,10 +8,8 @@ import { pillColors, pillTypes } from './PillTypes';
 export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTypes), medicationData }) {
   const normalize = (s) => s?.replace(/\s+/g, ' ').trim().toLowerCase();
 
-  // Map of normalizedName -> originalName (for coloring)
   const originalNameMap = {};
 
-  // אוסף את כל שמות התרופות לפי הקבוצות המסומנות
   const visiblePillNames = new Set();
   visibleTypes.forEach(type => {
     (pillTypes[type] || []).forEach(original => {
@@ -27,7 +25,7 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
         visiblePillNames.has(normalize(m.pillName))
       );
 
-      // ✅ בדיקת דיבאג ספציפית לשעה 22:25
+
       if (entry.time === '22:25') {
         console.log('🕒 22:25 entry:', entry);
         console.log('🔎 Dopicar 250 mg medication exists in entry?',
@@ -65,7 +63,7 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
     ), 0)
   );
 
-const step = maxTotal <= 2 ? 0.5 : 1;  // 🔁 התאמה חכמה לפי טווח כולל
+const step = maxTotal <= 2 ? 0.5 : 1; 
 const yTicks = [];
 for (let i = 0; i <= maxTotal; i += step) {
   yTicks.push(Number(i.toFixed(2)));

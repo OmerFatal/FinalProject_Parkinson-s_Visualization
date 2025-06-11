@@ -1,4 +1,3 @@
-// useProteinData.js
 import { useMemo } from 'react';
 
 export default function useProteinData(entries, date) {

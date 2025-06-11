@@ -1,5 +1,3 @@
-// src/components/Graph/CombinedStateTimelineGraph/AveragesDisplay.js
-
 import React from 'react';
 import MyMood from '../../../assets/MyMood.png';
 import Parkinson from '../../../assets/Parkinson.png';

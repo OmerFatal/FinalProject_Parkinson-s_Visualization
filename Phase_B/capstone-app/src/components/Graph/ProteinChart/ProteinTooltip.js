@@ -1,5 +1,3 @@
-// ProteinTooltip.js
-
 import React from 'react';
 
 export default function ProteinTooltip({ active, payload }) {
@@ -19,18 +17,17 @@ export default function ProteinTooltip({ active, payload }) {
         whiteSpace: 'pre-line',
         fontWeight: 800
       }}>
-        {/* סוג האוכל */}
+       
         <div><strong>{entry.food}</strong></div>
 
         <hr style={{ margin: '10px 0', borderTop: '1px solid #ccc' }} />
 
-        {/* שדה ההערות (Notes) */}
+        
         <div style={{ fontWeight: 500, fontSize: 14, color: '#334155' }}>
           {entry.notes}
         </div>
       </div>
     );
   }
-
   return null;
 }

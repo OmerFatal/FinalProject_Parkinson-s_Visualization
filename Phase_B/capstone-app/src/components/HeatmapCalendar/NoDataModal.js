@@ -1,4 +1,3 @@
-// src/components/HeatmapCalendar/NoDataModal.js
 import React from 'react';
 
 export default function NoDataModal({ clickedDate, onClose }) {

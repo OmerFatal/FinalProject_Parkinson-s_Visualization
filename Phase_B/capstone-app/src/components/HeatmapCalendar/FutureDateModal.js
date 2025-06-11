@@ -1,4 +1,3 @@
-// src/components/HeatmapCalendar/FutureDateModal.js
 import React from 'react';
 
 export default function FutureDateModal({ clickedDate, onClose }) {

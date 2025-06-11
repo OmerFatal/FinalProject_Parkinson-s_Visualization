@@ -8,10 +8,9 @@
   text-align: center;
   font-weight: bold;
   margin-bottom: 8px;
-  font-size: 24px; /* גודל ברירת מחדל */
+  font-size: 24px; 
 }
 
-/* התאמה למובייל */
 @media (max-width: 768px) {
   .activity-graph-title {
     font-size: 20px;

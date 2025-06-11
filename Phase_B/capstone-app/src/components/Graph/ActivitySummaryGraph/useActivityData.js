@@ -1,4 +1,3 @@
-// useActivityData.js
 import { useMemo } from 'react';
 
 function parseTimeToFloat(timeStr) {

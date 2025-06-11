@@ -1,7 +1,5 @@
-// App.js
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import HeatmapCalendar from './components/HeatmapCalendar/HeatmapCalendar';
 import Dashboard from './components/Dashboard';
 import { loadCSVData } from './utils/loadCSV';

@@ -8,7 +8,6 @@ export default function NavBar() {
   const selectedMonth = query.get('month');
   const selectedYear = query.get('year');
 
-  // הדגשה של הסקשן הפעיל
   const [activeSection, setActiveSection] = useState('analysis');
 
   useEffect(() => {
@@ -39,7 +38,6 @@ const handleScroll = () => {
     ? `/?month=${selectedMonth}&year=${selectedYear}`
     : '/';
 
-  // גלילה חלקה לסקשן
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {

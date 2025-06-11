@@ -1,5 +1,3 @@
-// ActivityTooltip.js
-
 import React from 'react';
 import ropeIcon from '../../../assets/rope.png';
 import brainIcon from '../../../assets/brain.png';
@@ -16,10 +14,10 @@ const getCategoryIcon = (category) => {
 
 const getIntensityColor = (intensity) => {
   switch (intensity) {
-    case 'High': return '#16a34a'; // ירוק
-    case 'Moderate': return '#facc15'; // צהוב
-    case 'Low': return '#dc2626'; // אדום
-    default: return '#6b7280'; // אפור
+    case 'High': return '#16a34a'; 
+    case 'Moderate': return '#facc15'; 
+    case 'Low': return '#dc2626'; 
+    default: return '#6b7280'; 
   }
 };
 
@@ -29,7 +27,6 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
   const tooltipWidth = isMobile ? 200 : 240;
   const intensityColor = getIntensityColor(tooltip.activity.intensity);
 
-  // חישוב חכם: אם אין מקום ימינה, נזיז שמאלה
   const isOverflowingRight = tooltip.x + tooltipWidth + 20 > window.innerWidth;
   const adjustedLeft = isOverflowingRight ? tooltip.x - tooltipWidth - 12 : tooltip.x + 12;
 

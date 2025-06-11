@@ -26,7 +26,6 @@ export default function TriangularHeatmapCell({
       )}
 
       <svg viewBox="0 0 100 100" className="triangular-svg">
-        {/* רקע */}
         <rect
           x="0"
           y="0"
@@ -37,7 +36,6 @@ export default function TriangularHeatmapCell({
           strokeWidth="25"
         />
 
-        {/* שלושת המשולשים */}
 <polygon
   points="0,0 100,0 50,100"
   fill={parkinsonColor}
@@ -52,13 +50,10 @@ export default function TriangularHeatmapCell({
 />
 <polygon
   points="100,0 100,100 50,100"
-  fill={moodColor} // 👈 Mood מצויר הכי למעלה!
+  fill={moodColor} 
   stroke="black"
   strokeWidth="1.5"
 />
-
-
-        {/* מספר היום */}
         <text
           x="50"
           y="60"

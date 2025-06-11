@@ -17,7 +17,6 @@ export const pillTypes = {
   Xadago: ['Xadago 50 mg', 'Xadago 100 mg']
 };
 
-// צבע אחד לכל קטגוריה בלבד
 export const pillColors = {
   Levopar: '#3498db',
   Madopar: '#9b59b6',
