@@ -5,7 +5,7 @@ import './Dashboard.css';
 import ProteinChart from './Graph/ProteinChart/ProteinChart';
 import MedicationChart from './Graph/MedicationChart/MedicationChart';
 import ActivitySummaryGraph from './Graph/ActivitySummaryGraph/ActivitySummaryGraph';
-import CombinedStateTimelineGraph from './Graph/CombinedStateTimelineGraph/CombinedStateTimelineGraph';
+import DailyAnalysisGraph from './Graph/DailyAnalysisGraph/DailyAnalysisGraph';
 
 export default function Dashboard({ entries = [] }) {
   const location = useLocation();
@@ -37,7 +37,7 @@ export default function Dashboard({ entries = [] }) {
 
         {/*  גרף מצב כללי תלת-מצבי */}
         <div className="dashboard-card full-width" id="analysis">
-          <CombinedStateTimelineGraph
+          <DailyAnalysisGraph
             entries={entries}
             initialAverages={initialAverages}
             date={selectedDate}

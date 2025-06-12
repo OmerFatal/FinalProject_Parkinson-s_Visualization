@@ -4,7 +4,7 @@ import LegendPills from './LegendPills';
 import { pillTypes, pillColors } from './PillTypes';
 import { sortByTime } from './ChartDataUtils';
 
-import './MedicationGraph.css';
+import './MedicationChart.css';
 
 export default function MedicationChart({ entries, date }) {
   const isMobile = window.innerWidth <= 768;

@@ -11,7 +11,7 @@ import {
 import LegendBox from './LegendBox';
 import CustomBars from './CustomBars';
 import ActivityTooltip from './ActivityTooltip';
-import useActivityData from './useActivityData';
+import useActivityData from './UseActivityData';
 import './ActivitySummaryGraph.css';
 
 const categories = ['Sport', 'Cognitive', 'Household'];

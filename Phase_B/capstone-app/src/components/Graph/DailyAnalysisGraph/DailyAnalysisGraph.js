@@ -4,7 +4,7 @@ import LegendSection from './LegendSection';
 import AveragesDisplay from './AveragesDisplay';
 import GraphContainer from './GraphContainer';
 import useFilteredEntries from './useFilteredEntries';
-import './CombinedStateTimelineGraph.css';
+import './DailyAnalysisGraph.css';
 
 export default function CombinedStateTimelineGraph({ entries = [], initialAverages, date }) {
   const formattedDate = new Date(date).toLocaleDateString('en-GB');

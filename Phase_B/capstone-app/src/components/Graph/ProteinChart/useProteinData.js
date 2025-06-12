@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export default function useProteinData(entries, date) {
+export default function UseProteinData(entries, date) {
   return useMemo(() => {
     if (!entries || entries.length === 0) return [];
 

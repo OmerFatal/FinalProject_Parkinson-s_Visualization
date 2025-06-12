@@ -10,7 +10,7 @@ import {
   Cell
 } from 'recharts';
 import ProteinTooltip from './ProteinTooltip';
-import useProteinData from './useProteinData';
+import useProteinData from './UseProteinData';
 import './ProteinChart.css';
 
 export default function ProteinChart({ entries = [], date }) {
