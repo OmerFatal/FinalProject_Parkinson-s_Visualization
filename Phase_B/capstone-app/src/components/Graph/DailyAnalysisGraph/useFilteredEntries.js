@@ -22,14 +22,28 @@ export default function useFilteredEntries(entries, date, visibleLines) {
       physicalTime: r.Type === 'Physical Difficulty' ? r.Time : null
     }));
 
-    const groupedByTime = {};
-    mapped.forEach((entry) => {
-      const t = entry.time;
-      if (!groupedByTime[t]) groupedByTime[t] = [];
-      groupedByTime[t].push(entry);
-    });
+    const sorted = mapped.sort((a, b) => a.timeMinutes - b.timeMinutes);
 
-    const merged = Object.entries(groupedByTime).map(([time, group]) => {
+    const merged = [];
+    let currentGroup = [];
+
+    for (let i = 0; i < sorted.length; i++) {
+      const entry = sorted[i];
+      if (
+        currentGroup.length === 0 ||
+        Math.abs(entry.timeMinutes - currentGroup[currentGroup.length - 1].timeMinutes) <= 1
+      ) {
+        currentGroup.push(entry);
+      } else {
+        merged.push(mergeGroup(currentGroup));
+        currentGroup = [entry];
+      }
+    }
+    if (currentGroup.length > 0) {
+      merged.push(mergeGroup(currentGroup));
+    }
+
+    function mergeGroup(group) {
       const base = group[0];
       const tooltipTexts = group
         .map((e) => {
@@ -40,9 +54,11 @@ export default function useFilteredEntries(entries, date, visibleLines) {
 
       return {
         ...base,
-        tooltipTexts
+        tooltipText: tooltipTexts.join('\n'),
+        actionIcon: base.icon,
+        tooltipTexts,
       };
-    });
+    }
 
     const actionTimeline = buildActionTimeline(merged);
     const lastActionTime = actionTimeline[actionTimeline.length - 1];
