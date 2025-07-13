@@ -141,7 +141,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
                         border: '1px solid #cbd5e1',
                         borderRadius: 10,
                         padding: '10px 14px',
-                        fontSize: 15,
+                        fontSize: 13,
                         color: '#222',
                         textAlign: 'center',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
