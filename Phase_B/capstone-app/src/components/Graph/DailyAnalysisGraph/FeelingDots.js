@@ -145,7 +145,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
                         color: '#222',
                         textAlign: 'center',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                        fontWeight: 600,
+                        fontWeight: 'bold',
                         height: '100%',
                         overflow: 'visible'
                       }}

@@ -4,6 +4,13 @@ export default function ProteinTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     const entry = payload[0].payload;
 
+    const match = entry.notes.match(/Proteins:\s*(\d+g)/i);
+    const proteinValue = match ? match[1] : null;
+
+    const notesWithoutProtein = entry.notes
+      .replace(/Proteins:\s*\d+g\s*/i, '') // מסיר את שורת החלבון המקורית
+      .trim();
+
     return (
       <div style={{
         backgroundColor: '#ffffff',
@@ -17,14 +24,22 @@ export default function ProteinTooltip({ active, payload }) {
         whiteSpace: 'pre-line',
         fontWeight: 800
       }}>
-       
         <div><strong>{entry.food}</strong></div>
 
         <hr style={{ margin: '10px 0', borderTop: '1px solid #ccc' }} />
 
-        
-        <div style={{ fontWeight: 500, fontSize: 14, color: '#334155' }}>
-          {entry.notes}
+        <div style={{ fontWeight: 500, fontSize: 14, color: '#111827' }}>
+          Proteins:{' '}
+          <span style={{
+            backgroundColor: '#d1fae5',
+            color: '#111827',
+            fontWeight: 800,
+            padding: '2px 6px',
+            borderRadius: '6px'
+          }}>
+            {proteinValue}
+          </span>
+          {notesWithoutProtein && `\n${notesWithoutProtein}`}
         </div>
       </div>
     );
