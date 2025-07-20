@@ -28,17 +28,16 @@ export default async function handler(req, res) {
     console.log('🔵 startOfDay:', startOfDay.toISOString());
     console.log('🔵 endOfDay:', endOfDay.toISOString());
 
-    // פונקציה עוזרת לשלוף מהקולקציה לפי טווח תאריכים
     const fetchCollection = async (collectionName) => {
       try {
         console.log(`🔍 Fetching from collection: ${collectionName}`);
         const results = await db.collection(collectionName).find({
           date: { $gte: startOfDay, $lte: endOfDay }
         }).toArray();
-        console.log(`✅ Found ${results.length} documents in ${collectionName}`);
+        console.log(`Found ${results.length} documents in ${collectionName}`);
         return results;
       } catch (error) {
-        console.error(`❌ Error fetching ${collectionName}:`, error.message);
+        console.error(`Error fetching ${collectionName}:`, error.message);
         return [];
       }
     };
@@ -52,14 +51,12 @@ export default async function handler(req, res) {
       fetchCollection('sleepwakes')
     ]);
 
-    // הדפסה מסודרת ל־טרמינל (VS Code)
     console.log('🎯 feelings:', JSON.stringify(feelings, null, 2));
     console.log('🎯 activities:', JSON.stringify(activities, null, 2));
     console.log('🎯 nutritions:', JSON.stringify(nutritions, null, 2));
     console.log('🎯 medicines:', JSON.stringify(medicines, null, 2));
     console.log('🎯 sleepwakes:', JSON.stringify(sleepwakes, null, 2));
 
-    // שליחה ל־React
     res.status(200).json({
       feelings,
       activities,

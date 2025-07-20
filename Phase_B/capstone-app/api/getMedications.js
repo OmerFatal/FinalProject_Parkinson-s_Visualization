@@ -1,5 +1,3 @@
-// pages/api/get-medications.js
-
 import { connectToDatabase } from '../../lib/mongodb';
 import cors from '../../lib/cors';
 
