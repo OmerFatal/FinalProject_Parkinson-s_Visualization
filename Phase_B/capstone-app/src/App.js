@@ -7,6 +7,9 @@ import { loadCSVData } from './utils/loadCSV';
 function App() {
   {/* Store parsed CSV data */}
   const [entries, setEntries] = useState([]);
+  useEffect(() => {
+  localStorage.removeItem('heatmap-monthYear');
+}, []);
 
   {/* Load and process CSV once on mount */}
   useEffect(() => {
