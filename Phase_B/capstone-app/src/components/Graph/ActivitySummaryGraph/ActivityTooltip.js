@@ -3,6 +3,7 @@ import ropeIcon from '../../../assets/rope.png';
 import brainIcon from '../../../assets/brain.png';
 import houseIcon from '../../../assets/House.png';
 
+{/* Map activity category to corresponding icon */}
 const getCategoryIcon = (category) => {
   switch (category) {
     case 'Sport': return ropeIcon;
@@ -12,6 +13,7 @@ const getCategoryIcon = (category) => {
   }
 };
 
+{/* Map intensity label to background color */}
 const getIntensityColor = (intensity) => {
   switch (intensity) {
     case 'High': return '#16a34a'; 
@@ -27,6 +29,7 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
   const tooltipWidth = isMobile ? 200 : 240;
   const intensityColor = getIntensityColor(tooltip.activity.intensity);
 
+  {/* Ensure tooltip stays within screen boundaries */}
   const isOverflowingRight = tooltip.x + tooltipWidth + 20 > window.innerWidth;
   const adjustedLeft = isOverflowingRight ? tooltip.x - tooltipWidth - 12 : tooltip.x + 12;
 
@@ -50,6 +53,7 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
         maxWidth: tooltipWidth
       }}
     >
+      {/* Activity name with icon */}
       <div style={{
         fontWeight: 'bold',
         fontSize: 16,
@@ -61,8 +65,11 @@ export default function ActivityTooltip({ tooltip, isMobile }) {
         <img src={getCategoryIcon(tooltip.activity.category)} alt="" style={{ width: 24, height: 24 }} />
         <span>{tooltip.activity.name}</span>
       </div>
+      {/* Activity time and duration */}
       <div>Start: <span style={{ fontWeight: '500' }}>{tooltip.activity.time}</span></div>
       <div>Duration: <span style={{ fontWeight: '500' }}>{tooltip.activity.duration} min</span></div>
+
+      {/* Activity intensity with colored pill */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
         Intensity: 
         <span style={{

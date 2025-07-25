@@ -12,10 +12,13 @@ export default function CalendarGrid({
   setShowNoDataModal,
   getColor
 }) {
+// Calculate number of days and weekday offset
   const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
   const firstDayOfMonth = new Date(selectedYear, selectedMonth, 1).getDay();
+
   const navigate = useNavigate();
 
+// Handles click on a calendar day
   const handleDayClick = (dateStr) => {
     const today = new Date();
     const clicked = new Date(dateStr);
@@ -27,18 +30,19 @@ export default function CalendarGrid({
     const parkinson = score.parkinson;
     const physical = score.physical;
 
+// Show modal if user clicks a future date
     if (clicked > today) {
       setFutureDateClicked(clicked);
       setShowFutureModal(true);
       return;
     }
-
+// Show modal if no data for the selected day
     if (mood == null && parkinson == null && physical == null) {
       setNoDataClicked(clicked);
       setShowNoDataModal(true);
       return;
     }
-
+// Navigate to dashboard for that date
     navigate(`/dashboard?date=${dateStr}&month=${selectedMonth}&year=${selectedYear}`, {
       state: { mood, parkinson, physical }
     });

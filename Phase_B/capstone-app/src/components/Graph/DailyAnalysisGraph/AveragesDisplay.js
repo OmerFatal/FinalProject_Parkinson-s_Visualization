@@ -5,6 +5,7 @@ import Physical from '../../../assets/Physical.png';
 
 
 export default function AveragesDisplay({ averages }) {
+  // Define each section to display, with icon and color
   const sections = [
     { key: 'feeling', label: 'My Mood Avg', color: '#2563eb', icon: MyMood },
     { key: 'parkinson', label: 'Parkinson State Avg', color: '#dc2626', icon: Parkinson },
@@ -13,6 +14,7 @@ export default function AveragesDisplay({ averages }) {
 
   return (
     <>
+      {/* Title */}
       <div
         className="graph-summary-label"
         style={{
@@ -26,6 +28,7 @@ export default function AveragesDisplay({ averages }) {
         Average Score For Each Feeling:
       </div>
 
+      {/* Boxes showing average per category */}
       <div
         className="graph-summary"
         style={{
@@ -53,11 +56,13 @@ export default function AveragesDisplay({ averages }) {
               boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
             }}
           >
+            {/* Category icon */}
             <img
               src={icon}
               alt={label}
               style={{ width: 38, height: 38, marginBottom: 6 }}
             />
+            {/* Average value */}
             <div>
               {label}: {averages[key] != null ? averages[key] : 'N/A'}
             </div>

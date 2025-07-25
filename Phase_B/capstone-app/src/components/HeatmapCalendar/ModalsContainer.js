@@ -12,12 +12,15 @@ export default function ModalsContainer({
 }) {
   return (
     <>
+      {/* Show modal for future dates if triggered */}
       {showFutureModal && (
         <FutureDateModal
           clickedDate={futureDateClicked}
           onClose={() => setShowFutureModal(false)}
         />
       )}
+
+      {/* Show modal for days with no data */}
       {showNoDataModal && (
         <NoDataModal
           clickedDate={noDataClicked}

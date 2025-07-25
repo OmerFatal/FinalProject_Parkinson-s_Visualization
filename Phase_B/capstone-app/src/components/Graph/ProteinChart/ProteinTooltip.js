@@ -1,14 +1,17 @@
 import React from 'react';
 
 export default function ProteinTooltip({ active, payload }) {
+  // Show tooltip only if valid payload exists
   if (active && payload && payload.length) {
     const entry = payload[0].payload;
 
+    // Extract protein value from notes (e.g., "Proteins: 20g")
     const match = entry.notes.match(/Proteins:\s*(\d+g)/i);
     const proteinValue = match ? match[1] : null;
 
+    // Remove protein text from notes for cleaner display
     const notesWithoutProtein = entry.notes
-      .replace(/Proteins:\s*\d+g\s*/i, '') // מסיר את שורת החלבון המקורית
+      .replace(/Proteins:\s*\d+g\s*/i, '')
       .trim();
 
     return (
@@ -44,5 +47,6 @@ export default function ProteinTooltip({ active, payload }) {
       </div>
     );
   }
+
   return null;
 }

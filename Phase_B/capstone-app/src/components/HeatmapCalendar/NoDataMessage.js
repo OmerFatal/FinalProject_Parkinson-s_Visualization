@@ -11,6 +11,7 @@ export default function NoDataMessage({ selectedYear, selectedMonth }) {
         marginBottom: '1.2rem'
       }}
     >
+      {/* Inform the user there's no data for this month */}
       No Data Available For{' '}
       {new Date(selectedYear, selectedMonth).toLocaleString('en-US', {
         month: 'long',

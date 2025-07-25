@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
+  // Track the currently hovered dot for tooltip rendering
   const [hovered, setHovered] = useState(null);
 
   const dotProps = {
@@ -10,6 +11,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
   };
 
   const tooltipWidth = 220;
+  // Get all relevant dots near hovered point
 
   function getDotsAroundTimeAndY(hoveredTime, yValue) {
     return data.flatMap((pt) => {
@@ -67,7 +69,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
       return dots;
     });
   }
-
+  // Check which types are active at this data point
   function getPointTypesAtTime(pt) {
     const result = [];
     ['feeling', 'parkinson', 'physical'].forEach((type) => {
@@ -85,6 +87,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
 
   return (
     <g>
+        {/* Drop shadow filter definition*/}
       <defs>
         <filter id="dotShadow" x="-50%" y="-50%" width="200%" height="200%">
           <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#000" floodOpacity="0.2" />
@@ -102,7 +105,7 @@ export default function FeelingDots({ data, yScale, xScale, visibleLines }) {
             hovered?.yValue === pt[type] &&
             Math.abs(pt.timeMinutes - hovered?.time) <= 1
         );
-
+        // Tooltip logic: generate content if any type is hovered
         const tooltip =
           tooltipCandidates.length > 0
             ? (() => {

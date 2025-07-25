@@ -10,6 +10,7 @@ export default function TriangularHeatmapCell({
   parkinsonColor = '#ccc',
   physicalColor = '#ccc'
 }) {
+  {/* Manage tooltip visibility */}
   const [showTooltip, setShowTooltip] = useState(false);
   return (
     <div
@@ -17,6 +18,8 @@ export default function TriangularHeatmapCell({
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
+
+      {/* Tooltip showing mood, parkinson, and physical values */}
       {showTooltip && (
         <div className="tooltip-box">
           <div><strong>Mood:</strong> {mood != null ? mood : 'N/A'}</div>
@@ -25,7 +28,10 @@ export default function TriangularHeatmapCell({
         </div>
       )}
 
+      {/* Main visual cell with 3 colored triangles and the day number */}
       <svg viewBox="0 0 100 100" className="triangular-svg">
+
+        {/* Background box */}
         <rect
           x="0"
           y="0"
@@ -36,24 +42,29 @@ export default function TriangularHeatmapCell({
           strokeWidth="25"
         />
 
-<polygon
-  points="0,0 100,0 50,100"
-  fill={parkinsonColor}
-  stroke="black"
-  strokeWidth="1.5"
-/>
-<polygon
-  points="0,0 0,100 50,100"
-  fill={physicalColor}
-  stroke="black"
-  strokeWidth="1.5"
-/>
-<polygon
-  points="100,0 100,100 50,100"
-  fill={moodColor} 
-  stroke="black"
-  strokeWidth="1.5"
-/>
+        {/* Top triangle - Parkinson */}
+        <polygon
+          points="0,0 100,0 50,100"
+          fill={parkinsonColor}
+          stroke="black"
+          strokeWidth="1.5"
+        />
+
+        {/* Left triangle - Physical */}
+        <polygon
+          points="0,0 0,100 50,100"
+          fill={physicalColor}
+          stroke="black"
+          strokeWidth="1.5"
+        />
+        {/* Right triangle - Mood */}
+        <polygon
+          points="100,0 100,100 50,100"
+          fill={moodColor} 
+          stroke="black"
+          strokeWidth="1.5"
+        />
+        {/* Day number centered */}
         <text
           x="50"
           y="60"

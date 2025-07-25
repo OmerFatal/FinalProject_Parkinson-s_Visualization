@@ -5,7 +5,6 @@ import CalendarHeader from './CalendarHeader';
 import CalendarGrid from './CalendarGrid';
 import HeatmapLegend from './HeatmapLegend';
 import LegendSampleBox from './LegendSampleBox';
-
 import useHeatmapCalendarState from './useHeatmapCalendarState';
 import HeatmapCalendarHeader from './HeatmapCalendarHeader';
 import NoDataMessage from './NoDataMessage';
@@ -13,6 +12,7 @@ import HeatmapCalendarFooter from './HeatmapCalendarFooter';
 import ModalsContainer from './ModalsContainer';
 
 export default function HeatmapCalendar({ entries }) {
+  {/*Extract relevant state and setters from the custom hook*/}
   const {
     selectedYear,
     setSelectedYear,
@@ -28,7 +28,7 @@ export default function HeatmapCalendar({ entries }) {
     setShowNoDataModal,
     averagedScores
   } = useHeatmapCalendarState(entries);
-
+  {/*Map score (1–5) to color; return light gray if no score*/}
   const getColor = (score) => {
     if (!score) return '#e0e0e0';
     const rounded = Math.round(score);
@@ -41,7 +41,7 @@ export default function HeatmapCalendar({ entries }) {
     };
     return colors[rounded] || '#e0e0e0';
   };
-
+  {/*Check if all days in the selected month have no data*/}
   const allDaysAreEmpty = () => {
     const daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {

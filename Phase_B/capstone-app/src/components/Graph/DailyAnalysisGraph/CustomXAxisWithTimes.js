@@ -6,9 +6,11 @@ export default function CustomXAxisWithTimes({ x, y, ticks, xScale }) {
     <g>
       {ticks.map((tick, i) => {
         let xPos = xScale(tick.value);
+        // Small horizontal shift to avoid clipping first tick
         if (i === 0) xPos += 12;
         return (
           <g key={i} transform={`rotate(-18,${xPos},${y + 28})`}>
+            {/* Render time label rotated diagonally */}
             <text
               x={xPos}
               y={y + 28}

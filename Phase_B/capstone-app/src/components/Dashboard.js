@@ -14,6 +14,7 @@ export default function Dashboard({ entries = [] }) {
   const selectedMonth = query.get('month');
   const selectedYear = query.get('year');
 
+  {/* Extract average values passed from heatmap */}
   const rawState = location.state || {};
   const initialAverages = {
     feeling: rawState.mood ?? null,
@@ -21,6 +22,7 @@ export default function Dashboard({ entries = [] }) {
     physical: rawState.physical ?? null
   };
 
+  {/* Save selected month/year in localStorage for consistency */}
   useEffect(() => {
     if (selectedYear !== null && selectedMonth !== null) {
       localStorage.setItem('heatmap-monthYear', `${selectedYear}-${selectedMonth}`);
@@ -35,7 +37,7 @@ export default function Dashboard({ entries = [] }) {
       <NavBar />
       <div className="dashboard-wrapper">
 
-        {/*  גרף מצב כללי תלת-מצבי */}
+        {/* Daily Analysis Graph */}
         <div className="dashboard-card full-width" id="analysis">
           <DailyAnalysisGraph
             entries={entries}
@@ -43,21 +45,21 @@ export default function Dashboard({ entries = [] }) {
             date={selectedDate}
           />
         </div>
-        {/*  גרף תרופות */}
+        {/* Medication Intake Chart */}
         <div className="dashboard-card full-width" id="medication">
           <MedicationChart
             date={selectedDate}
             entries={entries}
           />
         </div>
-        {/*  גרף חלבונים */}
+        {/* Protein Intake Chart */}
         <div className="dashboard-card full-width" id="protein">
           <ProteinChart
             date={selectedDate}
             entries={entries}
           />
         </div>
-        {/*  גרף פעילויות */}
+        {/* Daily Activities Chart */}
         <div className="dashboard-card full-width" id="activity-summary">
           <ActivitySummaryGraph
             date={selectedDate}
@@ -67,6 +69,7 @@ export default function Dashboard({ entries = [] }) {
 
       </div>
 
+      {/* Footer with copyright */}
       <footer className="dashboard-footer">
         <p>© {new Date().getFullYear()} Parkinson Visualization. All rights reserved.</p>
       </footer>

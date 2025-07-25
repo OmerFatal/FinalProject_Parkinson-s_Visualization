@@ -1,5 +1,6 @@
 import React from 'react';
 
+{/* Color mapping for each activity category */}
 const categoryColors = {
   Sport: '#3b82f6',
   Cognitive: '#10b981',
@@ -15,6 +16,7 @@ export default function LegendBox() {
       marginTop: '6px',
       marginBottom: '12px'
     }}>
+      {/* Render colored square and label for each category */}
       {Object.entries(categoryColors).map(([key, color]) => (
         <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <div style={{

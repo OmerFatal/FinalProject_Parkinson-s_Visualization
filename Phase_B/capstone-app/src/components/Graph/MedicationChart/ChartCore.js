@@ -6,11 +6,13 @@ import MedicationTooltip from './MedicationTooltip';
 import { pillColors, pillTypes } from './PillTypes';
 
 export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTypes), medicationData }) {
+  // Normalize a pill name (remove extra spaces, lowercase)
   const normalize = (s) => s?.replace(/\s+/g, ' ').trim().toLowerCase();
 
   const originalNameMap = {};
-
   const visiblePillNames = new Set();
+
+  // Convert visible types to normalized pill names
   visibleTypes.forEach(type => {
     (pillTypes[type] || []).forEach(original => {
       const n = normalize(original);
@@ -19,24 +21,12 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
     });
   });
 
+  // Filter and restructure medication data for chart use
   const filteredData = medicationData
     .map(entry => {
       const meds = entry.medications.filter(m =>
         visiblePillNames.has(normalize(m.pillName))
       );
-
-
-      if (entry.time === '22:25') {
-        console.log('🕒 22:25 entry:', entry);
-        console.log('🔎 Dopicar 250 mg medication exists in entry?',
-          entry.medications.find(m => normalize(m.pillName) === 'dopicar 250 mg')
-        );
-        console.log('✅ visiblePillNames:', Array.from(visiblePillNames));
-        console.log('🔍 meds that passed filter:', meds.map(m => m.pillName));
-        console.log('✅ visiblePillNames has dopicar 250 mg:',
-          visiblePillNames.has('dopicar 250 mg')
-        );
-      }
 
       if (!meds.length) return null;
 
@@ -49,6 +39,7 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
     })
     .filter(Boolean);
 
+  // Determine which pill is the "top" one per time (for rounded corners)
   const renderedPills = Array.from(visiblePillNames);
   const topPillsPerTime = {};
   filteredData.forEach(entry => {
@@ -57,18 +48,18 @@ export default function ChartCore({ isMobile, visibleTypes = Object.keys(pillTyp
     if (last) topPillsPerTime[entry.time] = last;
   });
 
+  // Compute Y-axis max and tick step
   const maxTotal = Math.ceil(
     Math.max(...filteredData.map(entry =>
       entry.medications.reduce((sum, med) => sum + med.amount, 0)
     ), 0)
   );
 
-const step = maxTotal <= 2 ? 0.5 : 1; 
-const yTicks = [];
-for (let i = 0; i <= maxTotal; i += step) {
-  yTicks.push(Number(i.toFixed(2)));
-}
-
+  const step = maxTotal <= 2 ? 0.5 : 1;
+  const yTicks = [];
+  for (let i = 0; i <= maxTotal; i += step) {
+    yTicks.push(Number(i.toFixed(2)));
+  }
 
   return (
     <ResponsiveContainer width="100%" height={isMobile ? 260 : 320}>
@@ -78,7 +69,10 @@ for (let i = 0; i <= maxTotal; i += step) {
         barGap={0}
         barCategoryGap="20%"
       >
+        {/* Grid background */}
         <CartesianGrid strokeDasharray="3 3" />
+
+        {/* X-axis: time */}
         <XAxis
           dataKey="time"
           interval={0}
@@ -87,6 +81,8 @@ for (let i = 0; i <= maxTotal; i += step) {
           tick={{ fontSize: isMobile ? 10 : 16, fontWeight: 'bold', fill: '#000' }}
           height={60}
         />
+
+        {/* Y-axis: dosage */}
         <YAxis
           domain={[0, Math.max(maxTotal, 3)]}
           ticks={yTicks}
@@ -94,34 +90,37 @@ for (let i = 0; i <= maxTotal; i += step) {
           tickFormatter={value => (Number.isInteger(value) ? value : value.toFixed(2))}
           tick={{ fontSize: isMobile ? 10 : 16, fontWeight: 'bold', fill: '#000' }}
         />
+
+        {/* Tooltip on hover */}
         <Tooltip content={<MedicationTooltip />} />
 
-{renderedPills.map(pillName => (
-  <Bar
-    key={pillName}
-    dataKey={pillName}
-    stackId="a"
-    fill={
-      (() => {
-        const category = Object.entries(pillTypes).find(([cat, names]) =>
-          names.includes(originalNameMap[pillName])
-        )?.[0];
-        return pillColors[category] || '#aaa';
-      })()
-    }
-    barSize={isMobile ? 24 : 40}
-  >
-    {filteredData.map((entry, index) => (
-      <Cell
-        key={`cell-${pillName}-${index}`}
-        radius={topPillsPerTime[entry.time] === pillName ? [10, 10, 0, 0] : [0, 0, 0, 0]}
-        stroke="black"
-        strokeWidth={2.5}
-      />
-    ))}
-  </Bar>
-))}
-
+        {/* Bar for each visible pill */}
+        {renderedPills.map(pillName => (
+          <Bar
+            key={pillName}
+            dataKey={pillName}
+            stackId="a"
+            fill={
+              (() => {
+                const category = Object.entries(pillTypes).find(([cat, names]) =>
+                  names.includes(originalNameMap[pillName])
+                )?.[0];
+                return pillColors[category] || '#aaa';
+              })()
+            }
+            barSize={isMobile ? 24 : 40}
+          >
+            {/* Rounded corners only for top-most pill in each stack */}
+            {filteredData.map((entry, index) => (
+              <Cell
+                key={`cell-${pillName}-${index}`}
+                radius={topPillsPerTime[entry.time] === pillName ? [10, 10, 0, 0] : [0, 0, 0, 0]}
+                stroke="black"
+                strokeWidth={2.5}
+              />
+            ))}
+          </Bar>
+        ))}
       </BarChart>
     </ResponsiveContainer>
   );

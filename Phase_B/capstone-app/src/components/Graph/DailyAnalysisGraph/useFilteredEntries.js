@@ -4,8 +4,10 @@ import { mapReportToIcon } from './mapReportToIcon';
 
 export default function useFilteredEntries(entries, date, visibleLines) {
   return useMemo(() => {
+    // Filter records by selected date and existence of time
     const filtered = entries.filter(r => r.Date === date && r.Time);
 
+    // Map fields and calculate numeric values
     const mapped = filtered.map((r) => ({
       time: r.Time,
       timeMinutes: toMinutes(r.Time),
@@ -22,8 +24,10 @@ export default function useFilteredEntries(entries, date, visibleLines) {
       physicalTime: r.Type === 'Physical Difficulty' ? r.Time : null
     }));
 
+    // Sort all records by time
     const sorted = mapped.sort((a, b) => a.timeMinutes - b.timeMinutes);
 
+    // Merge records that occur within 1 minute into a group
     const merged = [];
     let currentGroup = [];
 
@@ -42,7 +46,7 @@ export default function useFilteredEntries(entries, date, visibleLines) {
     if (currentGroup.length > 0) {
       merged.push(mergeGroup(currentGroup));
     }
-
+    // Merge entries in a group into one unified entry with combined tooltip text
     function mergeGroup(group) {
       const base = group[0];
       const tooltipTexts = group
@@ -59,7 +63,8 @@ export default function useFilteredEntries(entries, date, visibleLines) {
         tooltipTexts,
       };
     }
-
+    
+    // Generate timelines and formatted data for the graph
     const actionTimeline = buildActionTimeline(merged);
     const lastActionTime = actionTimeline[actionTimeline.length - 1];
     const fullTimeline = buildFullTimeline(merged);

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export default function useHeatmapCalendarState(entries) {
+
+  {/* Load previously selected month/year from localStorage if available */}
   const storedMonthYear = localStorage.getItem('heatmap-monthYear');
   const defaultDate = storedMonthYear
     ? (() => {
@@ -9,6 +11,7 @@ export default function useHeatmapCalendarState(entries) {
       })()
     : { year: new Date().getFullYear(), month: new Date().getMonth() };
 
+  {/* Main state variables for calendar and modal logic */}
   const [selectedYear, setSelectedYear] = useState(defaultDate.year);
   const [selectedMonth, setSelectedMonth] = useState(defaultDate.month);
   const [futureDateClicked, setFutureDateClicked] = useState(null);
@@ -17,12 +20,14 @@ export default function useHeatmapCalendarState(entries) {
   const [showNoDataModal, setShowNoDataModal] = useState(false);
   const [averagedScores, setAveragedScores] = useState({});
 
+  {/* Recalculate averaged scores whenever entries or selected date changes */}
   useEffect(() => {
     if (!entries || entries.length === 0) {
       setAveragedScores({});
       return;
     }
 
+    {/* Filter entries to include only those from the selected month/year */}
     const filteredEntries = entries.filter((entry) => {
       const date = new Date(entry.Date);
       return (
@@ -36,6 +41,7 @@ export default function useHeatmapCalendarState(entries) {
       return;
     }
 
+    {/* Group entries by date */}
     const groupedByDate = {};
     filteredEntries.forEach((entry) => {
       const dateStr = entry.Date;
@@ -43,11 +49,13 @@ export default function useHeatmapCalendarState(entries) {
       groupedByDate[dateStr].push(entry);
     });
 
+    {/* Helper function to average values and round to 1 decimal */}
     const average = (arr) =>
       arr.length === 0
         ? null
         : Math.round((arr.reduce((a, b) => a + b, 0) / arr.length) * 10) / 10;
 
+    {/* Calculate averaged mood, parkinson, and physical scores for each day */}
     const newAveragedScores = {};
     Object.entries(groupedByDate).forEach(([date, dayEntries]) => {
       newAveragedScores[date] = {
@@ -60,6 +68,7 @@ export default function useHeatmapCalendarState(entries) {
     setAveragedScores(newAveragedScores);
   }, [entries, selectedYear, selectedMonth]);
 
+  {/* Return all states and setters for use in the main component */}
   return {
     selectedYear,
     setSelectedYear,

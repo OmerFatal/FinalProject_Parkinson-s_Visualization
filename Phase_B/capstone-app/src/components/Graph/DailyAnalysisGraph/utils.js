@@ -1,27 +1,30 @@
+// Convert time string (HH:mm) to total minutes
 export function toMinutes(timeStr) {
   if (!timeStr) return null;
   const [h, m] = timeStr.split(':').map(Number);
   return h * 60 + m;
 }
-
+// Format minutes as HH:mm
 export function formatTime(minutes) {
   const h = Math.floor(minutes / 60).toString().padStart(2, '0');
   const m = (minutes % 60).toString().padStart(2, '0');
   return `${h}:${m}`;
 }
 
+// Format date string as DD/MM/YYYY
 export function formatDate(dateStr) {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()}`;
 }
 
+// Build timeline for action icons only (not feelings)
 export function buildActionTimeline(entries) {
   const times = new Set();
   entries.forEach(e => {
     if (
       e?.timeMinutes !== undefined &&
-      !e.feeling && !e.parkinson && !e.physical  // ❌ לא רגשות
+      !e.feeling && !e.parkinson && !e.physical  
     ) {
       times.add(e.timeMinutes);
     }
@@ -29,6 +32,7 @@ export function buildActionTimeline(entries) {
   return Array.from(times).filter(Boolean).sort((a, b) => a - b);
 }
 
+// Build full timeline including all types of events
 export function buildFullTimeline(entries) {
   const times = new Set();
   entries.forEach(e => {
@@ -40,6 +44,7 @@ export function buildFullTimeline(entries) {
   return Array.from(times).filter(Boolean).sort((a, b) => a - b);
 }
 
+// Create final graph data for every timeline point
 export function buildLineData(entries, timeline) {
   const firstFeeling = entries.find(e => e?.feeling != null);
   const firstParkinson = entries.find(e => e?.parkinson != null);
@@ -96,6 +101,7 @@ tooltipText: (action?.tooltipTexts || []).join('\n'),
   return data.filter(d => d && d.timeMinutes !== undefined);
 }
 
+// Emoji icons used in graph for different actions
 export const iconMap = {
   sleep: '😴',           
   sleepStart: '🌙',      

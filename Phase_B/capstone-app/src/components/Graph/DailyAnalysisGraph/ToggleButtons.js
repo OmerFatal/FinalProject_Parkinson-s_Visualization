@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function ToggleButtons({ visibleLines, toggleLine, availableLines }) {
+  // Define each toggleable line with label and color
   const buttons = [
     { key: 'feeling', label: 'My Mood', color: '#2563eb' },
     { key: 'parkinson', label: 'Parkinson State', color: '#dc2626' },
@@ -9,10 +10,12 @@ export default function ToggleButtons({ visibleLines, toggleLine, availableLines
 
   return (
     <div className="graph-buttons-with-label">
+       {/* Label above the buttons*/}
       <span className="graph-buttons-label">Select Feeling To Display:</span>
       <div className="graph-buttons">
         {buttons.map(({ key, label, color }) =>
           availableLines?.[key] ? (
+            // Render a toggle button if data is available
             <button
               key={key}
               onClick={() => toggleLine(key)}
@@ -26,6 +29,7 @@ export default function ToggleButtons({ visibleLines, toggleLine, availableLines
               {label}
             </button>
           ) : (
+            // Render disabled message if no data
             <div
               key={key}
               style={{

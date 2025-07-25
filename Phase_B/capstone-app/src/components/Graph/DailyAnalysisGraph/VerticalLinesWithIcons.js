@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
+    // Track hovered icon for tooltip
   const [hovered, setHovered] = useState(null);
 
   const tooltipWidth = 200;
@@ -17,6 +18,7 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
 
         return (
           <g key={i}>
+            {/* Vertical line */}
             <line
               x1={x}
               y1={yScale.range()[0]}
@@ -26,7 +28,7 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
               strokeWidth={3}
               opacity={0.25}
             />
-
+            {/* Emoji icon */}
             <text
               x={x}
               y={y + 6}
@@ -47,6 +49,7 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
               {pt.actionIcon}
             </text>
 
+            {/* Tooltip on hover */}
             {isHovered && hovered.text && (
               (() => {
                 const graphRight = xScale.range()[1];
@@ -91,6 +94,7 @@ export default function VerticalLinesWithIcons({ points, yScale, xScale }) {
         );
       })}
 
+      {/* Shadow filter used under emoji icons */}
       <defs>
         <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
           <feDropShadow

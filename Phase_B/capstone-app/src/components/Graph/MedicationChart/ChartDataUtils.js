@@ -1,3 +1,4 @@
+// Sort chart data chronologically by time string (HH:mm)
 export function sortByTime(data) {
   return [...data].sort((a, b) => {
     const [h1, m1] = a.time.split(':').map(Number);

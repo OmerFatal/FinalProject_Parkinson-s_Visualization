@@ -2,8 +2,10 @@ import Papa from 'papaparse';
 
 export function loadCSVData(filePath) {
   return new Promise((resolve, reject) => {
+
+    {/* Use PapaParse to load and parse the CSV file */}
     Papa.parse(filePath, {
-      download: true,
+      download: true, 
       header: true,
       dynamicTyping: true,
       complete: (results) => resolve(results.data),

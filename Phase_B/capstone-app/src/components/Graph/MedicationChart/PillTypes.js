@@ -1,3 +1,4 @@
+// Define medication categories with matching names
 export const pillTypes = {
   Levopar: ['Levodopa 125 mg', 'Levodopa 250 mg'],
   Madopar: ['Madopar 125 mg', 'Madopar 250 mg'],
@@ -17,6 +18,7 @@ export const pillTypes = {
   Xadago: ['Xadago 50 mg', 'Xadago 100 mg']
 };
 
+// Assign unique colors per pill category
 export const pillColors = {
   Levopar: '#3498db',
   Madopar: '#9b59b6',

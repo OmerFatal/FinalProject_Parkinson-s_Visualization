@@ -1,3 +1,4 @@
+// Maps report type and specific 'Type' to an icon keyword
 export function mapReportToIcon(report, type) {
   if (!report) return null;
   const lower = report.toLowerCase();
