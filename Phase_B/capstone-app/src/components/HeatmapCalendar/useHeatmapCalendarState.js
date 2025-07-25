@@ -1,4 +1,11 @@
 import { useState, useEffect } from 'react';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 
 export default function useHeatmapCalendarState(entries) {
 
@@ -9,7 +16,11 @@ export default function useHeatmapCalendarState(entries) {
         const [year, month] = storedMonthYear.split('-').map(Number);
         return { year, month };
       })()
-    : { year: new Date().getFullYear(), month: new Date().getMonth() };
+    : (() => {
+    const israelNow = dayjs().tz("Asia/Jerusalem");
+    return { year: israelNow.year(), month: israelNow.month() };
+  })();
+
 
   {/* Main state variables for calendar and modal logic */}
   const [selectedYear, setSelectedYear] = useState(defaultDate.year);
